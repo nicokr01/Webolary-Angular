@@ -3,49 +3,73 @@ import { CookieService } from 'ngx-cookie-service';
 import { CommonModule } from '@angular/common';
 import { NavTopComponent } from '../nav-top/nav-top.component';
 import { SidebarSmallLightComponent } from '../sidebar-small-light/sidebar-small-light.component';
+import { FormsModule } from '@angular/forms';
+
+import { Auth } from '../Auth/auth';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,NavTopComponent,SidebarSmallLightComponent],
+  imports: [CommonModule,NavTopComponent,SidebarSmallLightComponent,FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 
 
-export class HomeComponent {
-  public dataLoaded:boolean = false;
-  public username:any;
+export class HomeComponent extends Auth{
+  protected input:string = "";
+  protected inputActiveState:boolean = false;
 
-  constructor(public cookieService:CookieService){}
-
-  async auth(){
-    if(!this.cookieService.check("username")){
-        location.href = "/login";
-    }
-    else{
-      const url = 'https://webolary.com/API/?checkCookie=&value='+this.cookieService.get("username");
-
-      await fetch(url)
-      .then(response => response.json())
-      .then(data => {
-          if(data.check){
-            this.dataLoaded = true;
-            this.username = this.cookieService.get("username").split("|")[0];
-          }
-          else{
-            location.href = "/banned"; 
-          }
-      })
-      .catch(error => {
-        console.error('Error could not connect ERROR: \"webolaryConnect API 404\" ', error);
-      });
-
-      
-    }
+  constructor(cookieService:CookieService){
+    super(cookieService);
   }
 
   ngOnInit(){
+    /*Aufareisen & block unauthorized actions => bann Page*/
     this.auth();
+    /* Nimma aufareisen */ 
+
+    /* Input span move animation check */
+    setInterval(() => {
+      this.checkMovingSpanPosition();
+    },200);
+    /* //// Input span move animation check */
+
+  }
+
+
+  onFocus(){
+    this.inputActiveState = true;
+  }
+
+  onBlur(){
+    this.inputActiveState = false;
+  }
+
+  inputAreaClicked(){
+    let div = document.getElementById("movingSpan");
+    if(div){
+      div.classList.remove("moveBottom")
+      div.classList.add("moveTop");
+      div.style.marginTop = "-7rem";
+      div.style.color ="black";
+    }
+
+    let input = document.getElementById("germanText");
+    input?.focus();
+  }
+
+  checkMovingSpanPosition(){
+    let div = document.getElementById("movingSpan");
+    if(div){
+      if(div.style.marginTop == "-7rem" && this.input.length < 1){
+          if(!this.inputActiveState){
+            div.classList.remove("moveTop");
+            div.classList.add("moveBottom");
+            div.style.marginTop = "-4rem";
+            div.style.color ="rgb(156,163,175)";
+          }
+      }
+    }
   }
 }

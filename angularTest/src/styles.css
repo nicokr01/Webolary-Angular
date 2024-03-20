@@ -3,12 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
-    html {
-      font-size: 62.5%; }
-    body {
-      font-size: 1.5em;
-      font-family: Lexend;
-      background-color: var(--background);
-    }
-    
-    
+:root{
+  --background: rgb(242, 242, 242);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+ body {
+  font-size: 2em;
+  font-family: Lexend;
+  background-color: var(--background);
+}

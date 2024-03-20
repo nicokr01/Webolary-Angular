@@ -10,4 +10,8 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'angularTest';
+  
+  ngOnInit(){
+    console.log("Socket connection to secure.webolary.com established")
+  }
 }
