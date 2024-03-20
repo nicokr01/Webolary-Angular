@@ -2,11 +2,12 @@ import { Component} from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { CommonModule } from '@angular/common';
 import { NavTopComponent } from '../nav-top/nav-top.component';
+import { SidebarSmallLightComponent } from '../sidebar-small-light/sidebar-small-light.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,NavTopComponent],
+  imports: [CommonModule,NavTopComponent,SidebarSmallLightComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
