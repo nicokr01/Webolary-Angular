@@ -157,3 +157,24 @@ input:focus {
 }
 
 /* //// Analyse Div */
+
+
+@media only screen and (max-width: 1600px){
+    .headlineDiv{
+        margin-top: 3rem;
+        font-size: 1.8rem;
+    }
+
+    .wordDiv{
+        margin-top: 2rem;
+        font-size: 4rem;
+    }
+
+    .inputWord{
+        margin-top: 5rem;
+    }
+
+    .analyse{
+        top: 6rem;
+    }
+}
