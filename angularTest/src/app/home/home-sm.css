@@ -1,0 +1,10 @@
+.wrongElement{
+    background-color: blue;
+    height: auto;
+    color: white;
+    border-radius: 7px;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: center;
+    margin-left: 5px;
+}
