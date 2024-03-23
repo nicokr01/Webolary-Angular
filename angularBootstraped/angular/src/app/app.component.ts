@@ -10,12 +10,4 @@ export class AppComponent {
   title = 'angular';
 
   constructor(public router:Router){}
-
-  login(){
-    this.router.navigate(["/login"]);
-  }
-
-  home(){
-    this.router.navigate(["/home"]);
-  }
 }

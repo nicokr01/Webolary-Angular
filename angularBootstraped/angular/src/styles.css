@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --background: rgb(242, 242, 242);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+ body {
+  font-size: 2em;
+  font-family: Lexend;
+  background-color: var(--background);
+}

@@ -1,0 +1,23 @@
+.sidebar{
+    width: 7.5rem;
+  }
+  
+  .navItemTextDiv{
+    width: 15rem;
+    height: 4rem;
+    margin-left: 2rem;
+    text-align: center;
+    line-height: 3rem;
+    font-size: 1.3rem;
+  }
+  
+  .navItemTextDivSub{
+    width: 100%;
+    height: 100%;
+    font-size:1.45rem;
+    line-height: 3rem;
+  }
+  
+  .navItemClickable{
+    margin-top: 1rem;
+  }

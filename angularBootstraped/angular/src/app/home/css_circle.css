@@ -1,0 +1,62 @@
+#text{
+  color: white;
+  font-family: Lexend;
+  font-size: 2.55rem;
+  margin-top:3.5%;
+}
+
+.progress{
+  position: absolute;
+  width:35%;
+  left: 32.5%;
+  height: 25%;
+
+  background-color: rgba(0,0,0,0.65);
+  border-radius: 50px;
+  bottom: 10%;
+
+  display: flex;
+  align-items: center;
+  padding: 25px;
+  font-size: 1.35rem;
+  font-family: Lexend;
+}
+
+/* Progress Circle */
+.container{
+  display: flex;
+  width: auto;
+  border-radius: 8px;
+  row-gap: 30px;
+  flex-direction: column;
+  align-items: center;
+}
+.circular-progress{
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background: conic-gradient(#7d2ae8 3.6deg, #2B2F33 0deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.circular-progress::before{
+  content: "";
+  position: absolute;
+  height:122.5px;
+  width:122.5px;
+  border-radius: 50%;
+  background-color: black;
+}
+.progress-value{
+  position: relative;
+  font-size: 2.125rem;
+  font-weight: 500;
+  color: white;
+}
+.textCircle{
+  font-size: 1.5rem;
+  font-family: 'Lexend', sans-serif;
+}
+/* / progress Circle */
