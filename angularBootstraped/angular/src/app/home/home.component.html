@@ -4,6 +4,9 @@
     <link rel="stylesheet" href="../../assets/GoogleFonts/font.css">
     <link rel="stylesheet" href="css_circle.css">
 
+    <link rel="stylesheet" href="../../../node_modules/primeng/resources/themes/saga-blue/theme.css">
+    <link rel="stylesheet" href="../../../node_modules/primeng/resources/primeng.min.css">
+
     <app-nav-top></app-nav-top>
     <app-sidebar-small-light></app-sidebar-small-light>
     <main>
@@ -75,4 +78,13 @@
             <span class="textCircle">Wrong</span>
         </div>
     </div>
+
+    <div class="card flex justify-content-center gap-2">
+        <p-toast></p-toast>
+        <button type="button" pButton pRipple (click)="showSuccess()" label="Success" class="p-button-success">success</button>
+        <button type="button" pButton pRipple (click)="showInfo()" label="Info" class="p-button-info">info</button>
+        <button type="button" pButton pRipple (click)="showWarn()" label="Warn" class="p-button-warning">error</button>
+        <button type="button" pButton pRipple (click)="showError()" label="Error" class="p-button-danger">danger</button>
+    </div>
+
 </div>

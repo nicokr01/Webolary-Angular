@@ -171,10 +171,13 @@ input:focus {
     }
 
     .inputWord{
-        margin-top: 5rem;
+        margin-top: 10rem;
+        width: 50%;
+        margin-left: 25%;
     }
 
     .analyse{
         top: 6rem;
+        display: none;
     }
 }

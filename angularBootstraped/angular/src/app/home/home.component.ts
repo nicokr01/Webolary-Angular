@@ -1,11 +1,12 @@
 import { Component} from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Auth } from '../Auth/auth';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 
 export class HomeComponent extends Auth{
@@ -14,7 +15,7 @@ export class HomeComponent extends Auth{
   protected access:number = -2;
   protected test = 10;
 
-  constructor(cookieService:CookieService){
+  constructor(cookieService:CookieService, protected messageService:MessageService){
     super(cookieService);
   }
 
@@ -202,6 +203,22 @@ circle_three(end:any){
 
       this.circle_three(this.test);
     }
+
+    showSuccess() {
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
+  }
+
+  showInfo() {
+      this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Message Content' });
+  }
+
+  showWarn() {
+      this.messageService.add({ severity: 'warn', summary: 'Warn', detail: 'Message Content' });
+  }
+
+  showError() {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Message Content' });
+  }
 
     /* //// end of System Frontent -v this->version*/
 }

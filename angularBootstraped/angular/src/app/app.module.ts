@@ -12,6 +12,15 @@ import { BannedComponent } from './banned/banned.component';
 import { NavTopComponent } from './nav-top/nav-top.component';
 import { SidebarSmallLightComponent } from './sidebar-small-light/sidebar-small-light.component';
 
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+// Prime NG
+
+// //// Prime
+
 
 @NgModule({
   declarations: [
@@ -26,10 +35,14 @@ import { SidebarSmallLightComponent } from './sidebar-small-light/sidebar-small-
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    ToastModule,
+    BrowserAnimationsModule,
+    
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

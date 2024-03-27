@@ -11,7 +11,7 @@
   left: 32.5%;
   height: 25%;
 
-  background-color: rgba(0,0,0,0.65);
+  background-color: white;
   border-radius: 50px;
   bottom: 10%;
 
@@ -20,6 +20,9 @@
   padding: 25px;
   font-size: 1.35rem;
   font-family: Lexend;
+
+  display: flex;
+  justify-content: space-around;
 }
 
 /* Progress Circle */
@@ -31,6 +34,7 @@
   flex-direction: column;
   align-items: center;
 }
+
 .circular-progress{
   position: relative;
   height: 150px;
@@ -41,22 +45,32 @@
   align-items: center;
   justify-content: center;
 }
+
 .circular-progress::before{
   content: "";
   position: absolute;
   height:122.5px;
   width:122.5px;
   border-radius: 50%;
-  background-color: black;
+  background-color: white;
 }
 .progress-value{
   position: relative;
   font-size: 2.125rem;
   font-weight: 500;
-  color: white;
+  color: black;
 }
 .textCircle{
-  font-size: 1.5rem;
+  font-size: 2.25rem;
   font-family: 'Lexend', sans-serif;
+}
+
+@media only screen and (max-width:1600px){
+  .progress{
+    bottom: 2%;
+    height: 28%;
+    width: 42.5%;
+    left: 28.75%;
+  }
 }
 /* / progress Circle */
