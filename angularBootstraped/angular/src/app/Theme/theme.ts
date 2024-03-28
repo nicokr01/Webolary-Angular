@@ -1,3 +1,5 @@
+import { loadavg } from "os";
+
 export class Theme{
     protected mode:string = "";
 
@@ -36,7 +38,7 @@ export class Theme{
             this.setDarkmode();
             this.mode = "dark";
         }
-        return "error";
+        location.reload();
     }
 
     getSystemColorScheme(): string {
