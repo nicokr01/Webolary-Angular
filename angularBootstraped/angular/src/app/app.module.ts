@@ -15,6 +15,8 @@ import { SidebarSmallLightComponent } from './sidebar-small-light/sidebar-small-
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Theme } from './Theme/theme';
+import { HttpClient } from '@angular/common/http';
 
 
 // Prime NG
@@ -42,7 +44,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   providers: [
     provideClientHydration(),
-    MessageService
+    MessageService,
+    Theme
   ],
   bootstrap: [AppComponent]
 })

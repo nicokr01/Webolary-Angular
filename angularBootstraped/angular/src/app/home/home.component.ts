@@ -1,7 +1,8 @@
-import { Component} from '@angular/core';
+import { Component, ElementRef, ViewChild} from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Auth } from '../Auth/auth';
-import { MessageService } from 'primeng/api';
+import { Theme } from '../Theme/theme';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -15,8 +16,9 @@ export class HomeComponent extends Auth{
   protected access:number = -2;
   protected test = 10;
 
-  constructor(cookieService:CookieService, protected messageService:MessageService){
+  constructor(cookieService:CookieService, protected theme:Theme, protected elementRef:ElementRef){
     super(cookieService);
+    
   }
 
   ngOnInit(){
@@ -28,7 +30,11 @@ export class HomeComponent extends Auth{
     // setInterval(() => {
     //   this.checkMovingSpanPosition();
     // },200);
-    /* //// Input span move animation check */   
+    /* //// Input span move animation check */  
+    
+    if(this.theme.getMode() == "dark"){
+      // this.loadStyle("abc.css");
+    }
   }
 
   onFocus(){
@@ -203,22 +209,5 @@ circle_three(end:any){
 
       this.circle_three(this.test);
     }
-
-    showSuccess() {
-      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
-  }
-
-  showInfo() {
-      this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Message Content' });
-  }
-
-  showWarn() {
-      this.messageService.add({ severity: 'warn', summary: 'Warn', detail: 'Message Content' });
-  }
-
-  showError() {
-      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Message Content' });
-  }
-
     /* //// end of System Frontent -v this->version*/
 }
