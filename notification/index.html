@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send notification</title>
+    
+    <script>
+        function sendNode(){
+            Notification.requestPermission().then(perm => {
+                if(perm === "granted"){
+                    new Notification("Test Note");
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <button onclick="sendNode()">Send</button>
+</body>
+</html>
