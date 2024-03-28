@@ -6,6 +6,10 @@
     --dark: rgb(14,24,39);
 }
 
+html{
+    font-size: 100%;
+}
+
 .SUPER_GLOBAL{position: absolute;top: 0;left: 0;width: 100vw;height: 100vh;z-index: 1;}
 
 /* Main styling with word and headline Div */

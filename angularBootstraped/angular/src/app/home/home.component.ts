@@ -17,7 +17,8 @@ export class HomeComponent extends Auth{
 
   constructor(cookieService:CookieService, protected theme:Theme, protected elementRef:ElementRef){
     super(cookieService);
-    
+
+    localStorage.setItem("NavListItem","pratice vocabulary");
   }
 
   ngOnInit(){

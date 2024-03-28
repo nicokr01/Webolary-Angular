@@ -18,6 +18,9 @@ export class NavTopComponent {
   protected user:User;  
   protected darkmode:boolean = false;
 
+  protected NavItem1 = localStorage.getItem("NavListItem");
+  protected NavItem1_set:boolean = true;
+
   constructor(private cookie:CookieService, protected theme:Theme, protected elementRef:ElementRef){
     const encryptedValue = sessionStorage.getItem("User");
     if (encryptedValue) {

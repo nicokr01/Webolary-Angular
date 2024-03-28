@@ -28,7 +28,7 @@ export class User{
     public convertAccessString():string{
         switch(this.access){
             case 1:
-                return "User"
+                return "@User"
                 break;
             case 99:
                 return "@CEO"

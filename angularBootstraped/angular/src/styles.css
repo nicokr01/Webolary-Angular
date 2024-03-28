@@ -6,6 +6,7 @@
 :root{
   --background: rgb(242, 242, 242);
   --darkmode: rgb(29,36,40);
+  --darkmodeSidebar: black
 }
 
 html {

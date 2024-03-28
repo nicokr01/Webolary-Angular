@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { Theme } from '../Theme/theme';
 
 @Component({
@@ -9,10 +9,17 @@ import { Theme } from '../Theme/theme';
 export class SidebarSmallLightComponent {
   protected modeSVG:string = "";
 
-  constructor(protected theme:Theme){}
+  constructor(protected theme:Theme,protected elementRef:ElementRef){}
 
   ngOnInit(){
       this.renderColorThemeButton();
+
+      if(this.theme.getMode() == "dark"){
+          var aside = this.elementRef.nativeElement.querySelector("#aside");
+          if(aside){
+            aside.style.backgroundColor = "rgba(240,240,240,1)";
+          }
+      }
   }
 
   switchMode(){
