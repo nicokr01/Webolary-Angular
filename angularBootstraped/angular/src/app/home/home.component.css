@@ -240,6 +240,7 @@ input:focus {
     .inputWord{
         width: 80%;
         margin-left: 10%;
+
     }
 
     .headlineDiv{
@@ -252,7 +253,8 @@ input:focus {
 
     .compareBTN{
         width: 50%;
-        margin-top: 8rem;
+        margin-top: 6rem;
     }
 }
+
 
