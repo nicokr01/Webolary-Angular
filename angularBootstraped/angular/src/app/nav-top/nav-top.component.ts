@@ -15,6 +15,8 @@ export class NavTopComponent {
   protected usernameDiv:any;
   protected rankDiv:any;
   protected user:User;  
+  protected email = "";
+  protected points = "";
   protected darkmode:boolean = false;
 
   protected NavItem1 = localStorage.getItem("NavListItem");
@@ -36,6 +38,22 @@ export class NavTopComponent {
 
     var reconstructedUserClass = new User("","",-2,"");
     reconstructedUserClass.updateObject(this.user);
+    reconstructedUserClass.points = this.user.points;
+
+    this.username = reconstructedUserClass.username;
+
+    if(this.username.length > 14){
+      this.username = this.username.substring(0,12)+"...";
+    }
+
+    this.email = reconstructedUserClass.email;
+
+    if(this.email.length > 29){
+      this.email = this.email.substring(0,27)+"...";
+    }
+
+    this.points = reconstructedUserClass.points;
+
     var rank = reconstructedUserClass.convertAccessString();
     if(!rank.match("error")){
       if(this.user.username.length > 6){
@@ -74,5 +92,10 @@ export class NavTopComponent {
   showMenu(){
       this.privateMenuStyle = "";
       localStorage.setItem("prMenu","active");
+  }
+
+  closePrivateMenu(){
+    this.privateMenuStyle = "display:none";
+    localStorage.setItem("prMenu","hidden");
   }
 }

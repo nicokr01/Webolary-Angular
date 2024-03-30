@@ -3,6 +3,7 @@ export class User{
     public email:string;
     public access:number;
     public cookie:string;
+    public points = "";
     
     constructor(username:string,email:string,access:number,cookie:string){
         this.username = username;

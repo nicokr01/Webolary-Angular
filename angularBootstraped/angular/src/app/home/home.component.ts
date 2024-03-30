@@ -122,6 +122,10 @@ export class HomeComponent extends Auth{
         this.superGlobalStyle = "filter:blur(10px)";
         localStorage.removeItem("prMenu");
     }
+    else if(v !== null && v == "hidden"){
+      this.superGlobalStyle = "filter:none";
+      localStorage.removeItem("prMenu");
+    }
   }
   // //// bluring page
 
@@ -140,22 +144,6 @@ export class HomeComponent extends Auth{
   */
 
     compare(){
-      this.analyseDiv = "";
-
-      var res = this.system.checkInput(this.input,this.correctWord);
-
-      if(res){
-        this.analyseDiv = "Very good correct 😃"
-        this.system.increaseCountCorrect();
-      }
-      else{
-        // santizer disable, because its a safe HTML Code no user interaction so scheiß auf XSS
-        this.analyseDiv = this.sanitizer.bypassSecurityTrustHtml("Wrong <div class='ml-3 mr-3 text-white bg-green-600 rounded-full pl-3 pr-3'>"+this.correctWord+"</div> is the correct solution!");
-        this.system.increaseCountWrong();
-      }
-      this.system.delteVocOfAvailableList(this.correctWord);
-      this.input = "";
-
       // if unit is over and user want to practice again
       if(this.btnSubmitText == "Practice again ?"){
         this.system.practiceUnitAgain();
@@ -163,17 +151,44 @@ export class HomeComponent extends Auth{
         this.analyseDiv = "";
         location.reload();
       }
-      else{
-        this.system.circle_one(this.system.getProgress());
-        this.system.circle_two(this.system.getCountCorrectPercent());
-        this.system.circle_three(this.system.getCountWrongPercent());
-      }    
+     
+      // if empty input return false;
+      // if(this.input.trim() == ""){return false};
 
+      this.analyseDiv = "";
+
+      var res = this.system.checkInput(this.input,this.correctWord);
+
+      if(res){
+        this.analyseDiv = "Very good correct 😃"
+        this.system.increaseCountCorrect();
+        this.system.delteVocOfAvailableList(this.correctWord);
+      }
+      else{
+        // santizer disable, because its a safe HTML Code no user interaction so scheiß auf XSS
+        this.analyseDiv = this.sanitizer.bypassSecurityTrustHtml("Wrong <div class='ml-3 mr-3 text-white bg-green-600 rounded-full pl-3 pr-3'>"+this.correctWord+"</div> is the correct solution!");
+        this.system.increaseCountWrong();
+        if(this.input.trim() != ""){
+          this.system.delteVocOfAvailableList(this.correctWord);
+        }
+      }
+      this.input = "";
+
+
+      this.system.circle_one(this.system.getProgress());
+      this.system.circle_two(this.system.getCountCorrectPercent());
+      this.system.circle_three(this.system.getCountWrongPercent());
+        
       if(this.nextVocabulary() == "finished"){
+          this.system.circle_one(100);
           this.btnSubmitText = "Practice again ?"
           this.analyseDiv = "";
-          this.system.setWrongCorrectNull();
+          localStorage.removeItem("availableVocabularys");
+          localStorage.setItem("CountCorrect","0");
+          localStorage.setItem("CountWrong","-1");
       }
+
+      return true;
     }
     /* //// end of System Frontent -v this->version*/
 }

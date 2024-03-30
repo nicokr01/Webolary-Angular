@@ -2,7 +2,37 @@
 
 <!-- Menu Div -->
 <div class="privateMenu" [style]="privateMenuStyle">
-    abc
+    <div class="info">
+        <div class="username ml-8 mt-3" [innerText]="username">nico06</div>
+        <div class="email ml-8 mt-3" [innerText]="email">nico1.kreuzer1&#64;gmail.com</div>
+        <div class="pointText mr-7">Points</div>
+        <div class="points mr-7 mt-4" [innerText]="points">65001</div>
+    </div>
+
+    <div class="seperator"></div>
+
+    <div class="items">
+
+        <div class="menu-item rounded-xl mt-6 mb-3" (click)="closePrivateMenu()">
+            <div class="img"><img src="../../assets/image/close.svg"></div>
+            <div class="text">Close windwow</div>
+        </div>
+
+        <div class="menu-item rounded-xl mt-6 mb-3">
+            <div class="img"><img src="../../assets/image/reset.svg"></div>
+            <div class="text">Reset vocabulary session</div>
+        </div>
+
+        <div class="menu-item rounded-xl mt-6 mb-3">
+            <div class="img"><img src="../../assets/image/settings.svg"></div>
+            <div class="text">Settings</div>
+        </div>
+
+        <div class="menu-item rounded-xl mt-6 mb-8" style="background-color: red;color: white;">
+            <div class="img"><img src="../../assets/image/logout.svg"></div>
+            <div class="text">Logout</div>
+        </div>
+    </div>
 </div>
 <!-- //// Menu Div -->
 

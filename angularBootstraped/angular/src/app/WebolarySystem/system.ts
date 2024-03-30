@@ -1,4 +1,8 @@
+import { User } from "../User/User";
+
 export class System{
+    private user:any;
+
     /* System Vocabulary Trainer <&> Dictionary actions */
     increaseCountCorrect(){
       var CountCorrect = localStorage.getItem("CountCorrect");
@@ -123,10 +127,12 @@ export class System{
                 result[0] = randomKey;
                 result[1] = dictionary[randomKey];
                 localStorage.setItem("availableVocabularys",JSON.stringify(newAvailalbe));
-
+                localStorage.setItem("CountWrong","0");
+                localStorage.setItem("CountCorrect","0");
                 return result;
             }
         }
+        
         return false;
     }
 
@@ -198,7 +204,7 @@ export class System{
         if(end != parseInt(progressValue)){
           let progressStartValue = start,   
         progressEndValue = end,    
-        speed = 50;
+        speed = 35;
         
         var betweenValue;
         var rotation;
@@ -232,6 +238,7 @@ export class System{
     
     
     circle_two(end:any){
+      if(Number.isNaN(end)){return false};
       let circularProgress = document.getElementById("c-p-2");
       let progressValue_e = document.getElementById("p-v-2");
         var progressValue:string = "";
@@ -265,7 +272,7 @@ export class System{
       }    
       }, speed);
     }
-    
+    return true;
     }
     
     
@@ -306,4 +313,24 @@ export class System{
     }
     // //// Cycle progress circle
     
+
+    /*User class integration*/
+    getUser(){
+      const encryptedValue = sessionStorage.getItem("User");
+      if (encryptedValue) {
+          const token = "c(j:iGBE)2RKae3OfxaT[4WG7By9'+m{e?)mfc3ez7Td9/RiT@";
+          const decryptedBytes = CryptoJS.AES.decrypt(encryptedValue, token);
+          const decryptedData = decryptedBytes.toString(CryptoJS.enc.Utf8);
+          this.user = JSON.parse(decryptedData);
+      } else {
+          this.user = new User("","",-2,"");
+          console.log("sessionStorage is empty :(");
+      }
+
+      var reconstructedUserClass = new User("","",-2,"");
+      reconstructedUserClass.updateObject(this.user);
+      
+      return reconstructedUserClass;
+    }
+    /* //// User class integrations*/
 }

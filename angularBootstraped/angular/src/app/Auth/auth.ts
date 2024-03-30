@@ -25,6 +25,9 @@ export class Auth{
                 this.username = this.cookieService.get("username").split("|")[0];
 
                 this.user.update(data.username,data.eMail,data.access,this.cookieService.get("username"));
+                this.user.points = data.points;
+
+                console.log(this.user);
                 
                 const token = "c(j:iGBE)2RKae3OfxaT[4WG7By9'+m{e?)mfc3ez7Td9/RiT@";
                 const value =  JSON.stringify(this.user);
