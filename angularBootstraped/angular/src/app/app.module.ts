@@ -17,6 +17,8 @@ import { MessageService } from 'primeng/api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Theme } from './Theme/theme';
 import { HttpClient } from '@angular/common/http';
+import { NavMobileComponent } from './nav-mobile/nav-mobile.component';
+import { System } from './WebolarySystem/system';
 
 
 // Prime NG
@@ -32,6 +34,7 @@ import { HttpClient } from '@angular/common/http';
     BannedComponent,
     NavTopComponent,
     SidebarSmallLightComponent,
+    NavMobileComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { HttpClient } from '@angular/common/http';
   providers: [
     provideClientHydration(),
     MessageService,
-    Theme
+    Theme,
+    System
   ],
   bootstrap: [AppComponent]
 })

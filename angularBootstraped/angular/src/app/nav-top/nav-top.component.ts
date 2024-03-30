@@ -3,7 +3,6 @@ import { CookieService } from 'ngx-cookie-service';
 import CryptoJS from 'crypto-js';
 import { User } from '../User/User';
 import { Theme } from '../Theme/theme';
-import { withLatestFrom } from 'rxjs';
 
 @Component({
   selector: 'app-nav-top',

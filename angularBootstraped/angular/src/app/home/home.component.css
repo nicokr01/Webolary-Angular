@@ -136,11 +136,19 @@ input:focus {
 
     display: flex;
     justify-content: center;
+    text-align: center;
+}
+
+.analyse p{
+    color: red;
+}
+
+.analyse-elementHeight{
+    height: 5rem;
 }
 
 .rightElement{
     background-color: green;
-    height: auto;
     color: white;
     border-radius: 7px;
     padding-left: 8px;
@@ -151,7 +159,6 @@ input:focus {
 
 .wrongElement{
     background-color: red;
-    height: auto;
     color: white;
     border-radius: 7px;
     padding-left: 8px;
@@ -166,12 +173,12 @@ input:focus {
 @media only screen and (max-width: 1600px){
     .headlineDiv{
         margin-top: 3rem;
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
     .wordDiv{
         margin-top: 2rem;
-        font-size: 4rem;
+        font-size: 4.8rem;
     }
 
     .inputWord{
@@ -185,3 +192,55 @@ input:focus {
         display: none;
     }
 }
+
+@media screen and (max-width: 1380px){
+    .progress{
+      display: none;
+    }
+
+    .analyse{
+        margin-top: 6.5rem;
+        display: flex;
+        font-size: 2.25rem;
+    }
+
+    .analyse-elementHeight{
+        height: 3.5rem;
+    }
+
+    .inputWord{
+        width: 60%;
+        margin-left: 20%;
+    }
+    
+    .compareBTN{
+        width: 35%;
+    }
+  }
+
+@media only screen and (max-width: 800px) {
+    .analyse{
+      display: none;
+    }   
+}
+
+@media only screen and (max-width: 510px) {
+    .inputWord{
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .headlineDiv{
+        font-size:  1.85rem;
+    }
+
+    #word{
+        font-size: 3rem;
+    }
+
+    .compareBTN{
+        width: 50%;
+        margin-top: 8rem;
+    }
+}
+
