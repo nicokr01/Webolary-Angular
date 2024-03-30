@@ -20,6 +20,8 @@ export class NavTopComponent {
   protected NavItem1 = localStorage.getItem("NavListItem");
   protected NavItem1_set:boolean = true;
 
+  protected privateMenuStyle = "display:none";
+
   constructor(private cookie:CookieService, protected theme:Theme, protected elementRef:ElementRef){
     const encryptedValue = sessionStorage.getItem("User");
     if (encryptedValue) {
@@ -58,7 +60,7 @@ export class NavTopComponent {
         var userD = this.elementRef.nativeElement.querySelector("#userD");
         var rankD = this.elementRef.nativeElement.querySelector("#rankD");
         if(div){
-          div.innerHTML += "<style>#navForStyle{background: linear-gradient(45deg,#5210ce,#fffc);}</style>";
+          div.innerHTML += "<style>#navForStyle{background: linear-gradient(40deg,#5210ce,#fffc);}</style>";
           if(userD){
             if(rankD){
               userD.style.color = "black";
@@ -67,5 +69,10 @@ export class NavTopComponent {
           }
         }
     }
+  }
+
+  showMenu(){
+      this.privateMenuStyle = "";
+      localStorage.setItem("prMenu","active");
   }
 }

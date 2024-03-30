@@ -169,6 +169,18 @@ input:focus {
 
 /* //// Analyse Div */
 
+/*Private Menu*/
+.privateMenu{
+    position: absolute;
+    top: 12rem;
+    width: 25rem;
+    height: 20rem;
+    right: 3.25rem;
+    background-color: white;
+    border-radius: 3rem;
+}
+/* //// Private Menu*/
+
 
 @media only screen and (max-width: 1600px){
     .headlineDiv{

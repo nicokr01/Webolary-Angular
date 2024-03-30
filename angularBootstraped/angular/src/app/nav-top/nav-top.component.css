@@ -84,6 +84,20 @@
     height: 100%;
 }
 
+/*Private Menu*/
+.privateMenu{
+    position: absolute;
+    top: 12rem;
+    width: 25rem;
+    height: 20rem;
+    right: 3.25rem;
+    background-color: white;
+    border-radius: 3rem;
+    z-index: 9999;
+    filter: blur(0px);
+}
+/* //// Private Menu*/
+
 @media only screen and (max-width: 1000px) {
     .navInfo{
         display: none;

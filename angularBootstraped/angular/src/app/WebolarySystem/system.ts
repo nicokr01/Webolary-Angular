@@ -1,5 +1,4 @@
 export class System{
-
     /* System Vocabulary Trainer <&> Dictionary actions */
     increaseCountCorrect(){
       var CountCorrect = localStorage.getItem("CountCorrect");
@@ -61,7 +60,10 @@ export class System{
     }
 
     setWrongCorrectNull(){
-      localStorage.setItem("CountWrong","0");
+      /* Wrong -1 because on reload the system detects de vocabulary at (f) submit  as wrong,
+       so the count is at 1 but should be null problem fixed with set to -1*/
+
+      localStorage.setItem("CountWrong","-1");
       localStorage.setItem("CountCorrect","0");
     }
 
@@ -104,8 +106,6 @@ export class System{
                 var result = new Array();
                 result[0] = randomKey;
                 result[1] = dictionaryAvilable[randomKey];
-                delete dictionaryAvilable[randomKey];
-
                 localStorage.setItem("availableVocabularys",JSON.stringify(dictionaryAvilable));
 
                 return result;
@@ -122,15 +122,24 @@ export class System{
                 var result = new Array();
                 result[0] = randomKey;
                 result[1] = dictionary[randomKey];
-
-                delete newAvailalbe[randomKey];
-
                 localStorage.setItem("availableVocabularys",JSON.stringify(newAvailalbe));
 
                 return result;
             }
         }
         return false;
+    }
+
+    delteVocOfAvailableList(key:any){
+      let dicJSON = localStorage.getItem("availableVocabularys")
+
+      if(dicJSON !== null){
+          let dic = JSON.parse(dicJSON);
+
+          delete dic[key];
+
+          localStorage.setItem("availableVocabularys",JSON.stringify(dic))
+      }
     }
 
     practiceUnitAgain(){
@@ -173,11 +182,11 @@ export class System{
         }
       }
 
-        /*  //// System Vocabulary Trainer <&> Dictionary actions */
+    /*  //// System Vocabulary Trainer <&> Dictionary actions */
 
     // Cycle progress circles
     circle_one(end:any){
-        if(end == 0){return false;}
+        if(end == 0 || end > 100){return false;}
         let circularProgress = document.getElementById("c-p-1");
         let progressValue_e = document.getElementById("p-v-1");
         var progressValue:string = "";

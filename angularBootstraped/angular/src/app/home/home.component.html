@@ -1,13 +1,13 @@
 <link rel="stylesheet" href="css_circle.css">
 <div id="darkModeDiv"></div>
-<div *ngIf="dataLoaded">
-    <div id="global" class="SUPER_GLOBAL">
+<div *ngIf="dataLoaded" (click)="bodyClicked()">
     <link rel="stylesheet" href="../../assets/GoogleFonts/font.css">
 
     <div *ngIf="!displayMobile">
         <app-nav-top></app-nav-top>
         <app-sidebar-small-light></app-sidebar-small-light>
     </div>
+    <div id="global" class="SUPER_GLOBAL" [style]="superGlobalStyle">
 
     <div *ngIf="displayMobile">
         <app-nav-mobile></app-nav-mobile>

@@ -1,4 +1,11 @@
 <div id="darkmode"></div>
+
+<!-- Menu Div -->
+<div class="privateMenu" [style]="privateMenuStyle">
+    abc
+</div>
+<!-- //// Menu Div -->
+
 <nav id="navForStyle">
     <div class="navbar" style="z-index: 99;" id="navForStyle">
         <div class="title text-xl text-white w-full flex" id="NavList">
@@ -11,11 +18,11 @@
             
         </div>
 
-        <div class="userDiv">
+        <div class="userDiv" (click)="showMenu()">
             <div [innerHTML]="usernameDiv" class="usernameDiv" id="userD"></div>
             <div [innerHTML]="rankDiv" class="rankDiv" id="rankD"></div>
         </div>
-        <div class="profile">
+        <div class="profile" (click)="showMenu()">
             <img class="object-cover rounded-full ring ring-gray-300 dark:ring-gray-600" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=4&w=880&h=880&q=100">
         </div>
     </div>

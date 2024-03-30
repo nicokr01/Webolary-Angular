@@ -22,6 +22,7 @@ export class HomeComponent extends Auth{
   protected correctWord = "";
   protected btnSubmitText = "Compare";
   protected analyseDiv:SafeHtml = "";
+  protected superGlobalStyle = "";
 
   constructor(cookieService:CookieService, protected theme:Theme, protected elementRef:ElementRef,protected system:System, private sanitizer:DomSanitizer){
     super(cookieService);
@@ -31,7 +32,6 @@ export class HomeComponent extends Auth{
   ngOnInit(){
     /*Aufareisen & block unauthorized actions => bann Page*/
     this.auth();
-    localStorage.removeItem("availableVocabularys");
     /* Nimma aufareisen */ 
 
     /* Input span move animation check */
@@ -58,10 +58,11 @@ export class HomeComponent extends Auth{
       if(this.nextVocabulary() == "finished"){
         this.btnSubmitText = "Practice again ?"
       }
+
+      
      /* //// Webolary System integration*/
        
     }
-
   textAnimation(word:any){
      this.wordDiv = word;
   }
@@ -114,6 +115,15 @@ export class HomeComponent extends Auth{
     input?.focus();
   }
 
+  // bluring page is menu is active
+  bodyClicked(){
+    var v = localStorage.getItem("prMenu");
+    if(v !== null && v == "active"){
+        this.superGlobalStyle = "filter:blur(10px)";
+        localStorage.removeItem("prMenu");
+    }
+  }
+  // //// bluring page
 
 
   @HostListener('document:keydown', ['$event'])
@@ -140,10 +150,10 @@ export class HomeComponent extends Auth{
       }
       else{
         // santizer disable, because its a safe HTML Code no user interaction so scheiß auf XSS
-        this.analyseDiv = this.sanitizer.bypassSecurityTrustHtml("Wrong <div class='ml-3 mr-3 text-white bg-green-600 rounded-full pl-3 pr-3'>"+this.correctWord+"</div> would be correct !");
+        this.analyseDiv = this.sanitizer.bypassSecurityTrustHtml("Wrong <div class='ml-3 mr-3 text-white bg-green-600 rounded-full pl-3 pr-3'>"+this.correctWord+"</div> is the correct solution!");
         this.system.increaseCountWrong();
       }
-
+      this.system.delteVocOfAvailableList(this.correctWord);
       this.input = "";
 
       // if unit is over and user want to practice again
