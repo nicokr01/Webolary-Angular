@@ -19,6 +19,9 @@ import { Theme } from './Theme/theme';
 import { HttpClient } from '@angular/common/http';
 import { NavMobileComponent } from './nav-mobile/nav-mobile.component';
 import { System } from './WebolarySystem/system';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { AddVocabularyComponent } from './add-vocabulary/add-vocabulary.component';
 
 
 // Prime NG
@@ -35,6 +38,7 @@ import { System } from './WebolarySystem/system';
     NavTopComponent,
     SidebarSmallLightComponent,
     NavMobileComponent,
+    AddVocabularyComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +53,7 @@ import { System } from './WebolarySystem/system';
     provideClientHydration(),
     MessageService,
     Theme,
+    CookieService,
     System
   ],
   bootstrap: [AppComponent]

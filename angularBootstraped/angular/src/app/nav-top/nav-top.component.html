@@ -19,16 +19,16 @@
         </div>
 
         <div class="menu-item rounded-xl mt-6 mb-3">
-            <div class="img"><img src="../../assets/image/reset.svg"></div>
-            <div class="text">Reset vocabulary session</div>
-        </div>
-
-        <div class="menu-item rounded-xl mt-6 mb-3">
             <div class="img"><img src="../../assets/image/settings.svg"></div>
             <div class="text">Settings</div>
         </div>
 
-        <div class="menu-item rounded-xl mt-6 mb-8" style="background-color: red;color: white;">
+        <div class="menu-item rounded-xl mt-6 mb-3" (click)="this.system.resetUnitSession()">
+            <div class="img"><img src="../../assets/image/reset.svg"></div>
+            <div class="text">Reset vocabulary session</div>
+        </div>
+
+        <div class="menu-item rounded-xl mt-6 mb-8" style="background-color: red;color: white;" (click)="this.system.logout()">
             <div class="img"><img src="../../assets/image/logout.svg"></div>
             <div class="text">Logout</div>
         </div>
@@ -37,7 +37,7 @@
 <!-- //// Menu Div -->
 
 <nav id="navForStyle">
-    <div class="navbar" style="z-index: 99;" id="navForStyle">
+    <div class="navbar" style="z-index: 99;position: fixed;" id="navForStyle">
         <div class="title text-xl text-white w-full flex" id="NavList">
             <p>Webolary</p>
 
@@ -45,7 +45,6 @@
                 <span class='mx-5 dark:text-gray-300 rtl:-scale-x-100'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'><path fill-rule='evenodd' d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z' clip-rule='evenodd'></path></svg></span>
                 <a href='#' class='text-gray-600 dark:text-gray-200 hover:underline'>{{NavItem1}}</a>    
             </div>
-            
         </div>
 
         <div class="userDiv" (click)="showMenu()">

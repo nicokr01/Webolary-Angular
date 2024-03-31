@@ -43,3 +43,93 @@
 
     display: none;
 }
+
+.mobileMenu{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.info{
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 2rem;
+    width: auto;
+    height: auto;
+}
+
+.info .username{
+    font-size: 3.5rem;
+}
+
+.info .rank{
+    margin-top: -1rem;
+}
+
+.close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 6rem;
+    height: 6rem;
+    padding-top: 2rem;
+    margin-right: 1rem;
+}
+
+.close img{
+    width: 100%;
+    height: 100%;
+}
+
+.items{
+    position: absolute;
+    top: 10rem;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.item{
+    display: flex;
+    position: relative;
+    width: 90%;
+    left: 5%;
+    height: 5rem;
+    margin-top:2rem;
+    background-color: var(--background);
+}
+
+.item .img{
+    position: relative;
+    left: 0;
+    width: 20%;
+    height: 60%;
+    top: 20%;
+}
+
+.item .img img{
+    width: 100%;
+    height: 100%;
+}
+
+.item .text{
+    position: absolute;
+    left: 12.5%;
+    width: 80%;
+    height: 100%;
+    line-height: 5rem;
+    text-align: center;
+}
+
+.bottomItems{
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    width: 100%;
+}

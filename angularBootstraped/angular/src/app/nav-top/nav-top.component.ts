@@ -3,6 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import CryptoJS from 'crypto-js';
 import { User } from '../User/User';
 import { Theme } from '../Theme/theme';
+import { System } from '../WebolarySystem/system';
 
 @Component({
   selector: 'app-nav-top',
@@ -24,7 +25,7 @@ export class NavTopComponent {
 
   protected privateMenuStyle = "display:none";
 
-  constructor(private cookie:CookieService, protected theme:Theme, protected elementRef:ElementRef){
+  constructor(private cookie:CookieService, protected theme:Theme, protected elementRef:ElementRef, protected system:System){
     const encryptedValue = sessionStorage.getItem("User");
     if (encryptedValue) {
         const token = "c(j:iGBE)2RKae3OfxaT[4WG7By9'+m{e?)mfc3ez7Td9/RiT@";

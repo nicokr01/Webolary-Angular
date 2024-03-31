@@ -1,11 +1,11 @@
 
 <div class="flex">
-    <aside class="flex h-screen w-20 flex-col items-center border-r border-gray-200 bg-white sidebar" style="z-index: 99;" id="aside">
+    <aside class="flex h-screen w-20 flex-col items-center border-r border-gray-200 bg-white sidebar" style="z-index: 99;position: fixed;" id="aside">
       <div class="flex h-[4.5rem] w-full w-max-sm items-center justify-center border-b border-gray-200 p-2" style="cursor: pointer;">
         <p class="text-violet-700 text-6xl">W</p>
       </div>
       <nav class="flex flex-1 flex-col gap-y-4 pt-10">
-        <a href="/#" class="group relative rounded-xl bg-gray-100 p-2 text-blue-600 hover:bg-gray-50 navItemClickable">
+        <a [routerLink]="['/home']" class="group relative rounded-xl bg-gray-100 p-2 text-blue-600 hover:bg-gray-50 navItemClickable">
           <svg class="h-10 w-10 stroke-current" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z"/></svg>
           <div class="absolute inset-y-0 left-12 hidden items-center group-hover:flex navItemTextDiv">
             <div class="relative whitespace-nowrap rounded-md bg-white px-4 py-2 text-sm font-semibold text-gray-900 drop-shadow-lg navItemTextDivSub">

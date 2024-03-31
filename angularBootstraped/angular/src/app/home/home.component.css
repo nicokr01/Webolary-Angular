@@ -38,9 +38,7 @@ main{
     width: 40%;
     height: 5rem;
     margin-left: 30%;
-    margin-top: 10rem;
-    background-color: red;
-    
+    margin-top: 10rem;    
     border-bottom: 3px solid transparent;
     border-image: linear-gradient(to right, #5120ce 0%, rgb(155, 1, 245) 100%) 1;
 
