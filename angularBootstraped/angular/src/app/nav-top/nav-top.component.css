@@ -62,6 +62,7 @@
 
 .rankDiv{
     position: absolute;
+
     top:4rem;
     left: 0;
     width: 100%;
@@ -186,5 +187,41 @@
 @media only screen and (max-width: 1000px) {
     .navInfo{
         display: none;
+    }
+}
+
+@media only screen and (max-width: 1600px) {
+    .navbar{
+        height: 6rem;
+    }
+
+    .usernameDiv{
+        left: 5rem;
+    }
+
+    .rankDiv{
+        left: 5rem;
+    }
+    
+    .title{
+        line-height: 6rem;
+    }
+
+    .breadcrumpSVG{
+        margin-top: -2rem;
+    }
+
+    .breadcrumpSpan{
+        margin-top: -.75rem;
+    }
+
+    .usernameDiv{
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+
+    .rankDiv{
+        font-size: 2rem;
+        line-height: 1rem;
     }
 }

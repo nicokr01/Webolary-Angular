@@ -21,3 +21,9 @@
   .navItemClickable{
     margin-top: 1rem;
   }
+
+  @media only screen and (max-width: 1600px){
+    .sidebar{
+      width: 5.85rem;
+    }
+  }

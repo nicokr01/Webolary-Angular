@@ -39,8 +39,8 @@
 
 .circular-progress{
   position: relative;
-  height: 150px;
-  width: 150px;
+  height: 120px;
+  width: 120px;
   border-radius: 50%;
   background: conic-gradient(#7d2ae8 3.6deg, #2B2F33 0deg);
   display: flex;
@@ -51,8 +51,8 @@
 .circular-progress::before{
   content: "";
   position: absolute;
-  height:122.5px;
-  width:122.5px;
+  height:92.5px;
+  width:92.5px;
   border-radius: 50%;
   background-color: white;
 }

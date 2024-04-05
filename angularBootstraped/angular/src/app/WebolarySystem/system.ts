@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, input } from "@angular/core";
 import { User } from "../User/User";
 import { CookieService } from "ngx-cookie-service";
 
@@ -8,8 +8,13 @@ import { CookieService } from "ngx-cookie-service";
 
 export class System{
     private user:any;
+    public dictionary = localStorage.getItem('dictionary');
 
-    constructor(private cookieService:CookieService){}
+    constructor(private cookieService:CookieService){
+      if(this.dictionary != null){
+        this.dictionary = JSON.parse(this.dictionary);
+      }
+    }
 
     /* System Vocabulary Trainer <&> Dictionary actions */
     increaseCountCorrect(){
@@ -86,7 +91,7 @@ export class System{
 
         return Object.keys(dictionary).length;
       }
-      return -1;
+      return 0;
     }
 
     checkDictionary(){
@@ -377,5 +382,37 @@ export class System{
         this.cookieService.delete("username");
         location.reload();
     }
+
+    addVocabularyToDictionary(key:string,value:string){
+
+         if(value.trim() == ""){
+          let input_2 = document.getElementById("germanText");
+          if(input_2){
+            input_2?.focus();
+          }
+
+          return false;
+        }
+        else if(key.trim() == ""){
+          let input_1 = document.getElementById("englischText");
+          if(input_1){
+            input_1?.focus();
+          }
+
+          return false;
+        }
+
+        let dictionaryJSON = localStorage.getItem("dictionary");
+        if(dictionaryJSON != null){
+          let dictionary = JSON.parse(dictionaryJSON);
+
+          dictionary[key] = value;
+          localStorage.setItem("dictionary", JSON.stringify(dictionary));
+          return true;
+        }
+        return false;
+    }
+
+
     // //// public functions
 }

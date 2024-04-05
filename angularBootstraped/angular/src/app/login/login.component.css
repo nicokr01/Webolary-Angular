@@ -269,7 +269,7 @@
     font-size: 7.1rem;
     font-family: 'Lexend', sans-serif;
     color: blueviolet;
-    line-height: 10.5rem;
+    /* line-height: 10.5rem; */
   }
   
   .loading{
@@ -310,7 +310,7 @@
   
   @media only screen and (min-width: 1500px) and (max-width:1799px){
     .textContent-text{
-      font-size: 255%;
+      font-size: 185%;
     }
   
     .textContent{

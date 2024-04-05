@@ -182,7 +182,7 @@ input:focus {
 
 @media only screen and (max-width: 1600px){
     .headlineDiv{
-        margin-top: 3rem;
+        margin-top: 1rem;
         font-size: 2rem;
     }
 
@@ -192,7 +192,7 @@ input:focus {
     }
 
     .inputWord{
-        margin-top: 10rem;
+        margin-top: 8.5rem;
         width: 50%;
         margin-left: 25%;
     }
@@ -201,6 +201,17 @@ input:focus {
         top: 6rem;
         display: none;
     }
+
+    .compareBTN{
+        width: 20%;
+        margin-top: 3.85rem;
+        height: 3.85rem;
+        background-color: #4B39EF;
+        color: white;
+        border-radius: 3.5rem;
+        font-weight: 600;
+    }
+    
 }
 
 @media screen and (max-width: 1380px){

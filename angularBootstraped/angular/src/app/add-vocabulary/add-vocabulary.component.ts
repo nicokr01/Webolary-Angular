@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostListener } from '@angular/core';
 import { Auth } from '../Auth/auth';
 import { CookieService } from 'ngx-cookie-service';
 import { Theme } from '../Theme/theme';
@@ -20,7 +20,7 @@ export class AddVocabularyComponent extends Auth{
 
   protected VocListTbody:SafeHtml = "";
 
-  constructor(cookieService:CookieService, protected theme:Theme, protected elementRef:ElementRef, protected system:System, protected sanitizer:DomSanitizer){
+  constructor(cookieService:CookieService, protected theme:Theme, protected elementRef:ElementRef, protected system:System, protected sanitizer:DomSanitizer, private cdr: ChangeDetectorRef){
     super(cookieService);
 
     /* set navList link*/
@@ -101,6 +101,13 @@ export class AddVocabularyComponent extends Auth{
       input?.focus();
     }
 
+    @HostListener('document:keydown', ['$event'])
+    handleKeyDown(event: KeyboardEvent) {
+      if (event.code === 'Enter' || event.keyCode === 13) {
+        this.system.addVocabularyToDictionary(this.inputEnglisch,this.inputGerman);
+      }
+    }
+
     inputAreaClickedSecond(){
       let div = document.getElementById("movingSpanSecond");
       if(div){
@@ -118,5 +125,17 @@ export class AddVocabularyComponent extends Auth{
   
       let input = document.getElementById("englischText");
       input?.focus();
+    }
+
+
+    deleteVocabularyFromDictionary(key:string){
+      let dictionaryJSON = localStorage.getItem("dictionary");
+
+      if(dictionaryJSON != null){
+        let dictionary = JSON.parse(dictionaryJSON);
+        delete dictionary[key];
+        localStorage.setItem("dictionary",JSON.stringify(dictionary));
+        this.cdr.detectChanges();
+      }
     }
 }

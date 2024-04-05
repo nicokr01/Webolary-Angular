@@ -12,7 +12,6 @@ import { BannedComponent } from './banned/banned.component';
 import { NavTopComponent } from './nav-top/nav-top.component';
 import { SidebarSmallLightComponent } from './sidebar-small-light/sidebar-small-light.component';
 
-import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Theme } from './Theme/theme';
@@ -45,9 +44,7 @@ import { AddVocabularyComponent } from './add-vocabulary/add-vocabulary.componen
     AppRoutingModule,
     FormsModule,
     CommonModule,
-    ToastModule,
     BrowserAnimationsModule,
-    
   ],
   providers: [
     provideClientHydration(),
