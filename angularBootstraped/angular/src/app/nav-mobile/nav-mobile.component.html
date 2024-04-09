@@ -9,7 +9,7 @@
             <img src="../../assets/image/close.svg">
         </div>
         <div class="items">
-            <div class="item rounded-full mt-10 mb-3" (click)="redirect('#')">
+            <div class="item rounded-full mt-10 mb-3" (click)="redirect('/')">
                 <div class="img"><img src="../../assets/image/home.svg"></div>
                 <div class="text">Practice Vocabulary</div>
             </div>
@@ -25,8 +25,8 @@
             </div>
         </div>
         <div class="bottomItems">
-            <div class="item rounded-full mt-10 mb-3">
-                <div class="img"><img src="../../assets/image/reset.svg" (click)="this.system.resetUnitSession()"></div>
+            <div class="item rounded-full mt-10 mb-3" (click)="this.system.resetUnitSession()">
+                <div class="img"><img src="../../assets/image/reset.svg"></div>
                 <div class="text">Reset unit session</div>
             </div>
 

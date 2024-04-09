@@ -1,5 +1,3 @@
-import { loadavg } from "os";
-
 export class Theme{
     protected mode:string = "";
 
@@ -47,7 +45,8 @@ export class Theme{
         } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
             return 'white';
         } else {
-            return 'unknown';
+            //default return
+            return 'dark';
         }
     }
 }

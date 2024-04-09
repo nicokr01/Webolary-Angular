@@ -58,11 +58,20 @@ export class HomeComponent extends Auth{
       // //// Responsive
 
 
+      /*Local integration*/
+      if(this.system.GETchangeReferenceDetection()){
+          // change detected
+          if(this.system.GETchangeReferenceDetection() == "vocabularyListChanged"){
+            this.system.resetUnitSession();
+            this.system.DELETEchangeReferenceDetection();
+          }
+      }
+      /* //// Local integration*/
+
       /* Webolary System integration*/
       if(this.nextVocabulary() == "finished"){
         this.btnSubmitText = "Practice again ?"
       }
-
       
      /* //// Webolary System integration*/
        

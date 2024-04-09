@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ChangeDetectorRef, NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { FormsModule } from '@angular/forms';
@@ -21,6 +21,8 @@ import { System } from './WebolarySystem/system';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { AddVocabularyComponent } from './add-vocabulary/add-vocabulary.component';
+import { AddCheckComponent } from './add-check/add-check.component';
+
 
 
 // Prime NG
@@ -38,6 +40,7 @@ import { AddVocabularyComponent } from './add-vocabulary/add-vocabulary.componen
     SidebarSmallLightComponent,
     NavMobileComponent,
     AddVocabularyComponent,
+    AddCheckComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { AddVocabularyComponent } from './add-vocabulary/add-vocabulary.componen
     MessageService,
     Theme,
     CookieService,
-    System
+    System,
+  
   ],
   bootstrap: [AppComponent]
 })

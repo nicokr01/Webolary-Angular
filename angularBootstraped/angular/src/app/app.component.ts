@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { exit } from 'process';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +11,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'angular';
 
-  constructor(public router:Router){}
+  constructor(public router:Router,private cookieService:CookieService){}
+
+  
 }

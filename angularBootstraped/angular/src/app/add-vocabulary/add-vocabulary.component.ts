@@ -10,6 +10,8 @@ import { System } from '../WebolarySystem/system';
   templateUrl: './add-vocabulary.component.html',
   styleUrl: './add-vocabulary.component.css'
 })
+
+
 export class AddVocabularyComponent extends Auth{
   protected superGlobalStyle = "";
   protected displayMobile = false;
@@ -19,13 +21,31 @@ export class AddVocabularyComponent extends Auth{
   protected inputEnglisch:string = "";
 
   protected VocListTbody:SafeHtml = "";
-
+  protected UnitSizeValue:number = -1;
+  protected UnitSize:SafeHtml = this.UnitSizeValue+" Vocabularys";
+  public dictionary: { [key: string]: string } = {};
   constructor(cookieService:CookieService, protected theme:Theme, protected elementRef:ElementRef, protected system:System, protected sanitizer:DomSanitizer, private cdr: ChangeDetectorRef){
     super(cookieService);
 
     /* set navList link*/
     localStorage.setItem("NavListItem","add vocabulary");
    /* set navList link*/
+
+   /*
+    Set UnitSize into Green Box right next tot Vocabulary List H2 Element and render Voc list
+   */
+    this.UnitSize = this.system.getUnitSize() + " Vocabularys";
+    this.renderVocList();
+    /*
+    Set UnitSize into Green Box right next tot Vocabulary List H2 Element and render Voc list
+   */
+
+    var dicJSON = localStorage.getItem("dictionary");
+    if(dicJSON != null){
+      this.dictionary = JSON.parse(dicJSON);
+    }
+
+    this.UnitSizeValue = Object.keys(this.dictionary).length;
   }
 
   ngOnInit(){
@@ -47,12 +67,17 @@ export class AddVocabularyComponent extends Auth{
     }
     // //// Responsive
 
+   
+    Object.keys
+  }
+
+  renderVocList(){
     this.VocListTbody = this.sanitizer.bypassSecurityTrustHtml(this.system.getVocabularysAsTable());
   }
 
   /*Vocabulary list actions*/
   deleteVocFromList(id:number){
-    alert("delete:" +id)
+    alert("delete:" +id);
   }
 
   editVocFromList(id:number){
@@ -104,7 +129,7 @@ export class AddVocabularyComponent extends Auth{
     @HostListener('document:keydown', ['$event'])
     handleKeyDown(event: KeyboardEvent) {
       if (event.code === 'Enter' || event.keyCode === 13) {
-        this.system.addVocabularyToDictionary(this.inputEnglisch,this.inputGerman);
+        this.addVocabularyToDictionary(this.inputEnglisch,this.inputGerman);
       }
     }
 
@@ -128,14 +153,54 @@ export class AddVocabularyComponent extends Auth{
     }
 
 
-    deleteVocabularyFromDictionary(key:string){
-      let dictionaryJSON = localStorage.getItem("dictionary");
+    // deleteVocabularyFromDictionary(key:any){
+    //   console.log(this.dictionary)
+    //   let dictionaryJSON = localStorage.getItem("dictionary");
 
-      if(dictionaryJSON != null){
-        let dictionary = JSON.parse(dictionaryJSON);
-        delete dictionary[key];
-        localStorage.setItem("dictionary",JSON.stringify(dictionary));
-        this.cdr.detectChanges();
+    //   if(dictionaryJSON != null){
+    //     let dictionary = JSON.parse(dictionaryJSON);
+    //     delete dictionary[key];
+    //     localStorage.setItem("dictionary",JSON.stringify(dictionary));
+
+    //     console.log(this.dictionary);
+    //     this.cdr.detectChanges();
+    //   }
+    // }
+
+    deleteVocabularyFromDictionary(key:string){
+      this.system.SETchangeReferenceDetection("vocabularyListChanged");
+      delete this.dictionary[key];
+
+      this.UnitSizeValue--;
+      this.UnitSize = this.UnitSizeValue+" Vocabularys";
+      localStorage.setItem("dictionary",JSON.stringify(this.dictionary));
+    }
+
+    addVocabularyToDictionary(key:string,value:string){
+      this.system.SETchangeReferenceDetection("vocabularyListChanged");
+      if(value.trim() == ""){
+        let input_2 = document.getElementById("germanText");
+        if(input_2){
+          input_2?.focus();
+        }
+        return false;
       }
+      else if(key.trim() == ""){
+        let input_1 = document.getElementById("englischText");
+        if(input_1){
+          input_1?.focus();
+        }
+        return false;
+      }
+
+      this.dictionary[key] = value;
+      this.UnitSizeValue++;
+      this.UnitSize = this.UnitSizeValue+" Vocabularys";
+      localStorage.setItem("dictionary",JSON.stringify(this.dictionary)); 
+      return true;
+    }
+
+    getDictionaryKeys(){
+      return Object.keys(this.dictionary);
     }
 }
