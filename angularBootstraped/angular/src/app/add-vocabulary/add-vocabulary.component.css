@@ -60,9 +60,13 @@ input:focus {
 }
 
 .h1{
-    color: white;
+    color: black;
     font-size: 4.55rem;
     margin-top: 5rem;
+}
+
+#vocListH2{
+    color: black;
 }
 
 .actions{

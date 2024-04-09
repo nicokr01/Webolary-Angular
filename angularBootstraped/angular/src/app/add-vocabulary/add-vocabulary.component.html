@@ -14,7 +14,7 @@
     
     <main id="main">
 
-        <h1 class="h1">Edit your vocabulary list</h1>
+        <h1 class="h1" id="h1">Edit your vocabulary list</h1>
         <!-- Inputs -->
         <div class="inputWord" (click)="inputAreaClicked()">
             <!-- Notice germanText is the variable in the currect system, in the new version use englischWord here !  -->
@@ -37,7 +37,7 @@
 
         <section class="container px-4 mx-auto rounded-full" style="margin-top: 18rem;max-width: 80%">
             <div class="flex items-center gap-x-3">
-                <h2 class="text-5xl font-medium text-gray-800 dark:text-white">Vocabulary list</h2>
+                <h2 class="text-5xl font-medium text-gray-800 dark:text-white" id="vocListH2">Vocabulary list</h2>
         
                 <span class="px-3 py-1 ml-2 mt-2 text-2xl text-white bg-green-600 rounded-full" [innerText]="UnitSize"></span>
             </div>
