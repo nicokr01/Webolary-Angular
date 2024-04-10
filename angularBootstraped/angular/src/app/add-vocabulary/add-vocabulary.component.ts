@@ -55,7 +55,7 @@ export class AddVocabularyComponent extends Auth{
     if(this.theme.getMode() == "dark"){
       var darkDiv = this.elementRef.nativeElement.querySelector("#darkModeDiv");
       if(darkDiv){
-        darkDiv.innerHTML = "<style>body{background-color:var(--darkmode)} #prg{background-color:rgba(0,0,0,0.65)} .textCircle{color:white} #word{color:white} .headlineDiv{color:white;} #first_part{color:white;} #rest{color:white;} #germanText{background-color:var(--darkmode);color:white} #englischText{background-color:var(--darkmode);color:white} #movingSpan{color:white} #c-p-3::before{background-color:rgba(0,0,0,0.65)} #p-v-3{color:white}  #c-p-2::before{background-color:rgba(0,0,0,0.65)} #p-v-2{color:white} #c-p-1::before{background-color:rgba(0,0,0,0.65)} #p-v-1{color:white} .circular-progress{background: conic-gradient(#7d2ae8 3.6deg,rgba(0,0,0,0.65)  0deg);} .analyse{color:white;} #h1{color:white} #vocListH2{color:white}</style>";
+        darkDiv.innerHTML = "<style>body{background-color:var(--darkmode)} #prg{background-color:rgba(0,0,0,0.65)} .textCircle{color:white} #word{color:white} .headlineDiv{color:white;} #first_part{color:white;} #rest{color:white;} #germanText{background-color:var(--darkmode);color:white} #englischText{background-color:var(--darkmode);color:white} #movingSpan{color:white} #c-p-3::before{background-color:rgba(0,0,0,0.65)} #p-v-3{color:white}  #c-p-2::before{background-color:rgba(0,0,0,0.65)} #p-v-2{color:white} #c-p-1::before{background-color:rgba(0,0,0,0.65)} #p-v-1{color:white} .circular-progress{background: conic-gradient(#7d2ae8 3.6deg,rgba(0,0,0,0.65)  0deg);} .analyse{color:white;} #h1{color:white}</style>";
       }
     }
 
@@ -100,11 +100,29 @@ export class AddVocabularyComponent extends Auth{
     // //// bluring page
 
     onFocus(){
+      console.log("focus action");
       this.inputActiveState = true;
     }
   
-    onBlur(){
+    onBlur(inputID:number){
       this.inputActiveState = false;
+
+      if(inputID == 1){
+        if(this.inputGerman == ""){
+          let label = document.getElementById("movingSpan");
+          label?.classList.remove("moveTop")
+          label?.classList.add("moveBottom");
+          label!.style.marginTop = "-4rem";
+        }
+      }
+      else if(inputID == 2){
+        if(this.inputEnglisch == ""){
+          let label = document.getElementById("movingSpanSecond");
+          label?.classList.remove("moveTop")
+          label?.classList.add("moveBottom");
+          label!.style.marginTop = "-4rem";
+        }
+      }
     }
 
     inputAreaClicked(){
@@ -152,21 +170,6 @@ export class AddVocabularyComponent extends Auth{
       input?.focus();
     }
 
-
-    // deleteVocabularyFromDictionary(key:any){
-    //   console.log(this.dictionary)
-    //   let dictionaryJSON = localStorage.getItem("dictionary");
-
-    //   if(dictionaryJSON != null){
-    //     let dictionary = JSON.parse(dictionaryJSON);
-    //     delete dictionary[key];
-    //     localStorage.setItem("dictionary",JSON.stringify(dictionary));
-
-    //     console.log(this.dictionary);
-    //     this.cdr.detectChanges();
-    //   }
-    // }
-
     deleteVocabularyFromDictionary(key:string){
       this.system.SETchangeReferenceDetection("vocabularyListChanged");
       delete this.dictionary[key];
@@ -174,6 +177,28 @@ export class AddVocabularyComponent extends Auth{
       this.UnitSizeValue--;
       this.UnitSize = this.UnitSizeValue+" Vocabularys";
       localStorage.setItem("dictionary",JSON.stringify(this.dictionary));
+    }
+
+
+    editVocabularyFromDictionary(ID:number,key:string,value:string){
+      let tdKEY = document.getElementById(ID+"_key");
+      let tdVALUE = document.getElementById(ID+"_value");
+
+      let inputKey = document.getElementById(ID+"_input_key");
+      inputKey!.style.display = "block";
+
+      let inputVaue = document.getElementById(ID+"_input_value");
+      inputVaue!.style.display = "block";
+
+      let div = document.getElementById(ID+"_input_div");
+      div!.style.display = "none";
+
+      let div2 = document.getElementById(ID+"_input_div2");
+      div2!.style.display = "none";
+    }
+
+    updateVocFromVocList(){
+      alert("update");
     }
 
     addVocabularyToDictionary(key:string,value:string){

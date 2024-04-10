@@ -10,7 +10,7 @@ html{
     font-size: 100%;
 }
 
-.SUPER_GLOBAL{position: absolute;top: 0;left: 0;width: 100vw;height: 100vh;z-index: 1;}
+.SUPER_GLOBAL{position: absolute;top: 0;left: 0;width: 100%;height: 100vh;z-index: 1;}
 
 /* Main styling with word and headline Div */
 
@@ -50,7 +50,7 @@ main{
 
 .inputWord .span{
    margin-top: -4rem;
-   color: rgb(156,163,175);
+   color: white;
    font-family: 'Lexend';
    transition: 0ms;
 }

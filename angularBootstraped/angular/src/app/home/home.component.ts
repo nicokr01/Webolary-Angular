@@ -107,6 +107,13 @@ export class HomeComponent extends Auth{
 
   onBlur(){
     this.inputActiveState = false;
+
+      if(this.input == ""){
+        let label = document.getElementById("movingSpan");
+        label?.classList.remove("moveTop")
+        label?.classList.add("moveBottom");
+        label!.style.marginTop = "-4rem";
+      }
   }
 
   inputAreaClicked(){

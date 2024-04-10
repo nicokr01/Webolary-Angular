@@ -18,13 +18,13 @@
         <!-- Inputs -->
         <div class="inputWord" (click)="inputAreaClicked()">
             <!-- Notice germanText is the variable in the currect system, in the new version use englischWord here !  -->
-            <input type="text" id="germanText" [(ngModel)]="inputGerman" (focus)="onFocus()" (blur)="onBlur()">
+            <input type="text" id="germanText" [(ngModel)]="inputGerman" (focus)="onFocus()" (blur)="onBlur(1)">
             <div class="span" id="movingSpan">German word</div>
         </div>
 
         <div class="inputWord" (click)="inputAreaClickedSecond()">
             <!-- Notice germanText is the variable in the currect system, in the new version use englischWord here !  -->
-            <input type="text" id="englischText" [(ngModel)]="inputEnglisch" (focus)="onFocus()" (blur)="onBlur()">
+            <input type="text" id="englischText" [(ngModel)]="inputEnglisch" (focus)="onFocus()" (blur)="onBlur(2)">
             <div class="span" id="movingSpanSecond">Englisch word</div>
         </div>
         <!-- //// Inputs -->
@@ -37,8 +37,10 @@
 
         <section class="container px-4 mx-auto rounded-full" style="margin-top: 18rem;max-width: 80%">
             <div class="flex items-center gap-x-3">
-                <h2 class="text-5xl font-medium text-gray-800 dark:text-white" id="vocListH2">Vocabulary list</h2>
-        
+                
+                <div *ngIf="this.theme.getMode() == 'dark'"><h2 class="text-5xl font-medium text-white">Vocabulary list</h2></div>
+                <div *ngIf="this.theme.getMode() != 'dark'"><h2 class="text-5xl font-medium text-gray-800">Vocabulary list</h2></div>
+
                 <span class="px-3 py-1 ml-2 mt-2 text-2xl text-white bg-green-600 rounded-full" [innerText]="UnitSize"></span>
             </div>
         
@@ -61,14 +63,20 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                                        <tr *ngFor="let pair of this.dictionary | keyvalue">
-                                            <td class="px-12 py-8 text-2xl font-medium text-gray-700 whitespace-nowrap" style="border-right: 1px solid white;">
-                                                <div class="inline-flex items-center px-3 py-1 rounded-full gap-x-2 bg-emerald-100/60 dark:bg-gray-800" style="background-color: #5110ce;">
+                                        <tr *ngFor="let pair of this.dictionary | keyvalue;let i = index">
+                                            <td id="{{i}}_key" class="px-12 py-8 text-2xl font-medium text-gray-700 whitespace-nowrap" style="border-right: 1px solid white;">
+                                                <div id="{{i}}_input_div" class="inline-flex items-center px-3 py-1 rounded-full gap-x-2 bg-emerald-100/60 dark:bg-gray-800" style="background-color: #5110ce;">
                                                     <h2 class="text-3xl font-normal" style="color:white">{{pair.key}}</h2>
                                                 </div>
+
+                                                <input type="text" id="{{i}}_input_key" style="display: none;" placeholder="New Key: " [value]="pair.key">
+                
                                             </td>    
-                                            <td class="px-12 py-8 text-3xl font-medium text-white whitespace-nowrap" style="border-right: 1px solid white;">
-                                                {{pair.value}}
+                                            <td id="{{i}}_value" class="px-12 py-8 text-3xl font-medium text-white whitespace-nowrap" style="border-right: 1px solid white;">
+                                                <div id="{{i}}_input_div2">{{pair.value}}</div>
+
+                                                <input type="text" id="{{i}}_input_value" style="display: none;color:black" placeholder="New Value: " [value]="pair.value">
+                                                <button (click)="updateVocFromVocList()">Save</button>
                                             </td>  
                                             <td class="px-2 py-2 text-3xl whitespace-nowrap items-center">
                                                 <div class="items-center gap-x-6 flex justify-center">
@@ -78,7 +86,7 @@
                                                         </svg>
                                                     </button>
             
-                                                    <button class="text-gray-500 transition-colors duration-200 dark:hover:text-yellow-500 dark:text-gray-300 hover:text-yellow-500 focus:outline-none">
+                                                    <button (click)="this.editVocabularyFromDictionary(i,pair.key,pair.value);" class="text-gray-500 transition-colors duration-200 dark:hover:text-yellow-500 dark:text-gray-300 hover:text-yellow-500 focus:outline-none">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-11 h-11">
                                                             <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
                                                         </svg>
