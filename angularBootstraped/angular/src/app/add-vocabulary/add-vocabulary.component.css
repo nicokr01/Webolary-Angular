@@ -140,6 +140,20 @@ input:focus {
     }
 }
 
+.inputDivAdd{
+    position: relative;
+    width: auto;
+    display: none;
+}
+
+.inputDivAdd input{
+    height: 100%;
+    width: 80%;
+    margin-left:5% ;
+    font-size: 1.85rem;
+    border-bottom: 0.8px solid white;
+}
+
 
 /*  //// Moving Span Animations, executed by HomeComponent Class */
 

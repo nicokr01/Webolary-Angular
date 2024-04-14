@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Theme } from '../Theme/theme';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { System } from '../WebolarySystem/system';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-vocabulary',
@@ -24,7 +25,7 @@ export class AddVocabularyComponent extends Auth{
   protected UnitSizeValue:number = -1;
   protected UnitSize:SafeHtml = this.UnitSizeValue+" Vocabularys";
   public dictionary: { [key: string]: string } = {};
-  constructor(cookieService:CookieService, protected theme:Theme, protected elementRef:ElementRef, protected system:System, protected sanitizer:DomSanitizer,){
+  constructor(cookieService:CookieService, protected theme:Theme, protected elementRef:ElementRef, protected system:System, protected sanitizer:DomSanitizer,protected router:Router){
     super(cookieService);
 
     /* set navList link*/
@@ -187,7 +188,7 @@ export class AddVocabularyComponent extends Auth{
       let inputKey = document.getElementById(ID+"_input_key");
       inputKey!.style.display = "block";
 
-      let inputVaue = document.getElementById(ID+"_input_value");
+      let inputVaue = document.getElementById("input_value_"+ID);
       inputVaue!.style.display = "block";
 
       let div = document.getElementById(ID+"_input_div");
@@ -195,10 +196,32 @@ export class AddVocabularyComponent extends Auth{
 
       let div2 = document.getElementById(ID+"_input_div2");
       div2!.style.display = "none";
+
+      let input_btn = document.getElementById(ID+"_input_btn");
+      input_btn!.style.display = "inline-block";
     }
 
-    updateVocFromVocList(){
-      alert("update");
+    updateVocFromVocList(ID:number,oldKey:string){
+      let newValue = this.elementRef.nativeElement.querySelector("#input_value_"+ID).value;
+      let newKey = this.elementRef.nativeElement.querySelector("#inputField_key_"+ID).value;
+      
+      if(newKey == oldKey){
+        this.dictionary[oldKey] = newValue;
+        let URL = location.href;
+        if(URL.match("addVocabulary")){
+          this.router.navigate(["/add"]);
+        }
+        else{
+          this.router.navigate(["/addVocabulary"]);
+        }
+      }
+      else{
+        delete this.dictionary[oldKey];
+        this.dictionary[newKey] = newValue;
+      }
+
+      this.system.SETchangeReferenceDetection("vocabularyListChanged");
+      localStorage.setItem("dictionary",JSON.stringify(this.dictionary));
     }
 
     addVocabularyToDictionary(key:string,value:string){

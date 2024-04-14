@@ -68,15 +68,17 @@
                                                 <div id="{{i}}_input_div" class="inline-flex items-center px-3 py-1 rounded-full gap-x-2 bg-emerald-100/60 dark:bg-gray-800" style="background-color: #5110ce;">
                                                     <h2 class="text-3xl font-normal" style="color:white">{{pair.key}}</h2>
                                                 </div>
-
-                                                <input type="text" id="{{i}}_input_key" style="display: none;" placeholder="New Key: " [value]="pair.key">
-                
+                                                
+                                                <div id="{{i}}_input_key" class="inputDivAdd">
+                                                    <input id="inputField_key_{{i}}" type="text" placeholder="New Key: " [value]="pair.key" class="text-white text-center bg-gray-900">
+                                                </div>
                                             </td>    
-                                            <td id="{{i}}_value" class="px-12 py-8 text-3xl font-medium text-white whitespace-nowrap" style="border-right: 1px solid white;">
+                                            <td id="{{i}}_value" class="px-12 py-8 text-3xl font-medium text-white whitespace-nowrap flex justify-center" style="border-right: 1px solid white;">
                                                 <div id="{{i}}_input_div2">{{pair.value}}</div>
 
-                                                <input type="text" id="{{i}}_input_value" style="display: none;color:black" placeholder="New Value: " [value]="pair.value">
-                                                <button (click)="updateVocFromVocList()">Save</button>
+                                                <input type="text" id="input_value_{{i}}" style="display: none;text-align: center;border-bottom: 0.8px solid white;" placeholder="New Value: " [value]="pair.value" class="bg-gray-900 text-white">
+    
+                                                <button id="{{i}}_input_btn" (click)="updateVocFromVocList(i,pair.key)" style="display: none;text-align: center;" type="button" class=" ml-8 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-3xl px-10 py-4 text-center me-2 mb-2 ">Save</button>
                                             </td>  
                                             <td class="px-2 py-2 text-3xl whitespace-nowrap items-center">
                                                 <div class="items-center gap-x-6 flex justify-center">
