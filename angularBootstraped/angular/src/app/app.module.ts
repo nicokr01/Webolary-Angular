@@ -22,6 +22,7 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { AddVocabularyComponent } from './add-vocabulary/add-vocabulary.component';
 import { AddCheckComponent } from './add-check/add-check.component';
+import { TestComponent } from './test/test.component';
 
 
 
@@ -41,6 +42,7 @@ import { AddCheckComponent } from './add-check/add-check.component';
     NavMobileComponent,
     AddVocabularyComponent,
     AddCheckComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
