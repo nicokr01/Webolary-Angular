@@ -1,0 +1,23 @@
+
+
+.wCard{
+    width: 25rem;
+}
+
+.btn{
+    position: relative;
+    width: 19rem;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    left: 3rem;
+    font-size: 1.5rem;
+    color: white;
+    border-radius: 0.45rem;
+    cursor: pointer;
+}
+
+
+.img{
+    height: 80%;
+    margin-top: 0.5rem;
+}

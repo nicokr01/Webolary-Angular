@@ -2,8 +2,8 @@
     <!-- Mobile Menu -->
     <div class="mobileMenu" [style]="mobileMenuDiv">
         <div class="info">
-            <div class="username">nico06</div>
-            <div class="rank">&#64;CEO</div>
+            <div class="username">{{this.user.username}}</div>
+            <div class="rank">{{this.rank}}</div>
         </div>
         <div class="close" (click)="closeMenu()">
             <img src="../../assets/image/close.svg">
@@ -19,7 +19,7 @@
                 <div class="text">Add vocabulary</div>
             </div>
 
-            <div class="item rounded-full mt-10 mb-3" (click)="redirect('/communityUnits')">
+            <div class="item rounded-full mt-10 mb-3" (click)="redirect('/community')">
                 <div class="img"><img src="../../assets/image/community.svg"></div>
                 <div class="text">Community Units</div>
             </div>

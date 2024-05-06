@@ -19,6 +19,7 @@ export class Auth{
           await fetch(url)
           .then(response => response.json())
           .then(data => {
+    
               if(data.check){
                 this.dataLoaded = true;
                 this.username = this.cookieService.get("username").split("|")[0];

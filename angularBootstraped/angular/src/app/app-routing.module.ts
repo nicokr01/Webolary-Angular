@@ -6,6 +6,7 @@ import { BannedComponent } from './banned/banned.component';
 import { AddVocabularyComponent } from './add-vocabulary/add-vocabulary.component';
 import { AddCheckComponent } from './add-check/add-check.component';
 import { TestComponent } from './test/test.component';
+import { CommunitycheckComponent } from './communitycheck/communitycheck.component';
 
 const routes: Routes = [
     {path:"",component:HomeComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
     {path:"banned",component:BannedComponent},
     {path:"add",component:AddCheckComponent},
     {path:"addVocabulary",component:AddCheckComponent},
-    {path:"test", component:TestComponent}
+    {path:"test", component:TestComponent},
+    {path:"community", component:CommunitycheckComponent},
 ];
 
 @NgModule({

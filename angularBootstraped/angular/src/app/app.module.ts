@@ -23,6 +23,9 @@ import { CookieService } from 'ngx-cookie-service';
 import { AddVocabularyComponent } from './add-vocabulary/add-vocabulary.component';
 import { AddCheckComponent } from './add-check/add-check.component';
 import { TestComponent } from './test/test.component';
+import { CommunitycheckComponent } from './communitycheck/communitycheck.component';
+import { CommunityComponent } from './community/community.component';
+import { CardComponent } from './card/card.component';
 
 
 
@@ -43,6 +46,9 @@ import { TestComponent } from './test/test.component';
     AddVocabularyComponent,
     AddCheckComponent,
     TestComponent,
+    CommunitycheckComponent,
+    CommunityComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { Auth } from '../Auth/auth';
 import { CookieService } from 'ngx-cookie-service';
 import { Theme } from '../Theme/theme';
@@ -56,7 +56,13 @@ export class AddVocabularyComponent extends Auth{
     if(this.theme.getMode() == "dark"){
       var darkDiv = this.elementRef.nativeElement.querySelector("#darkModeDiv");
       if(darkDiv){
-        darkDiv.innerHTML = "<style>body{background-color:var(--darkmode)} #prg{background-color:rgba(0,0,0,0.65)} .textCircle{color:white} #word{color:white} .headlineDiv{color:white;} #first_part{color:white;} #rest{color:white;} #germanText{background-color:var(--darkmode);color:white} #englischText{background-color:var(--darkmode);color:white} #movingSpan{color:white} #c-p-3::before{background-color:rgba(0,0,0,0.65)} #p-v-3{color:white}  #c-p-2::before{background-color:rgba(0,0,0,0.65)} #p-v-2{color:white} #c-p-1::before{background-color:rgba(0,0,0,0.65)} #p-v-1{color:white} .circular-progress{background: conic-gradient(#7d2ae8 3.6deg,rgba(0,0,0,0.65)  0deg);} .analyse{color:white;} #h1{color:white}</style>";
+        darkDiv.innerHTML = "<style>.theme{color:white} body{background-color:var(--darkmode)} #prg{background-color:rgba(0,0,0,0.65)} .textCircle{color:white} #word{color:white} .headlineDiv{color:white;} #first_part{color:white;} #rest{color:white;} #germanText{background-color:var(--darkmode);color:white} #englischText{background-color:var(--darkmode);color:white} #movingSpan{color:white} #c-p-3::before{background-color:rgba(0,0,0,0.65)} #p-v-3{color:white}  #c-p-2::before{background-color:rgba(0,0,0,0.65)} #p-v-2{color:white} #c-p-1::before{background-color:rgba(0,0,0,0.65)} #p-v-1{color:white} .circular-progress{background: conic-gradient(#7d2ae8 3.6deg,rgba(0,0,0,0.65)  0deg);} .analyse{color:white;} #h1{color:white}</style>";
+      }
+    }
+    else{
+      var darkDiv = this.elementRef.nativeElement.querySelector("#darkModeDiv");
+      if(darkDiv){
+        darkDiv.innerHTML = "<style>.theme{color:black}";
       }
     }
 

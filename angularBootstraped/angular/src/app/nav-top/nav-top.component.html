@@ -13,22 +13,22 @@
 
     <div class="items">
 
-        <div class="menu-item rounded-xl mt-6 mb-3" (click)="closePrivateMenu()">
+        <div class="menu-item rounded-xl mt-6 mb-3 bg-neutral-200 hover:bg-black hover:text-white" (click)="closePrivateMenu()">
             <div class="img"><img src="../../assets/image/close.svg"></div>
             <div class="text">Close windwow</div>
         </div>
 
-        <div class="menu-item rounded-xl mt-6 mb-3">
+        <div class="menu-item rounded-xl mt-6 mb-3 bg-slate-200 hover:bg-black hover:text-white">
             <div class="img"><img src="../../assets/image/settings.svg"></div>
             <div class="text">Settings</div>
         </div>
 
-        <div class="menu-item rounded-xl mt-6 mb-3" (click)="this.system.resetUnitSession()">
+        <div class="menu-item rounded-xl mt-6 mb-3 bg-slate-200 hover:bg-black hover:text-white" (click)="this.system.resetUnitSession()">
             <div class="img"><img src="../../assets/image/reset.svg"></div>
             <div class="text">Reset vocabulary session</div>
         </div>
 
-        <div class="menu-item rounded-xl mt-6 mb-8" style="background-color: red;color: white;" (click)="this.system.logout()">
+        <div class="menu-item rounded-xl mt-6 mb-8 bg-red-600 hover:bg-red-400 text-white" (click)="this.system.logout()">
             <div class="img"><img src="../../assets/image/logout.svg"></div>
             <div class="text">Logout</div>
         </div>

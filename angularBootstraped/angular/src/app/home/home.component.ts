@@ -186,8 +186,13 @@ export class HomeComponent extends Auth{
       }
       else{
         // santizer disable, because its a safe HTML Code no user interaction so scheiß auf XSS
-        this.analyseDiv = this.sanitizer.bypassSecurityTrustHtml("Wrong <div class='ml-3 mr-3 text-white bg-green-600 rounded-full pl-3 pr-3'>"+this.correctWord+"</div> is the correct solution!");
-        this.system.increaseCountWrong();
+        if(window.innerWidth > 800){
+          this.analyseDiv = this.sanitizer.bypassSecurityTrustHtml("Wrong <div class='ml-3 mr-3 text-white bg-green-600 rounded-full pl-3 pr-3'>"+this.correctWord+"</div> is the correct solution!");
+        }
+        else{
+          this.analyseDiv = this.sanitizer.bypassSecurityTrustHtml("Wrong - "+this.correctWord+" - is the correct solution!");
+        }
+       this.system.increaseCountWrong();
         if(this.input.trim() != ""){
           this.system.delteVocOfAvailableList(this.correctWord);
         }

@@ -50,7 +50,6 @@ main{
 
 .inputWord .span{
    margin-top: -4rem;
-   color: white;
    font-family: 'Lexend';
    transition: 0ms;
 }
@@ -121,7 +120,6 @@ input:focus {
     }
     to{
         margin-top: -7rem;
-        color: white;
     }
 }
 
@@ -136,7 +134,7 @@ input:focus {
     }
     to{
         margin-top: -4rem;
-        color:rgb(156,163,175) ;
+    
     }
 }
 

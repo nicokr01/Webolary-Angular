@@ -4,7 +4,7 @@
     top: 1.5rem;
     width: 90%;
     left: 5%;
-    height: 8rem;
+    height: 5rem;
     background-color: #5120ce;
     border-radius: 4rem;
 }
@@ -15,8 +15,8 @@
     top: 0;
     width: 80%;
     padding-left: 10%;
-    line-height: 8rem;
-    font-size: 3.55rem;
+    line-height: 5rem;
+    font-size: 3.125rem;
     color: white;
     font-family: Lexend;
 }

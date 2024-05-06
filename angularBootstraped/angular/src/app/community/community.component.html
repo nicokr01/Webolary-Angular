@@ -1,0 +1,30 @@
+<div id="darkModeDiv"></div>
+<div (click)="bodyClicked()">
+    <link rel="stylesheet" href="../../assets/GoogleFonts/font.css">
+
+    <div *ngIf="!displayMobile">
+        <app-nav-top></app-nav-top>
+        <app-sidebar-small-light></app-sidebar-small-light>
+    </div>
+    <div id="global" class="SUPER_GLOBAL" [style]="superGlobalStyle">
+
+    <div *ngIf="displayMobile">
+        <app-nav-mobile></app-nav-mobile>
+    </div>
+
+    <main>
+        <h1 class="text-8xl mt-3 theme">Units created by the community</h1>
+
+        
+        <div class="input">
+            <div class="img"><img src="../../assets/image/search.svg"></div>
+            <input placeholder="Search for a unit ...">
+            <div class="bg-blue-600 btn">Search</div>
+        </div>
+
+        <div class="units">
+            <app-card *ngFor="let unit of allUnits;let i = index" [name]="unit.name" [creator]="unit.username" [dictionary]="unit.dictionary"></app-card>
+        </div>
+
+    </main>
+</div>

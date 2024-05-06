@@ -1,5 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
 import { Theme } from '../Theme/theme';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-sidebar-small-light',
@@ -7,9 +8,9 @@ import { Theme } from '../Theme/theme';
   styleUrl: './sidebar-small-light.component.css'
 })
 export class SidebarSmallLightComponent {
-  protected modeSVG:string = "";
+  protected modeSVG:SafeHtml = "";
 
-  constructor(protected theme:Theme,protected elementRef:ElementRef){}
+  constructor(protected theme:Theme,protected elementRef:ElementRef,private domsant:DomSanitizer){}
 
   ngOnInit(){
       this.renderColorThemeButton();
@@ -29,10 +30,10 @@ export class SidebarSmallLightComponent {
 
   renderColorThemeButton(){
     if(this.theme.getMode() == "white"){
-      this.modeSVG = "<img src='../../../assets/image/whiteMode.svg' >";
+      this.modeSVG = this.domsant.bypassSecurityTrustHtml("<img src='../../../assets/image/whiteMode.svg' ><img style='display:none' src='../../../assets/image/darkMode.svg' >");
   }
     else if (this.theme.getMode() == "dark"){
-      this.modeSVG = "<img src='../../../assets/image/darkMode.svg' >";
+      this.modeSVG = this.domsant.bypassSecurityTrustHtml("<img src='../../../assets/image/darkMode.svg' ><img style='display:none' src='../../../assets/image/whiteMode.svg' >");
     }
   }
 }

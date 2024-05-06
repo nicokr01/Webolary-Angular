@@ -18,16 +18,18 @@
         <!-- Inputs -->
         <div class="inputWord" (click)="inputAreaClicked()">
             <!-- Notice germanText is the variable in the currect system, in the new version use englischWord here !  -->
-            <input type="text" id="germanText" [(ngModel)]="inputGerman" (focus)="onFocus()" (blur)="onBlur(1)">
-            <div class="span" id="movingSpan">German word</div>
+            <input type="text" id="germanText" [(ngModel)]="inputGerman" (focus)="onFocus()" (blur)="onBlur(1)" >
+            <div class="theme span" id="movingSpan">German word</div>
         </div>
 
         <div class="inputWord" (click)="inputAreaClickedSecond()">
             <!-- Notice germanText is the variable in the currect system, in the new version use englischWord here !  -->
             <input type="text" id="englischText" [(ngModel)]="inputEnglisch" (focus)="onFocus()" (blur)="onBlur(2)">
-            <div class="span" id="movingSpanSecond">Englisch word</div>
+            <div class="theme span" id="movingSpanSecond">Englisch word</div>
         </div>
         <!-- //// Inputs -->
+
+
 
         <div class="actions">
             <button (click)="this.addVocabularyToDictionary(this.inputEnglisch,this.inputGerman)" class="actionBTN rounded-full bg-indigo-600 hover:bg-indigo-500"><img class="imgBTN" src="../../assets/image/addWhite.svg"> <p class="pBTN">Add vocabulary</p></button>
