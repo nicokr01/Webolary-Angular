@@ -18,12 +18,12 @@
         
         <div class="input">
             <div class="img"><img src="../../assets/image/search.svg"></div>
-            <input placeholder="Search for a unit ...">
-            <div class="bg-blue-600 btn">Search</div>
+            <input placeholder="Search for a unit ..." [(ngModel)]="search_input" (blur)="checkInput()">
+            <div class="bg-blue-600 btn" (click)="checkInput()">Search</div>
         </div>
 
         <div class="units">
-            <app-card *ngFor="let unit of allUnits;let i = index" [name]="unit.name" [creator]="unit.username" [dictionary]="unit.dictionary"></app-card>
+            <app-card *ngFor="let unit of searchUnits;let i = index" [name]="unit.name" [creator]="unit.username" [dictionary]="unit.dictionary"></app-card>
         </div>
 
     </main>

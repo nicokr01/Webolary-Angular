@@ -14,6 +14,8 @@ export class CommunityComponent extends Auth {
     protected displayMobile:boolean = false;
     protected superGlobalStyle = "";
     protected allUnits:any;
+    protected searchUnits:any;
+    protected search_input:string = "";
 
     constructor(cookie:CookieService, protected elementRef:ElementRef,protected theme:Theme){
       super(cookie);
@@ -47,6 +49,7 @@ export class CommunityComponent extends Auth {
     this.fetchAllUnits();
     }
 
+
         // bluring page is menu is active
         bodyClicked(){
           var v = localStorage.getItem("prMenu");
@@ -69,6 +72,7 @@ export class CommunityComponent extends Auth {
             const response = await fetch(URL);
             const data = await response.json(); 
             this.allUnits = data;
+            this.searchUnits = data;
           
           } catch (error) {
             console.error('Error could not connect ERROR: \"webolaryConnect API 404\" ', error);
@@ -76,4 +80,23 @@ export class CommunityComponent extends Auth {
         }
         /* //// Fetch All Units from API*/
 
+
+
+        /* CHECK Search input */
+        protected checkInput():void{
+            if(this.search_input == ""){this.searchUnits = this.allUnits}
+
+            let searchedUnitList: any [] = [];
+            for(let unit of this.allUnits){
+              let name:string = unit[2];
+
+              if (!searchedUnitList.includes(unit) && name.match(this.search_input)) {
+                searchedUnitList.push(unit);
+            }
+            }
+
+            this.searchUnits = searchedUnitList;
+        }
+
+         /* //// CHECK Search input */
 }
