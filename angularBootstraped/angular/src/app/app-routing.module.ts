@@ -7,6 +7,7 @@ import { AddVocabularyComponent } from './add-vocabulary/add-vocabulary.componen
 import { AddCheckComponent } from './add-check/add-check.component';
 import { TestComponent } from './test/test.component';
 import { CommunitycheckComponent } from './communitycheck/communitycheck.component';
+import { AiCheckComponent } from './ai-check/ai-check.component';
 
 const routes: Routes = [
     {path:"",component:HomeComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
     {path:"addVocabulary",component:AddCheckComponent},
     {path:"test", component:TestComponent},
     {path:"community", component:CommunitycheckComponent},
+    {path:"AI",component:AiCheckComponent}
 ];
 
 @NgModule({

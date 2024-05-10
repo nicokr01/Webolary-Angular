@@ -25,9 +25,8 @@ export class SidebarSmallLightComponent {
           this.asideStyle = "background-image: linear-gradient(to bottom, #000000, #310620, #540048, #670083, #5120ce);z-index: 99;position: fixed;";
       }
       else{
-        this.asideStyle = "background-image: linear-gradient(to bottom, #ffffff, #d3c9f8, #a893ee, #7f5ee0, #5120ce);z-index: 99;position: fixed;";
+        this.asideStyle = "background-image: linear-gradient(to bottom, rgb(242, 242, 242), #d3c9f8, #a893ee, #7f5ee0, #5120ce);z-index: 99;position: fixed;";
       }
-
   }
 
   switchMode(){

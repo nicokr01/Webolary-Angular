@@ -26,6 +26,8 @@ import { TestComponent } from './test/test.component';
 import { CommunitycheckComponent } from './communitycheck/communitycheck.component';
 import { CommunityComponent } from './community/community.component';
 import { CardComponent } from './card/card.component';
+import { AIComponent } from './ai/ai.component';
+import { AiCheckComponent } from './ai-check/ai-check.component';
 
 
 
@@ -49,6 +51,8 @@ import { CardComponent } from './card/card.component';
     CommunitycheckComponent,
     CommunityComponent,
     CardComponent,
+    AIComponent,
+    AiCheckComponent,
   ],
   imports: [
     BrowserModule,
