@@ -66,6 +66,10 @@ main{
     gap: 3.5rem;
 }
 
+.h1{
+    font-size: 6rem;
+}
+
 @media only screen and (max-width: 2000px){
 
 }
@@ -79,4 +83,29 @@ main{
     .units{
         gap: 2.5rem;
     }
+
 }
+
+@media only screen and (max-width: 1600px){
+    .input{
+        width: 35%;
+        left: 32.5%;
+    }
+
+    .h1{
+        font-size: 4.8rem;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .input{
+        width: 85%;
+        left: 7.5%;
+    }
+
+    .h1{
+        font-size: 2rem;
+        margin-top: 0;
+    }
+}
+

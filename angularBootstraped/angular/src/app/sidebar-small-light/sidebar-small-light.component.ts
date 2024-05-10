@@ -9,6 +9,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 })
 export class SidebarSmallLightComponent {
   protected modeSVG:SafeHtml = "";
+  protected asideStyle = "";
 
   constructor(protected theme:Theme,protected elementRef:ElementRef,private domsant:DomSanitizer){}
 
@@ -20,7 +21,13 @@ export class SidebarSmallLightComponent {
           if(aside){
             aside.style.backgroundColor = "rgba(240,240,240,1)";
           }
+
+          this.asideStyle = "background-image: linear-gradient(to bottom, #000000, #310620, #540048, #670083, #5120ce);z-index: 99;position: fixed;";
       }
+      else{
+        this.asideStyle = "background-image: linear-gradient(to bottom, #ffffff, #d3c9f8, #a893ee, #7f5ee0, #5120ce);z-index: 99;position: fixed;";
+      }
+
   }
 
   switchMode(){

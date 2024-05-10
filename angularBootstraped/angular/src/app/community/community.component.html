@@ -13,13 +13,13 @@
     </div>
 
     <main>
-        <h1 class="text-8xl mt-3 theme">Units created by the community</h1>
+        <h1 class="mt-1 theme h1">Units created by the community</h1>
 
         
         <div class="input">
             <div class="img"><img src="../../assets/image/search.svg"></div>
             <input placeholder="Search for a unit ..." [(ngModel)]="search_input" (blur)="checkInput()">
-            <div class="bg-blue-600 btn" (click)="checkInput()">Search</div>
+            <div class="bg-blue-600 hover:bg-blue-500 btn" (click)="checkInput()">Search</div>
         </div>
 
         <div class="units">
