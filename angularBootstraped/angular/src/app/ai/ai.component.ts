@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, model } from '@angular/core';
 import { Theme } from '../Theme/theme';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-ai',
@@ -12,8 +13,14 @@ export class AIComponent  {
     protected modeStyle ="";
     inputActiveState: boolean = false;
     input: string = "";
+    protected boxBTNValue:SafeHtml;
+    protected boxValue:SafeHtml = "";
+    protected movingSpanText = "Search for a topic";
 
-    constructor(protected theme:Theme, protected elementRef:ElementRef){}
+    constructor(protected theme:Theme, protected elementRef:ElementRef, protected sanitizer:DomSanitizer){
+      // set value for sanitized DOM
+      this.boxBTNValue = this.sanitizer.bypassSecurityTrustHtml("<p>Generate vocabulary list </p>");
+    }
     
     ngOnInit(){
       if(window.innerWidth > 850){this.sizeOk = true;}
@@ -28,6 +35,7 @@ export class AIComponent  {
       else if(this.theme.getMode() == "white"){
         this.modeStyle = "color:black;background-color:white;";
       }
+
     }
 
     inputAreaClicked(){
@@ -71,9 +79,42 @@ export class AIComponent  {
         }
     }
 
-    inputAction(){
-        alert("perform API request");
-      
+    async inputAction(){
+        if(this.input.trim() == ""){
+          this.movingSpanText = "Input is empty !";
+          return;
+        }
+        else if(this.input.trim().length > 50){
+          this.movingSpanText = "Only max. 50 characters are allowed !";
+          return;
+        }
+        else{
+          this.movingSpanText = "Searching for topic "+this.input;
+        }
+
+        this.boxBTNValue = this.sanitizer.bypassSecurityTrustHtml("<img src='../../assets/image/loadingInfinit.svg'><p class='ml-2' id='boxP'>Generate vocabulary list</p>");
+        const boxBTN = this.elementRef.nativeElement.querySelector("#boxBTN");
+
+        boxBTN.classList.add("flex");
+        boxBTN.classList.add("pl-2");
+
+        const topic = this.input;
+        const URL = "https://api.webolary.com/?AI=&topic="+topic;
+
+        await fetch(URL)
+        .then(response => response.json())
+        .then(data => {
+            if(data.status == "success"){
+                this.movingSpanText = "Status: success !";
+                console.log(JSON.parse(data.content));
+            }
+            else{
+              this.movingSpanText = "Sorry AI Request failed !";
+            }
+        })
+        .catch(error => {
+          console.error('Error could not connect! ERROR: \"webolaryConnect API 404\" ', error);
+        });
     }
 }
 
