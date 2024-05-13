@@ -71,7 +71,7 @@ export class CommunityComponent extends Auth {
 
         /*Fetch All Units from API*/
         async fetchAllUnits() {
-          const URL = "https://webolary.com/API/?getAllpublicUnits=";
+          const URL = "https://api.webolary.com/?getAllpublicUnits=";
           try {
             const response = await fetch(URL);
             const data = await response.json(); 

@@ -19,5 +19,9 @@ export class CardComponent {
   LoadUnit(){
     if(this.dictionary != undefined){localStorage.setItem("dictionary",this.dictionary);this.system.SETchangeReferenceDetection("vocabularyListChanged");this.router.navigate(["/"])}  
   }
+
+  addVocabulary(){
+    
+  }
 }
 
