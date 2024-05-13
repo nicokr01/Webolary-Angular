@@ -40,6 +40,10 @@ export class CommunityComponent extends Auth {
 
     /* //// Implement users theme*/
 
+    /* set navList link*/
+    localStorage.setItem("NavListItem","community Units");
+    /* set navList link*/
+
     // Responsive
     if(window.innerWidth < 510){
       this.displayMobile = true;

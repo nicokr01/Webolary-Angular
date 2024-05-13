@@ -36,6 +36,9 @@ export class AIComponent  {
         this.modeStyle = "color:black;background-color:white;";
       }
 
+        /* set navList link*/
+        localStorage.setItem("NavListItem","Artificial Intelligence");
+        /* set navList link*/
     }
 
     inputAreaClicked(){
