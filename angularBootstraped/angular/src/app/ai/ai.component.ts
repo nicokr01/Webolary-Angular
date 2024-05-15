@@ -1,6 +1,7 @@
 import { Component, ElementRef, HostListener, model } from '@angular/core';
 import { Theme } from '../Theme/theme';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-ai',
@@ -17,7 +18,7 @@ export class AIComponent  {
     protected boxValue:SafeHtml = "";
     protected movingSpanText = "Search for a topic";
 
-    constructor(protected theme:Theme, protected elementRef:ElementRef, protected sanitizer:DomSanitizer){
+    constructor(protected theme:Theme, protected elementRef:ElementRef, protected sanitizer:DomSanitizer, protected cookieService:CookieService){
       // set value for sanitized DOM
       this.boxBTNValue = this.sanitizer.bypassSecurityTrustHtml("<p>Generate vocabulary list </p>");
     }
@@ -102,7 +103,7 @@ export class AIComponent  {
         boxBTN.classList.add("pl-2");
 
         const topic = this.input;
-        const URL = "https://api.webolary.com/?AI=&topic="+topic;
+        const URL = "https://api.webolary.com/?AI=&topic="+topic+"&user="+this.cookieService.get("username");
 
         await fetch(URL)
         .then(response => response.json())
