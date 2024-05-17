@@ -91,7 +91,7 @@ export class NavTopComponent {
   }
 
   showMenu(){
-      this.privateMenuStyle = "";
+      this.privateMenuStyle = "position:fixed";
       localStorage.setItem("prMenu","active");
   }
 

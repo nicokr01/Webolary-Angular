@@ -67,9 +67,15 @@
   font-family: 'Lexend', sans-serif;
 }
 
+@media only screen and (max-width: 2000px){
+  .progress{
+    bottom: 1%;
+  }
+}
+
 @media only screen and (max-width:1600px){
   .progress{
-    bottom: 2%;
+    bottom: 5vh;
     height: 28%;
     width: 42.5%;
     left: 28.75%;
@@ -77,12 +83,6 @@
 }
 /* / progress Circle */
 
-
-@media only screen and (max-width: 2000px){
-  .progress{
-    bottom: 1%;
-  }
-}
 
 @media screen and (max-width: 1380px){
   .progress{

@@ -37,7 +37,7 @@ export class NavMobileComponent {
   }
 
   openMenu(){
-    this.mobileMenuDiv = "display:block";
+    this.mobileMenuDiv = "display:block;position:fixed";
   }
 
   redirect(url:string){

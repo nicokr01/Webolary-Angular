@@ -21,6 +21,10 @@ export class AIComponent  {
     constructor(protected theme:Theme, protected elementRef:ElementRef, protected sanitizer:DomSanitizer, protected cookieService:CookieService){
       // set value for sanitized DOM
       this.boxBTNValue = this.sanitizer.bypassSecurityTrustHtml("<p>Generate vocabulary list </p>");
+
+      /* set navList link*/
+      localStorage.setItem("NavListItem","Artificial Intelligence");
+      /* set navList link*/
     }
     
     ngOnInit(){
@@ -36,10 +40,6 @@ export class AIComponent  {
       else if(this.theme.getMode() == "white"){
         this.modeStyle = "color:black;background-color:white;";
       }
-
-        /* set navList link*/
-        localStorage.setItem("NavListItem","Artificial Intelligence");
-        /* set navList link*/
     }
 
     inputAreaClicked(){
