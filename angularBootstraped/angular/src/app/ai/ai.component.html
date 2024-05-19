@@ -1,9 +1,17 @@
 
 <div class="DIV" id="DIV"></div>
-
+<div (click)="bodyClicked()">
 <link rel="stylesheet" href="../../assets/GoogleFonts/font.css">
-<app-sidebar-small-light></app-sidebar-small-light>
-<app-nav-top></app-nav-top>
+
+<div *ngIf="!displayMobile">
+    <app-nav-top></app-nav-top>
+    <app-sidebar-small-light></app-sidebar-small-light>
+</div>
+<div id="global" class="SUPER_GLOBAL" [style]="superGlobalStyle">
+
+<div *ngIf="displayMobile">
+    <app-nav-mobile></app-nav-mobile>
+</div>
 
 <div class="box">
     <div class="text">Webolary-AI</div>
@@ -18,4 +26,5 @@
             
         </div>
     </div>
+</div>
 </div>

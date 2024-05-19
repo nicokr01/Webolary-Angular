@@ -17,6 +17,8 @@ export class AIComponent  {
     protected boxBTNValue:SafeHtml;
     protected boxValue:SafeHtml = "";
     protected movingSpanText = "Search for a topic";
+    protected superGlobalStyle = "";
+    protected displayMobile = false;
 
     constructor(protected theme:Theme, protected elementRef:ElementRef, protected sanitizer:DomSanitizer, protected cookieService:CookieService){
       // set value for sanitized DOM
@@ -40,6 +42,12 @@ export class AIComponent  {
       else if(this.theme.getMode() == "white"){
         this.modeStyle = "color:black;background-color:white;";
       }
+
+      // Responsive
+    if(window.innerWidth < 510){
+      this.displayMobile = true;
+    }
+    // //// Responsive
     }
 
     inputAreaClicked(){
@@ -120,5 +128,19 @@ export class AIComponent  {
           console.error('Error could not connect! ERROR: \"webolaryConnect API 404\" ', error);
         });
     }
+
+      // bluring page is menu is active
+  bodyClicked(){
+    var v = localStorage.getItem("prMenu");
+    if(v !== null && v == "active"){
+        this.superGlobalStyle = "filter:blur(10px)";
+        localStorage.removeItem("prMenu");
+    }
+    else if(v !== null && v == "hidden"){
+      this.superGlobalStyle = "filter:none";
+      localStorage.removeItem("prMenu");
+    }
+  }
+  // //// bluring page
 }
 

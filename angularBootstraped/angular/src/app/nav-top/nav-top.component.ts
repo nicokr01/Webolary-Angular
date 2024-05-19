@@ -33,11 +33,11 @@ export class NavTopComponent {
         const decryptedData = decryptedBytes.toString(CryptoJS.enc.Utf8);
         this.user = JSON.parse(decryptedData);
     } else {
-        this.user = new User("","",-2,"");
+        this.user = new User("","",-1,"","","","","",false,false,"",false);
         console.log("sessionStorage is empty :(");
     }
 
-    var reconstructedUserClass = new User("","",-2,"");
+    var reconstructedUserClass = new User("","",-1,"","","","","",false,false,"",false);
     reconstructedUserClass.updateObject(this.user);
     reconstructedUserClass.points = this.user.points;
 

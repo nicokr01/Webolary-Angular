@@ -22,11 +22,11 @@ export class NavMobileComponent {
         this.user = JSON.parse(decryptedData);
         console.log(this.user);
     } else {
-        this.user = new User("","",-2,"");
+        this.user = new User("","",-1,"","","","","",false,false,"",false);
         console.log("sessionStorage is empty :(");
     }
 
-    var reconstructedUserClass = new User("","",-2,"");
+    var reconstructedUserClass = new User("","",-1,"","","","","",false,false,"",false);
     reconstructedUserClass.updateObject(this.user);
 
     this.rank = reconstructedUserClass.convertAccessString();

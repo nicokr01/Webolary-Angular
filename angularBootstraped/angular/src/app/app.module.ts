@@ -28,6 +28,8 @@ import { CommunityComponent } from './community/community.component';
 import { CardComponent } from './card/card.component';
 import { AIComponent } from './ai/ai.component';
 import { AiCheckComponent } from './ai-check/ai-check.component';
+import { UsersettingsComponent } from './usersettings/usersettings.component';
+import { UsersettingsCheckComponent } from './usersettings-check/usersettings-check.component';
 
 
 
@@ -53,6 +55,8 @@ import { AiCheckComponent } from './ai-check/ai-check.component';
     CardComponent,
     AIComponent,
     AiCheckComponent,
+    UsersettingsComponent,
+    UsersettingsCheckComponent,
   ],
   imports: [
     BrowserModule,
