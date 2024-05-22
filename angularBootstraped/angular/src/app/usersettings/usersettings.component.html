@@ -12,22 +12,22 @@
         <app-nav-mobile></app-nav-mobile>
     </div>
 
-    <main id="main">
-        <div class="top-left">
+    <main id="main" class="2xl:mt-5">
+        <div class="top-left" [style]="styleBoxes">
             <div class="color"></div>
             <div class="user">{{reconstructedUserClass.username}}</div>
             <div class="profile"></div>
         </div>
-        <div class="top-right">
+        <div class="top-right" [style]="styleBoxes">
             <h2 class="ml-1">Security Settings</h2>
             <h3 class="ml-1 text-gray-500">Here you can adjust various security settings for your account</h3>
 
-            <div class="form" class="mt-14 ">
+            <div class="form mt-8 2xl:mt-5">
                 
                 <!-- checkbox Login Email-->
                 <div class="items-center justify-start gap-2">
 
-                    <label for="checkboxDefault" class="flex cursor-pointer items-center gap-2 text-3xl font-medium text-slate-700  [&:has(input:checked)]:text-black [&:has(input:disabled)]:opacity-75 [&:has(input:disabled)]:cursor-not-allowed">
+                    <label for="checkboxDefault" class="flex cursor-pointer items-center gap-2 font-medium text-slate-700  [&:has(input:checked)]:text-black [&:has(input:disabled)]:opacity-75 [&:has(input:disabled)]:cursor-not-allowed">
                         <div class="relative flex items-center">
                             <input *ngIf="emailLogin" checked name="check" id="checkboxDefault" type="checkbox" class="outline-blue-700 before:content[''] peer relative size-7 cursor-pointer appearance-none overflow-hidden rounded border border-slate-300 bg-slate-100 before:absolute before:inset-0 checked:border-blue-700 checked:before:bg-blue-700 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-slate-800 checked:focus:outline-blue-700 active:outline-offset-0 disabled:cursor-not-allowed "/>
                             <input *ngIf="!emailLogin" name="check" id="checkboxDefault" type="checkbox" class="outline-blue-700 before:content[''] peer relative size-7 cursor-pointer appearance-none overflow-hidden rounded border border-slate-300 bg-slate-100 before:absolute before:inset-0 checked:border-blue-700 checked:before:bg-blue-700 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-slate-800 checked:focus:outline-blue-700 active:outline-offset-0 disabled:cursor-not-allowed "/>
@@ -42,7 +42,7 @@
                 <!-- //// checkbox Login Email-->
 
                  <!-- checkbox Login Email-->
-                 <div class="items-center justify-start gap-2 mt-10">
+                 <div class="items-center justify-start gap-2 mt-10 2xl:mt-5">
 
                     <label for="checkboxDefault2" class="flex cursor-pointer items-center gap-2 text-3xl font-medium text-slate-700  [&:has(input:checked)]:text-black [&:has(input:disabled)]:opacity-75 [&:has(input:disabled)]:cursor-not-allowed">
                         <div class="relative flex items-center">
@@ -82,50 +82,50 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
                             </svg>
                         </div>
-                        <span class="ml-4">Session Login</span>
-                        <span class="text-xl ml-2">(Webolary servers create a login token, which is only available for a limited time. You must therefore log in again each time you visit Webolary)</span>
+                        <span class="ml-4 2xl:w-40">Session Login</span>
+                        <span class="text-xl ml-2 2xl:ml-2">(Webolary servers create a login token, which is only available for a limited time. You must therefore log in again each time you visit Webolary)</span>
                     </label>
                 </div>
                 <!-- //// checkbox-->
 
             </div>
 
-            <div class="updateBTN flex text-center"><img class="ml-5" src="../../assets/image/security.svg" style="height: 3rem;margin-top: 1rem;"> <p class="ml-14">Save changes</p></div>
+            <div class="updateBTN flex text-center"><img class="ml-5" src="../../assets/image/security.svg" style="height: 3rem;margin-top: 1rem;"> <p class="ml-14 2xl:ml-20">Save changes</p></div>
         </div>
 
 
-        <div class="bottom-left">
+        <div class="bottom-left" [style]="styleBoxes">
             <h2 class="ml-4">Account Settings</h2>
             <h3 class="ml-4 text-gray-500">Here you can change your account informations</h3>
 
-            <div class="form" class="mt-14 flex flex-wrap">
+            <div class="form" class="mt-14 flex flex-wrap 2xl:mt-6">
                   
             <!-- Username input -->
             <div class="inputDIV">
                 <label for="username" class="block text-2xl text-gray-600">Username</label>
                 <input [value]="usernameForm" type="username" placeholder="user12345" class="inputC text-2xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "/>
-                <p class="mt-3 text-xl text-gray-400 dark:text-gray-600">Webolary uses your email for login codes, 2FA and to send data to you</p>
+                <p class="mt-3 text-xl text-gray-400 dark:text-gray-500">Webolary uses your email for login codes, 2FA and to send data to you</p>
             </div>
 
             <!-- Email input -->
             <div class="inputDIV ml-16">
                 <label for="email" class="block text-2xl text-gray-600">Email Address</label>
                 <input [value]="emailForm" type="email" placeholder="user@mail.domain" class="inputC text-2xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "/>
-                <p class="mt-3 text-xl text-gray-400 dark:text-gray-600">Webolary uses your username to authorise you and unique your account </p>
+                <p class="mt-3 text-xl text-gray-400 dark:text-gray-500">Webolary uses your username to authorise you and unique your account </p>
             </div>
 
 
 
         <!-- Name -->
         <!-- Username input -->
-        <div class="inputDIV mt-12">
+        <div class="inputDIV mt-12 2xl:mt-5">
             <label for="name" class="block text-2xl text-gray-600">First name</label>
             <input [value]="firstnameForm" type="name" placeholder="Sam" class="inputC text-2xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "/>
             <!-- <p class="mt-3 text-xl text-gray-400 dark:text-gray-600">Webolary uses your email for login codes, 2FA and to send data to you</p> -->
         </div>
 
         <!-- Email input -->
-        <div class="inputDIV ml-16 mt-12">
+        <div class="inputDIV ml-16 2xl:mt-5">
             <label for="email" class="block text-2xl text-gray-600">Last name</label>
             <input [value]="lastnameForm" type="lastname" placeholder="Altman" class="inputC text-2xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "/>
             <!-- <p class="mt-3 text-xl text-gray-400 dark:text-gray-600">Webolary uses your username to authorise you and to make your unique your account </p> -->
@@ -201,33 +201,51 @@
         <!-- //// Social -->
             </div>
 
-            <div class="updateBTN flex text-center"><img class="ml-5" src="../../assets/image/acc.svg" style="height: 3rem;margin-top: 1rem;"> <p class="ml-14">Save changes</p></div>
+            <div class="updateBTN flex text-center"><img class="ml-5" src="../../assets/image/acc.svg" style="height: 3rem;margin-top: 1rem;"> <p class="ml-14 2xl:ml-20">Save changes</p></div>
         </div>
-        <div class="bottom-right">
+        <div class="bottom-right" [style]="styleBoxes">
             <h2 class="ml-4">Change password</h2>
             <h3 class="ml-4 text-gray-500">Here you can change your password</h3>
 
-            <div class="inputDIV mt-12">
-                <label for="name" class="block text-2xl text-gray-600">Old Password</label>
-                <input type="password" placeholder="Old password" class="inputC inputP text-2xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "/>
-                <img src="../../assets/image/viewOff.svg" class="imgP">
-                <!-- <p class="mt-3 text-xl text-gray-400 dark:text-gray-600">Webolary uses your email for login codes, 2FA and to send data to you</p> -->
+            <div class="hidden 2xl:flex">
+                <div class="inputDIV mt-12 2xl:mt-5">
+                    <label for="name" class="block text-2xl text-gray-600">Old Password</label>
+                    <input type="password" placeholder="Old password" class="inputC inputP text-xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "/>
+                    <img src="../../assets/image/viewOff.svg" class="imgP">
+                    <!-- <p class="mt-3 text-xl text-gray-400 dark:text-gray-600">Webolary uses your email for login codes, 2FA and to send data to you</p> -->
+                </div>
+    
+                <div class="inputDIV mt-12 2xl:mt-5 2xl:ml-10">
+                    <label for="name" class="block text-2xl text-gray-600">New Password</label>
+                    <input type="password" placeholder="New Password" class="inputC text-2xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "/>
+                    <img src="../../assets/image/viewOff.svg" class="imgP">
+                    <!-- <p class="mt-3 text-xl text-gray-400 dark:text-gray-600">Webolary uses your email for login codes, 2FA and to send data to you</p> -->
+                </div>
             </div>
 
-            <div class="inputDIV mt-12">
-                <label for="name" class="block text-2xl text-gray-600">New Password</label>
-                <input type="password" placeholder="New Password" class="inputC text-2xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "/>
-                <img src="../../assets/image/viewOff.svg" class="imgP">
-                <!-- <p class="mt-3 text-xl text-gray-400 dark:text-gray-600">Webolary uses your email for login codes, 2FA and to send data to you</p> -->
+            <div class="2xl:hidden">
+                <div class="inputDIV mt-12 2xl:mt-5">
+                    <label for="name" class="block text-2xl text-gray-600">Old Password</label>
+                    <input type="password" placeholder="Old password" class="inputC inputP text-xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "/>
+                    <img src="../../assets/image/viewOff.svg" class="imgP">
+                    <!-- <p class="mt-3 text-xl text-gray-400 dark:text-gray-600">Webolary uses your email for login codes, 2FA and to send data to you</p> -->
+                </div>
+    
+                <div class="inputDIV mt-12 2xl:mt-5">
+                    <label for="name" class="block text-2xl text-gray-600">New Password</label>
+                    <input type="password" placeholder="New Password" class="inputC text-2xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "/>
+                    <img src="../../assets/image/viewOff.svg" class="imgP">
+                    <!-- <p class="mt-3 text-xl text-gray-400 dark:text-gray-600">Webolary uses your email for login codes, 2FA and to send data to you</p> -->
+                </div>
             </div>
 
-            <div class="inputDIV mt-12">
+            <div class="inputDIV mt-12 2xl:mt-5">
                 <label for="name" class="block text-2xl text-gray-600">New Password Confirmation</label>
                 <input type="password" placeholder="New Password Confirmation" class="inputC text-2xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "> 
                 <img src="../../assets/image/viewOff.svg" class="imgP">
                 <!-- <p class="mt-3 text-xl text-gray-400 dark:text-gray-600">Webolary uses your email for login codes, 2FA and to send data to you</p> -->
             </div>
-            <div class="updateBTN flex text-center"><img class="ml-5" src="../../assets/image/key.svg" style="height: 3rem;margin-top: 1rem;"> <p class="ml-14">Save changes</p></div>
+            <div class="updateBTN flex text-center"><img class="ml-5" src="../../assets/image/key.svg" style="height: 3rem;margin-top: 1rem;"> <p class="ml-14 2xl:ml-20">Save changes</p></div>
         </div>
 
     </main>
