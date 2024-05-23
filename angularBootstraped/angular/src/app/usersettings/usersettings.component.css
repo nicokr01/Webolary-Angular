@@ -148,6 +148,24 @@ h3{
     }
 }
 
+@media only screen and (max-width: 1950px ){
+    *{
+        font-size: 15px;
+    }
+
+    .profile{
+        position: relative;
+        width: 8.8rem;
+        height: 8.8rem;
+        top: 27%;
+    }
+    
+    .user{
+        bottom: 1rem;
+        font-size: 2.75rem;
+    }
+}
+
 @media only screen and (max-width: 1650px){
     h2{
         font-size: 2rem;

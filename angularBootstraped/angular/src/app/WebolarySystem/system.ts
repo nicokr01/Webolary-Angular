@@ -450,6 +450,31 @@ export class System{
       }
     }
 
+    public isValidUsername(username: string): boolean {
+      // Regex zur Validierung des Benutzernamens
+      const regex = /^[a-zA-Z0-9_]{4,40}$/;
+  
+      // Überprüfen, ob der Benutzername dem Regex entspricht
+      return regex.test(username);
+  }
+  
+  public isValidEmail(email: string): boolean {
+    // Regex zur Validierung der E-Mail-Adresse
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+    // Überprüfen, ob die E-Mail-Adresse dem Regex entspricht
+    return regex.test(email);
+  }
+
+  public isValidName(name: string): boolean {
+    // Regex zur Validierung des Namens
+    const regex = /^[a-zA-Z]{2,40}$/;
+
+    // Überprüfen, ob der Name dem Regex entspricht
+    return regex.test(name);
+}
 
     // //// public functions
+
+
 }

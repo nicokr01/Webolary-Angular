@@ -2,6 +2,8 @@ import { Component, ElementRef } from '@angular/core';
 import { Theme } from '../Theme/theme';
 import { User } from '../User/User';
 import CryptoJS from 'crypto-js';
+import { System } from '../WebolarySystem/system';
+import { sign } from 'crypto';
 
 @Component({
   selector: 'app-usersettings',
@@ -15,6 +17,8 @@ export class UsersettingsComponent {
   protected user:User;  
   protected reconstructedUserClass:User;
   protected styleBoxes = "background-color: white;border: 1px solid black;";
+  protected alertText:string[] = ["",""];
+  protected alertStyle:string[] =["display:none","display:none"];
 
   // FORM
   protected usernameForm:string = "";
@@ -31,7 +35,7 @@ export class UsersettingsComponent {
 
   // //// Form
 
-  constructor(protected elementRef:ElementRef,protected theme:Theme){
+  constructor(protected elementRef:ElementRef,protected theme:Theme, protected system:System){
         /* set navList link*/
         localStorage.setItem("NavListItem","User Settings");
         /* set navList link*/
@@ -111,4 +115,62 @@ export class UsersettingsComponent {
     }
   }
   // //// bluring page
+
+  // Form validation
+
+  public publicSettingsSubmit():void {
+      this.usernameForm.trim();
+      this.emailForm.trim();
+      this.usernameForm.trim();
+      this.lastnameForm.trim();
+
+      let usernameCheck:boolean = this.system.isValidUsername(this.usernameForm);
+      let emailCheck:boolean = this.system.isValidEmail(this.emailForm);
+
+      let firstNameCheck:boolean = this.system.isValidName(this.firstnameForm);
+      let lastnameCheck:boolean = this.system.isValidName(this.lastnameForm);
+
+      let errorMessage: string[] = [];
+
+      if(!usernameCheck){
+        errorMessage.push("username");
+      }
+      if(!emailCheck){
+        errorMessage.push("email");
+      }
+      if(!firstNameCheck){
+        errorMessage.push("firstName");
+      }
+      if(!lastnameCheck){
+        errorMessage.push("lastName");
+      }
+
+      this.superGlobalStyle = "filter:blur(10px)";
+      if(errorMessage.length == 0){
+        this.alertText[1] = "Your data has been updated successfully";
+        this.alertStyle[1] = "";
+      }
+      else{
+        this.alertText[0] = "The following input field were not filled correctly: " + errorMessage.join(",");
+        this.alertStyle[0] = "";
+      }
+
+      
+  }
+
+  public securitySettingsSubmit():void {
+
+  }
+
+  public passwordChangeSubmit():void {
+
+  }
+
+  public closeAlert(index:number):void{
+    this.alertText[index] = "";
+    this.alertStyle[index] = "display: none";
+    this.superGlobalStyle = "filter:none";
+  }
+
+  // //// Form validation
 }

@@ -47,7 +47,7 @@ export class Auth{
 
       private initSocketEvents(){
         this.socket.onopen = () => {
-          console.log('WebSocket connection established');
+          console.log('WebolaryLive services: connection established :)');
           // Send Webolary Live Services Authorization State
           this.socket.send('My token:'+this.cookieService.get("username"));
       };
