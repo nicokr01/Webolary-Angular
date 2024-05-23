@@ -11,7 +11,7 @@ export class System{
     private user:any;
     public dictionary: { [key: string]: any } = {};
   
-    constructor(private cookieService:CookieService, ){
+    constructor(public cookieService:CookieService, ){
       
       let dicJSON = localStorage.getItem('dictionary');
 

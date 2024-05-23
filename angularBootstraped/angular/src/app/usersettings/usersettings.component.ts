@@ -4,6 +4,7 @@ import { User } from '../User/User';
 import CryptoJS from 'crypto-js';
 import { System } from '../WebolarySystem/system';
 import { sign } from 'crypto';
+import { json } from 'express';
 
 @Component({
   selector: 'app-usersettings',
@@ -32,7 +33,7 @@ export class UsersettingsComponent {
 
   protected authOptionEmail:boolean = false;
   protected authOptionToken:boolean = false;
-
+  protected authMethod:string = "";
   // //// Form
 
   constructor(protected elementRef:ElementRef,protected theme:Theme, protected system:System){
@@ -64,6 +65,7 @@ export class UsersettingsComponent {
       this.emailForm = this.reconstructedUserClass.email;
       this.firstnameForm = this.reconstructedUserClass.firstname;
       this.lastnameForm = this.reconstructedUserClass.lastname;
+      this.authMethod = this.reconstructedUserClass.two_FA_method;
       
       if(this.reconstructedUserClass.two_FA_method == "email"){
         this.authOptionEmail = true;
@@ -118,7 +120,7 @@ export class UsersettingsComponent {
 
   // Form validation
 
-  public publicSettingsSubmit():void {
+  async publicSettingsSubmit(){
       this.usernameForm.trim();
       this.emailForm.trim();
       this.usernameForm.trim();
@@ -145,21 +147,65 @@ export class UsersettingsComponent {
         errorMessage.push("lastName");
       }
 
-      this.superGlobalStyle = "filter:blur(10px)";
-      if(errorMessage.length == 0){
-        this.alertText[1] = "Your data has been updated successfully";
-        this.alertStyle[1] = "";
-      }
-      else{
+      //Client site validation
+      if(errorMessage.length != 0){
+        this.superGlobalStyle = "filter:blur(10px)";
         this.alertText[0] = "The following input field were not filled correctly: " + errorMessage.join(",");
         this.alertStyle[0] = "";
+        return;
       }
 
+      this.reconstructedUserClass.username = this.usernameForm;
+      this.reconstructedUserClass.email = this.emailForm;
+      this.reconstructedUserClass.firstname = this.firstnameForm;
+      this.reconstructedUserClass.lastname = this.lastnameForm;
       
+      let userAPI = JSON.stringify(this.transformUserForApi(this.reconstructedUserClass));
+      const url = "https://api.webolary.com/?updateUser=&user="+userAPI+"&token="+this.system.cookieService.get("username");
+      await fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        //Server side validation
+          if(data.status == "success"){
+            this.alertStyle[1] = "display:block";
+            this.alertText[1] = "Your security settings have been updated successfully";
+            this.superGlobalStyle = "filter:blur(10px)";
+          }
+          if(data.status != "success"){
+            this.alertStyle[0] = "display:block";
+            this.alertText[0] = data.message;
+            this.superGlobalStyle = "filter:blur(10px)";
+          }
+      })
   }
 
-  public securitySettingsSubmit():void {
+  protected async securitySettingsSubmit(){
+    this.reconstructedUserClass.emailLogin = this.emailLogin;
+    this.reconstructedUserClass.two_FA = this.twoFA;
+    this.reconstructedUserClass.two_FA_method = this.authMethod;
+    this.reconstructedUserClass.session_login = this.sessionLogin;
 
+    let userAPI = JSON.stringify(this.transformUserForApi(this.reconstructedUserClass));
+
+    const url = "https://api.webolary.com/?updateUser=&user="+userAPI+"&token="+this.system.cookieService.get("username")+"&type=sec";
+
+    this.alertText[0] = "";
+    this.alertText[1] = "";
+
+    await fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        if(data.status == "success"){
+          this.alertStyle[1] = "display:block";
+          this.alertText[1] = "Your security settings have been updated successfully";
+          this.superGlobalStyle = "filter:blur(10px)";
+        }
+        if(data.status != "success"){
+          this.alertText[0] = data.message;
+          this.alertStyle[0] = "display:block";
+          this.superGlobalStyle = "filter:blur(10px)";
+        }
+    })
   }
 
   public passwordChangeSubmit():void {
@@ -170,6 +216,19 @@ export class UsersettingsComponent {
     this.alertText[index] = "";
     this.alertStyle[index] = "display: none";
     this.superGlobalStyle = "filter:none";
+  }
+
+  setAuthMethod(method:string){
+    this.authMethod = method;
+  }
+
+  private transformUserForApi(user: User): any {
+    return {
+      ...user,
+      emailLogin: user.emailLogin ? 1 : 0,
+      two_FA: user.two_FA ? 1 : 0,
+      session_login: user.session_login ? 1 : 0,
+    };
   }
 
   // //// Form validation

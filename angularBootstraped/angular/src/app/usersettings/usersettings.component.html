@@ -9,8 +9,8 @@
 
     <!-- Error Alert -->
     <div [style]="alertStyle[0]">
-    <div class="flex w-full max-w-3xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 relative" style="position: absolute;z-index: 99;margin-left: 18vw; margin-top:25vh;align-items: center;">
-        <div class="flex items-center justify-center w-24 h-full bg-red-500" style="height: 9rem;">
+    <div class="flex w-full max-2xl:max-w-3xl max-w-4xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 relative" style="position: absolute;z-index: 99;margin-left: 18vw; margin-top:25vh;align-items: center;">
+        <div class="flex items-center justify-center w-16 h-full bg-red-500" style="height: 9rem;">
             <svg class="w-10 h-10 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
                 <path d="M20 3.36667C10.8167 3.36667 3.3667 10.8167 3.3667 20C3.3667 29.1833 10.8167 36.6333 20 36.6333C29.1834 36.6333 36.6334 29.1833 36.6334 20C36.6334 10.8167 29.1834 3.36667 20 3.36667ZM19.1334 33.3333V22.9H13.3334L21.6667 6.66667V17.1H27.25L19.1334 33.3333Z" />
             </svg>
@@ -25,14 +25,14 @@
             </div>
         </div>
 
-        <div class="w-32 h-16 mr-5" (click)="closeAlert(0)"><button type="button" style="width: 100%;height: 100%;" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Close</button></div>
+        <div class="w-32 h-16 absolute right-8" (click)="closeAlert(0)"><button type="button" style="width: 100%;height: 100%;" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-xl max-2xl:text-sm px-5 py-2.5 text-center me-2 mb-2">Close</button></div>
     </div>
     </div>
 
                 
 <div [style]="alertStyle[1]">
 <div class="flex w-full max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800" style="position: absolute;z-index: 99;margin-left: 18vw; margin-top:25vh;align-items: center;">
-    <div class="flex items-center justify-center w-12 bg-emerald-500" style="height: 9rem;">
+    <div class="flex items-center justify-center w-16 bg-emerald-500" style="height: 9rem;">
         <svg class="w-10 h-10 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
             <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z" />
         </svg>
@@ -78,9 +78,8 @@
 
                     <label for="checkboxDefault" class="flex cursor-pointer items-center gap-2 font-medium text-slate-700  [&:has(input:checked)]:text-black [&:has(input:disabled)]:opacity-75 [&:has(input:disabled)]:cursor-not-allowed">
                         <div class="relative flex items-center">
-                            <input *ngIf="emailLogin" checked name="check" id="checkboxDefault" type="checkbox" class="outline-blue-700 before:content[''] peer relative size-7 cursor-pointer appearance-none overflow-hidden rounded border border-slate-300 bg-slate-100 before:absolute before:inset-0 checked:border-blue-700 checked:before:bg-blue-700 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-slate-800 checked:focus:outline-blue-700 active:outline-offset-0 disabled:cursor-not-allowed "/>
-                            <input *ngIf="!emailLogin" name="check" id="checkboxDefault" type="checkbox" class="outline-blue-700 before:content[''] peer relative size-7 cursor-pointer appearance-none overflow-hidden rounded border border-slate-300 bg-slate-100 before:absolute before:inset-0 checked:border-blue-700 checked:before:bg-blue-700 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-slate-800 checked:focus:outline-blue-700 active:outline-offset-0 disabled:cursor-not-allowed "/>
-                             
+                            <input [(ngModel)]="emailLogin" name="check" id="checkboxDefault" type="checkbox" class="outline-blue-700 before:content[''] peer relative size-7 cursor-pointer appearance-none overflow-hidden rounded border border-slate-300 bg-slate-100 before:absolute before:inset-0 checked:border-blue-700 checked:before:bg-blue-700 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-slate-800 checked:focus:outline-blue-700 active:outline-offset-0 disabled:cursor-not-allowed "/>
+                            
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" stroke="currentColor" fill="none" stroke-width="4" class="pointer-events-none invisible absolute left-1/2 top-1/2 size-5 -translate-x-1/2 -translate-y-1/2 text-slate-100 peer-checked:visible dark:text-slate-100">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
                             </svg>
@@ -95,8 +94,7 @@
 
                     <label for="checkboxDefault2" class="flex cursor-pointer items-center gap-2 text-3xl font-medium text-slate-700  [&:has(input:checked)]:text-black [&:has(input:disabled)]:opacity-75 [&:has(input:disabled)]:cursor-not-allowed">
                         <div class="relative flex items-center">
-                            <input *ngIf="twoFA" checked name="check2" id="checkboxDefault2" type="checkbox" class="outline-blue-700 before:content[''] peer relative size-7 cursor-pointer appearance-none overflow-hidden rounded border border-slate-300 bg-slate-100 before:absolute before:inset-0 checked:border-blue-700 checked:before:bg-blue-700 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-slate-800 checked:focus:outline-blue-700 active:outline-offset-0 disabled:cursor-not-allowed "/>
-                            <input *ngIf="!twoFA" name="check2" id="checkboxDefault2" type="checkbox" class="outline-blue-700 before:content[''] peer relative size-7 cursor-pointer appearance-none overflow-hidden rounded border border-slate-300 bg-slate-100 before:absolute before:inset-0 checked:border-blue-700 checked:before:bg-blue-700 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-slate-800 checked:focus:outline-blue-700 active:outline-offset-0 disabled:cursor-not-allowed "/>
+                            <input [(ngModel)]="twoFA" name="check2" id="checkboxDefault2" type="checkbox" class="outline-blue-700 before:content[''] peer relative size-7 cursor-pointer appearance-none overflow-hidden rounded border border-slate-300 bg-slate-100 before:absolute before:inset-0 checked:border-blue-700 checked:before:bg-blue-700 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-slate-800 checked:focus:outline-blue-700 active:outline-offset-0 disabled:cursor-not-allowed "/>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" stroke="currentColor" fill="none" stroke-width="4" class="pointer-events-none invisible absolute left-1/2 top-1/2 size-5 -translate-x-1/2 -translate-y-1/2 text-slate-100 peer-checked:visible dark:text-slate-100">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
                             </svg>
@@ -109,10 +107,10 @@
                 <form class="max-w-2xl mt-6 ml-12">
                     <label for="countries" class="block mb-2 text-2xl font-medium text-gray-900 ">Select an option</label>
                     <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                        <option selected value="webolaryAuth">Webolary Auth via link sent by mail (high security)</option>
+                        <option (click)="setAuthMethod('token')" selected value="token">Webolary Auth via link sent by mail (high security)</option>
                         <option disabled value="mail">Webolary login & required social login (comming soon)</option>
-                        <option *ngIf="authOptionEmail" selected value="mail">E-Mail code (low security)</option>
-
+                        <option *ngIf="authOptionEmail" (click)="setAuthMethod('email')" selected value="mail">E-Mail code (low security)</option>
+                        <option *ngIf="!authOptionEmail" (click)="setAuthMethod('email')" value="mail">E-Mail code (low security)</option>
                 </select>
                 </form>
 
@@ -121,17 +119,16 @@
                 <!-- //// checkbox Login Email-->
 
                 <!-- checkbox Session-->
-                <div class="items-center justify-start gap-2 mt-8">
+                <div class="items-center justify-start gap-0 mt-8">
 
                     <label for="checkboxDefault3" class="flex cursor-pointer items-center gap-2 text-3xl font-medium text-slate-700  [&:has(input:checked)]:text-black [&:has(input:disabled)]:opacity-75 [&:has(input:disabled)]:cursor-not-allowed">
                         <div class="relative flex items-center">
-                            <input *ngIf="sessionLogin" checked name="check3" id="checkboxDefault3" type="checkbox" class="outline-blue-700 before:content[''] peer relative size-7 cursor-pointer appearance-none overflow-hidden rounded border border-slate-300 bg-slate-100 before:absolute before:inset-0 checked:border-blue-700 checked:before:bg-blue-700 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-slate-800 checked:focus:outline-blue-700 active:outline-offset-0 disabled:cursor-not-allowed "/>
-                            <input *ngIf="!sessionLogin"  name="check3" id="checkboxDefault3" type="checkbox" class="outline-blue-700 before:content[''] peer relative size-7 cursor-pointer appearance-none overflow-hidden rounded border border-slate-300 bg-slate-100 before:absolute before:inset-0 checked:border-blue-700 checked:before:bg-blue-700 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-slate-800 checked:focus:outline-blue-700 active:outline-offset-0 disabled:cursor-not-allowed "/>
+                            <input [(ngModel)]="sessionLogin"  name="check3" id="checkboxDefault3" type="checkbox" class="outline-blue-700 before:content[''] peer relative size-7 cursor-pointer appearance-none overflow-hidden rounded border border-slate-300 bg-slate-100 before:absolute before:inset-0 checked:border-blue-700 checked:before:bg-blue-700 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-slate-800 checked:focus:outline-blue-700 active:outline-offset-0 disabled:cursor-not-allowed "/>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" stroke="currentColor" fill="none" stroke-width="4" class="pointer-events-none invisible absolute left-1/2 top-1/2 size-5 -translate-x-1/2 -translate-y-1/2 text-slate-100 peer-checked:visible dark:text-slate-100">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
                             </svg>
                         </div>
-                        <span class="ml-4 2xl:w-40">Session Login</span>
+                        <span class="ml-4 2xl:w-60">Session Login</span>
                         <span class="text-xl ml-2 2xl:ml-2">(Webolary servers create a login token, which is only available for a limited time. You must therefore log in again each time you visit Webolary)</span>
                     </label>
                 </div>
@@ -139,7 +136,7 @@
 
             </div>
 
-            <div class="updateBTN flex text-center"><img class="ml-5" src="../../assets/image/security.svg" style="height: 3rem;margin-top: 1rem;"> <p class="ml-14 2xl:ml-20">Save changes</p></div>
+            <div class="updateBTN flex text-center" (click)="securitySettingsSubmit()"><img class="ml-5" src="../../assets/image/security.svg" style="height: 3rem;margin-top: 1rem;"> <p class="ml-14 2xl:ml-20">Save changes</p></div>
         </div>
 
 
