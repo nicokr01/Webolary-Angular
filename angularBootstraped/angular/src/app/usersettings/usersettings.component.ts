@@ -3,8 +3,6 @@ import { Theme } from '../Theme/theme';
 import { User } from '../User/User';
 import CryptoJS from 'crypto-js';
 import { System } from '../WebolarySystem/system';
-import { sign } from 'crypto';
-import { json } from 'express';
 
 @Component({
   selector: 'app-usersettings',

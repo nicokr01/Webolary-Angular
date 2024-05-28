@@ -13,17 +13,17 @@
     <app-nav-mobile></app-nav-mobile>
 </div>
 
-<div class="box">
+<div class="box" [style.backgroundColor]="backgroundColor" [style.color] = "color"> 
     <div class="text">Webolary-AI</div>
 
     <div style="margin-top: 6vh;" id="boxInputDiv">
         <div class="inputWord" (click)="inputAreaClicked()">
             <!-- Notice germanText is the variable in the currect system, in the new version use englischWord here !  -->
-            <input type="text" id="input" [(ngModel)]="input" (focus)="onFocus()" (blur)="onBlur()">
-            <div class="theme span" id="movingSpan">{{movingSpanText}}</div>
+        
+            <input type="text" id="input" [(ngModel)]="input" (focus)="onFocus()" (blur)="onBlur()" [style.backgroundColor]="backgroundColor" style="color: black;">
+            <div class="theme span" id="movingSpan" style="color: black;">{{movingSpanText}}</div>
         </div>
         <div class="btn" (click)="inputAction()" id="boxBTN" [innerHTML]="boxBTNValue">
-            
         </div>
     </div>
 </div>

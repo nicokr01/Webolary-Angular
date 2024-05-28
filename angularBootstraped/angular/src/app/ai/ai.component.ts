@@ -19,6 +19,8 @@ export class AIComponent  {
     protected movingSpanText = "Search for a topic";
     protected superGlobalStyle = "";
     protected displayMobile = false;
+    protected backgroundColor:string = "white";
+    protected color:string = "white";
 
     constructor(protected theme:Theme, protected elementRef:ElementRef, protected sanitizer:DomSanitizer, protected cookieService:CookieService){
       // set value for sanitized DOM
@@ -38,6 +40,8 @@ export class AIComponent  {
         if(element){
           element.style.backgroundColor = "black";
         }
+        this.color = "black";
+        this.backgroundColor = "rgb(242,242,242)";
       }
       else if(this.theme.getMode() == "white"){
         this.modeStyle = "color:black;background-color:white;";
