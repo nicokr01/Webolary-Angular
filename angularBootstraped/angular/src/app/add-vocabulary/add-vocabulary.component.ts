@@ -50,8 +50,6 @@ export class AddVocabularyComponent extends Auth{
   }
 
   ngOnInit(){
-    this.auth();
-
     /*Implement users theme*/
     if(this.theme.getMode() == "dark"){
       var darkDiv = this.elementRef.nativeElement.querySelector("#darkModeDiv");
@@ -231,6 +229,7 @@ export class AddVocabularyComponent extends Auth{
     }
 
     addVocabularyToDictionary(key:string,value:string){
+    
       this.system.SETchangeReferenceDetection("vocabularyListChanged");
       if(value.trim() == ""){
         let input_2 = document.getElementById("germanText");
@@ -247,14 +246,26 @@ export class AddVocabularyComponent extends Auth{
         return false;
       }
 
+      if(this.inputGerman.trim() == "" || this.inputEnglisch.trim() == ""){return false}
+
       this.dictionary[key] = value;
       this.UnitSizeValue++;
       this.UnitSize = this.UnitSizeValue+" Vocabularys";
       localStorage.setItem("dictionary",JSON.stringify(this.dictionary)); 
+
+      this.inputGerman = "";
+      this.inputEnglisch = "";
+
       return true;
     }
 
     getDictionaryKeys(){
       return Object.keys(this.dictionary);
+    }
+
+    public resetDictionary():void{
+      this.dictionary = {};
+      localStorage.setItem("dictionary",JSON.stringify(this.dictionary));
+      this.UnitSize = 0;
     }
 }

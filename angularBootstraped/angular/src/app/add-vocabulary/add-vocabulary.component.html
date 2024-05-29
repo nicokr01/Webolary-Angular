@@ -33,7 +33,7 @@
 
         <div class="actions">
             <button (click)="this.addVocabularyToDictionary(this.inputEnglisch,this.inputGerman)" class="actionBTN rounded-full bg-indigo-600 hover:bg-indigo-500"><img class="imgBTN" src="../../assets/image/addWhite.svg"> <p class="pBTN">Add vocabulary</p></button>
-            <button class="actionBTN rounded-full bg-red-600 hover:bg-red-500"><img class="imgBTN" src="../../assets/image/delete.svg"> <p class="pBTN2">Delete vocabulary</p></button>
+            <button (click)="this.resetDictionary()" class="actionBTN rounded-full bg-red-600 hover:bg-red-500"><img class="imgBTN" src="../../assets/image/delete.svg"> <p class="pBTN2">Delete vocabulary</p></button>
             <button class="actionBTN rounded-full bg-green-600 hover:bg-green-500"><img class="imgBTN" src="../../assets/image/addWhite.svg"> <p class="pBTN3">Save Unit</p></button>
         </div>
 
