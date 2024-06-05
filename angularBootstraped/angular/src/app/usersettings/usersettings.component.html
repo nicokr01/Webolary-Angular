@@ -256,14 +256,14 @@
             <div class="hidden 2xl:flex">
                 <div class="inputDIV mt-12 2xl:mt-5">
                     <label for="name" class="block text-2xl text-gray-600">Old Password</label>
-                    <input type="password" placeholder="Old password" class="inputC inputP text-xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "/>
+                    <input [(ngModel)]="currentPassword" type="password" placeholder="Old password" class="inputC inputP text-xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "/>
                     <img src="../../assets/image/viewOff.svg" class="imgP">
                     <!-- <p class="mt-3 text-xl text-gray-400 dark:text-gray-600">Webolary uses your email for login codes, 2FA and to send data to you</p> -->
                 </div>
     
                 <div class="inputDIV mt-12 2xl:mt-5 2xl:ml-10">
                     <label for="name" class="block text-2xl text-gray-600">New Password</label>
-                    <input type="password" placeholder="New Password" class="inputC text-2xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "/>
+                    <input [(ngModel)]="newPassword" type="password" placeholder="New Password" class="inputC text-2xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "/>
                     <img src="../../assets/image/viewOff.svg" class="imgP">
                     <!-- <p class="mt-3 text-xl text-gray-400 dark:text-gray-600">Webolary uses your email for login codes, 2FA and to send data to you</p> -->
                 </div>
@@ -272,14 +272,14 @@
             <div class="2xl:hidden">
                 <div class="inputDIV mt-12 2xl:mt-5">
                     <label for="name" class="block text-2xl text-gray-600">Old Password</label>
-                    <input type="password" placeholder="Old password" class="inputC inputP text-xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "/>
+                    <input [(ngModel)]="currentPassword" type="password" placeholder="Old password" class="inputC inputP text-xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "/>
                     <img src="../../assets/image/viewOff.svg" class="imgP">
                     <!-- <p class="mt-3 text-xl text-gray-400 dark:text-gray-600">Webolary uses your email for login codes, 2FA and to send data to you</p> -->
                 </div>
     
                 <div class="inputDIV mt-12 2xl:mt-5">
                     <label for="name" class="block text-2xl text-gray-600">New Password</label>
-                    <input type="password" placeholder="New Password" class="inputC text-2xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "/>
+                    <input [(ngModel)]="newPassword" type="password" placeholder="New Password" class="inputC text-2xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "/>
                     <img src="../../assets/image/viewOff.svg" class="imgP">
                     <!-- <p class="mt-3 text-xl text-gray-400 dark:text-gray-600">Webolary uses your email for login codes, 2FA and to send data to you</p> -->
                 </div>
@@ -287,11 +287,11 @@
 
             <div class="inputDIV mt-12 2xl:mt-5">
                 <label for="name" class="block text-2xl text-gray-600">New Password Confirmation</label>
-                <input type="password" placeholder="New Password Confirmation" class="inputC text-2xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "> 
+                <input [(ngModel)]="newPasswordConfirmation" type="password" placeholder="New Password Confirmation" class="inputC text-2xl mt-2 block w-full placeholder-gray-600 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "> 
                 <img src="../../assets/image/viewOff.svg" class="imgP">
                 <!-- <p class="mt-3 text-xl text-gray-400 dark:text-gray-600">Webolary uses your email for login codes, 2FA and to send data to you</p> -->
             </div>
-            <div class="updateBTN flex text-center"><img class="ml-5" src="../../assets/image/key.svg" style="height: 3rem;margin-top: 1rem;"> <p class="ml-14 2xl:ml-20">Save changes</p></div>
+            <div class="updateBTN flex text-center" (click)="savePasswordSetting()"><img class="ml-5" src="../../assets/image/key.svg" style="height: 3rem;margin-top: 1rem;"> <p class="ml-14 2xl:ml-20">Save changes</p></div>
         </div>
 
     </main>

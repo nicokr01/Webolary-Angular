@@ -16,7 +16,6 @@ export class Auth{
         }
         else{
           const url = 'https://api.webolary.com/?checkCookie=&value='+this.cookieService.get("username");
-          console.log(url);
           await fetch(url)
           .then(response => response.json())
           .then(data => {

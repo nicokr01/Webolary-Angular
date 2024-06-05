@@ -32,6 +32,10 @@ export class UsersettingsComponent {
   protected authOptionEmail:boolean = false;
   protected authOptionToken:boolean = false;
   protected authMethod:string = "";
+
+  protected currentPassword:string = "";
+  protected newPassword:string = "";
+  protected newPasswordConfirmation:string = "";
   // //// Form
 
   constructor(protected elementRef:ElementRef,protected theme:Theme, protected system:System){
@@ -206,9 +210,6 @@ export class UsersettingsComponent {
     })
   }
 
-  public passwordChangeSubmit():void {
-
-  }
 
   public closeAlert(index:number):void{
     this.alertText[index] = "";
@@ -227,6 +228,36 @@ export class UsersettingsComponent {
       two_FA: user.two_FA ? 1 : 0,
       session_login: user.session_login ? 1 : 0,
     };
+  }
+
+  async savePasswordSetting(){
+    if(this.currentPassword == "" || this.newPassword == "" || this.newPasswordConfirmation == ""){
+      this.alertText[0] = "Empty field";
+      this.alertStyle[0] = "display:block";
+      this.superGlobalStyle = "filter:blur(10px)";
+    }
+
+    if(this.newPassword != this.newPasswordConfirmation){
+      this.alertText[0] = "new passwords do not ";
+      this.alertStyle[0] = "display:block";
+      this.superGlobalStyle = "filter:blur(10px)";
+    }
+
+    const url = "https://api.webolary.com/?updatePassword=&oldPwd=" + this.currentPassword + "&newPwd=" + this.newPassword + "&token="+this.system.cookieService.check("username");
+    await fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      if(data.success){
+        this.alertStyle[1] = "display:block";
+        this.alertText[1] = "Your password has been updated";
+        this.superGlobalStyle = "filter:blur(10px)";
+      }
+      else{
+        this.alertText[0] = "Error occured (API error)";
+        this.alertStyle[0] = "display:block";
+        this.superGlobalStyle = "filter:blur(10px)";
+      }
+    })
   }
 
   // //// Form validation
