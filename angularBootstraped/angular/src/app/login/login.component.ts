@@ -77,7 +77,7 @@ export class LoginComponent {
 
   async checkLoginData(){
     this.loadingAnimation(true);
-    const url = 'https://webolary.com/API/?login=&username='+this.username+'&password='+this.password;
+    const url = 'https://api.webolary.com/?login=&username='+this.username+'&password='+this.password;
     console.log(url);
     await fetch(url)
     .then(response => response.json())
