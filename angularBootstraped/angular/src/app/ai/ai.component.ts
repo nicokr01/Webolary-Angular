@@ -115,8 +115,8 @@ export class AIComponent  {
         boxBTN.classList.add("pl-2");
 
         const topic = this.input;
-        const URL = "https://api.webolary.com/?AI=&topic="+topic+"&user="+this.cookieService.get("username");
-
+        const URL = 'https://api.webolary.com/?AI=&topic='+topic+'&user='+this.cookieService.get("username");
+        
         await fetch(URL)
         .then(response => response.json())
         .then(data => {

@@ -40,7 +40,7 @@ export class Auth{
               }
           })
           .catch(error => {
-            console.error('Error could not connect ERROR: \"webolaryConnect API 404\" ', error);
+            console.error('Error could not connect to Webolary Live Services ERROR: \"webolaryConnect Socket Exception 404\" ', error);
           });
         }
       }

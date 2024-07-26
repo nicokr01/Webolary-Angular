@@ -10,7 +10,7 @@ export class Auth{
             location.href = "/login";
         }
         else{
-          const url = 'https://webolary.com/API/?checkCookie=&value='+this.cookieService.get("username");
+          const url = 'https://api.webolary.com/?checkCookie=&value='+this.cookieService.get("username");
           await fetch(url)
           .then(response => response.json())
           .then(data => {
