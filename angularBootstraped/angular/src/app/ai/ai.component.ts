@@ -116,7 +116,7 @@ export class AIComponent  {
 
         const topic = this.input;
         const URL = 'https://api.webolary.com/?AI=&topic='+topic+'&user='+this.cookieService.get("username");
-        
+        console.log(URL);
         await fetch(URL)
         .then(response => response.json())
         .then(data => {

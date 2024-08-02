@@ -30,6 +30,9 @@ import { AIComponent } from './ai/ai.component';
 import { AiCheckComponent } from './ai-check/ai-check.component';
 import { UsersettingsComponent } from './usersettings/usersettings.component';
 import { UsersettingsCheckComponent } from './usersettings-check/usersettings-check.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { AdminPanelCheckComponent } from './admin-panel-check/admin-panel-check.component';
+import { BreakComponent } from './break/break.component';
 
 
 
@@ -57,6 +60,9 @@ import { UsersettingsCheckComponent } from './usersettings-check/usersettings-ch
     AiCheckComponent,
     UsersettingsComponent,
     UsersettingsCheckComponent,
+    AdminPanelComponent,
+    AdminPanelCheckComponent,
+    BreakComponent,
   ],
   imports: [
     BrowserModule,

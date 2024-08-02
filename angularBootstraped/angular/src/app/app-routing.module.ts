@@ -9,6 +9,9 @@ import { TestComponent } from './test/test.component';
 import { CommunitycheckComponent } from './communitycheck/communitycheck.component';
 import { AiCheckComponent } from './ai-check/ai-check.component';
 import { UsersettingsCheckComponent } from './usersettings-check/usersettings-check.component';
+import { AdminPanelCheckComponent } from './admin-panel-check/admin-panel-check.component';
+import { BreakComponent } from './break/break.component';
+import { AIComponent } from './ai/ai.component';
 
 const routes: Routes = [
     {path:"",component:HomeComponent},
@@ -21,7 +24,10 @@ const routes: Routes = [
     {path:"community", component:CommunitycheckComponent},
     {path:"AI",component:AiCheckComponent},
     {path:"user", redirectTo: "user/settings", pathMatch: "full" },
-    {path:"user/settings",component:UsersettingsCheckComponent}
+    {path:"user/settings",component:UsersettingsCheckComponent},
+    {path:"AdminPanel",component:AdminPanelCheckComponent},
+    {path:"break",component:BreakComponent},
+    {path:"Bierpause",component:BreakComponent},
 ];
 
 @NgModule({

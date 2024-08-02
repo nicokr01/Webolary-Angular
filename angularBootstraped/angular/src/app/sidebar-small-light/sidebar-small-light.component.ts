@@ -1,6 +1,8 @@
 import { Component, ElementRef } from '@angular/core';
 import { Theme } from '../Theme/theme';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { User } from '../User/User';
+import CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-sidebar-small-light',
@@ -10,8 +12,28 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 export class SidebarSmallLightComponent {
   protected modeSVG:SafeHtml = "";
   protected asideStyle = "";
+  protected user:User; 
+  protected reconstructedUserClass:User;
 
-  constructor(protected theme:Theme,protected elementRef:ElementRef,private domsant:DomSanitizer){}
+  constructor(protected theme:Theme,protected elementRef:ElementRef,private domsant:DomSanitizer){
+      // get User Object
+      const encryptedValue = sessionStorage.getItem("User");
+      if (encryptedValue) {
+          const token = "c(j:iGBE)2RKae3OfxaT[4WG7By9'+m{e?)mfc3ez7Td9/RiT@";
+          const decryptedBytes = CryptoJS.AES.decrypt(encryptedValue, token);
+          const decryptedData = decryptedBytes.toString(CryptoJS.enc.Utf8);
+          this.user = JSON.parse(decryptedData);
+      } else {
+          this.user = new User("","",-1,"","","","","",false,false,"",false);
+          console.log("sessionStorage is empty :(");
+      }
+
+      this.reconstructedUserClass = new User("","",-1,"","","","","",false,false,"",false);
+      this.reconstructedUserClass.updateObject(this.user);
+      this.reconstructedUserClass.points = this.user.points;
+
+      // //// get User Object
+  }
 
   ngOnInit(){
       this.renderColorThemeButton();

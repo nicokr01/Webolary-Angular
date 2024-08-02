@@ -4,6 +4,7 @@ import { Auth } from '../Auth/auth';
 import { Theme } from '../Theme/theme';
 import { System } from '../WebolarySystem/system';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { WebsocketService } from '../websocket.service';
 
 @Component({
   selector: 'app-home',
@@ -23,8 +24,8 @@ export class HomeComponent extends Auth{
   protected analyseDiv:SafeHtml = "";
   protected superGlobalStyle = "";
 
-  constructor(cookieService:CookieService, protected theme:Theme, protected elementRef:ElementRef,protected system:System, private sanitizer:DomSanitizer){
-    super(cookieService);
+  constructor(cookieService:CookieService, protected theme:Theme, protected elementRef:ElementRef,protected system:System, private sanitizer:DomSanitizer,websocket:WebsocketService){
+    super(cookieService,websocket);
 
     /* set navList link*/
     localStorage.setItem("NavListItem","pratice vocabulary");

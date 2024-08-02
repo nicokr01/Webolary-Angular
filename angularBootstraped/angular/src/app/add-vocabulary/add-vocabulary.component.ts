@@ -5,6 +5,7 @@ import { Theme } from '../Theme/theme';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { System } from '../WebolarySystem/system';
 import { Router } from '@angular/router';
+import { WebsocketService } from '../websocket.service';
 
 @Component({
   selector: 'app-add-vocabulary',
@@ -25,8 +26,8 @@ export class AddVocabularyComponent extends Auth{
   protected UnitSizeValue:number = -1;
   protected UnitSize:SafeHtml = this.UnitSizeValue+" Vocabularys";
   public dictionary: { [key: string]: string } = {};
-  constructor(cookieService:CookieService, protected theme:Theme, protected elementRef:ElementRef, protected system:System, protected sanitizer:DomSanitizer,protected router:Router){
-    super(cookieService);
+  constructor(cookieService:CookieService, protected theme:Theme, protected elementRef:ElementRef, protected system:System, protected sanitizer:DomSanitizer,protected router:Router,websocket:WebsocketService){
+    super(cookieService,websocket);
 
     /* set navList link*/
     localStorage.setItem("NavListItem","add vocabulary");

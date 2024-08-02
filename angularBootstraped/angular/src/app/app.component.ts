@@ -10,8 +10,9 @@ import { exit } from 'process';
 })
 export class AppComponent {
   title = 'angular';
+  private socket:any;
 
-  constructor(public router:Router,private cookieService:CookieService){}
+  constructor(public router:Router,private cookieService:CookieService){
+  }
 
-  
 }
