@@ -238,7 +238,7 @@ export class UsersettingsComponent {
     }
 
     if(this.newPassword != this.newPasswordConfirmation){
-      this.alertText[0] = "new passwords do not ";
+      this.alertText[0] = "new passwords do not match";
       this.alertStyle[0] = "display:block";
       this.superGlobalStyle = "filter:blur(10px)";
     }
