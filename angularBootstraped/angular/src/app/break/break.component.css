@@ -1,0 +1,52 @@
+.rainbow {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.rainbow:before {
+    content: "";
+    position: absolute;
+    left: -10rem;
+    right: -10rem;
+    top: -10rem;
+    bottom: -10rem;
+    margin: auto;
+    aspect-ratio: 1 / 1;
+    background: conic-gradient(
+      #fd004c,
+      #fe9000,
+      #fff020,
+      #3edf4b,
+      #3363ff,
+      #b102b7,
+      #fd004c
+    );
+    z-index: -2;
+    pointer-events: none;
+    animation: rotateRainbow 800ms linear infinite;
+}
+
+@keyframes rotateRainbow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.rainbow:after {
+    content: "";
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    background: black;
+    z-index: -2;
+    pointer-events: none;
+}

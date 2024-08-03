@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Auth } from '../Auth/auth';
+import { WebsocketService } from '../websocket.service';
 
 @Component({
   selector: 'app-add-check',
@@ -10,8 +11,8 @@ import { Auth } from '../Auth/auth';
 })
 export class AddCheckComponent extends Auth{
 
-  constructor(cookie:CookieService, private router:Router){
-    super(cookie);
+  constructor(cookie:CookieService, private router:Router, websocket:WebsocketService){
+    super(cookie,websocket);
   }
 
   ngOnInit(){

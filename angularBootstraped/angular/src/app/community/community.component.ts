@@ -10,7 +10,7 @@ import { Lexer } from '@angular/compiler';
   templateUrl: './community.component.html',
   styleUrl: './community.component.css'
 })
-export class CommunityComponent extends Auth {
+export class CommunityComponent{
     protected displayMobile:boolean = false;
     protected superGlobalStyle = "";
     protected allUnits:any;
@@ -18,11 +18,9 @@ export class CommunityComponent extends Auth {
     protected search_input:string = "";
 
     constructor(cookie:CookieService, protected elementRef:ElementRef,protected theme:Theme){
-      super(cookie);
     }
 
     ngOnInit(){
-      this.auth();
 
       /*Implement users theme*/
     if(this.theme.getMode() == "dark"){

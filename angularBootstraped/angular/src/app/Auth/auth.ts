@@ -1,6 +1,7 @@
 import { CookieService } from "ngx-cookie-service";
 import { User } from "../User/User";
 import CryptoJS from 'crypto-js';
+import { WebsocketService } from "../websocket.service";
 
 export class Auth{
     protected username:string = "";
@@ -8,7 +9,7 @@ export class Auth{
     private user:User = new User("","",-1,"","","","","",false,false,"",false);
     private socket:any;
 
-    constructor(protected cookieService:CookieService){}
+    constructor(protected cookieService:CookieService, protected websocketService: WebsocketService ){}
 
     async auth(){
         if(!this.cookieService.check("username")){
@@ -31,8 +32,9 @@ export class Auth{
                 sessionStorage.setItem("User", encryptedData);
 
                 // Establish Websocket connection
-                this.socket = new WebSocket("ws://webolarylive.tech:3501");
-                this.initSocketEvents();
+                // this.socket = new WebSocket("wss://api.webolary.com:8080");
+                // this.initSocketEvents();
+                
               }
               else{
                 this.cookieService.delete("username");
@@ -40,31 +42,31 @@ export class Auth{
               }
           })
           .catch(error => {
-            console.error('Error could not connect ERROR: \"webolaryConnect API 404\" ', error);
+            console.error('Error could not connect to Webolary Live Services ERROR: \"webolaryConnect Socket Exception 404\" ', error);
           });
         }
       }
 
-      private initSocketEvents(){
-        this.socket.onopen = () => {
-          console.log('WebolaryLive services: connection established :)');
-          // Send Webolary Live Services Authorization State
-          this.socket.send('My token:'+this.cookieService.get("username"));
-      };
+      // private initSocketEvents(){
+      //   this.socket.onopen = () => {
+      //     console.log('WebolaryLive services: connection established :)');
+      //     // Send Webolary Live Services Authorization State
+      //     this.socket.send('My Token:'+this.cookieService.get("username"));
+      // };
 
-      this.socket.onmessage = (event: MessageEvent) => {
-          // Handle incoming messages here
-      };
+      // this.socket.onmessage = (event: MessageEvent) => {
+      //     // Handle incoming messages here
+      // };
 
-      this.socket.onclose = (event: CloseEvent) => {
-          console.log('Webolary Live services connection closed:', event.reason);
-          // You may want to attempt to reconnect here
-      };
+      // this.socket.onclose = (event: CloseEvent) => {
+      //     console.log('Webolary Live services connection closed:', event.reason);
+      //     // You may want to attempt to reconnect here
+      // };
 
-      this.socket.onerror = (error: Event) => {
-          console.error('Webolary Live services connection error \n', error);
-      };
+      // this.socket.onerror = (error: Event) => {
+      //     console.error('Webolary Live services connection error \n', error);
+      // };
 
       
-      }
+      // }
 }

@@ -77,8 +77,8 @@ export class LoginComponent {
 
   async checkLoginData(){
     this.loadingAnimation(true);
-    const url = 'https://webolary.com/API/?login=&username='+this.username+'&password='+this.password;
-
+    const url = 'https://api.webolary.com/?login=&username='+this.username+'&password='+this.password;
+    console.log(url);
     await fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -91,7 +91,7 @@ export class LoginComponent {
       }
       else{
         var alert = document.getElementById(this.errAlert_wrongData);
-        if(alert){
+        if(alert){ 
           alert.classList.remove("AlertHidden");
           alert.style.display = "block";
           this.errAlert_wrongData_active = true;

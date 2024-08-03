@@ -1,0 +1,33 @@
+<div class="DIV" id="DIV" style="position: absolute;width: 100vw;height: 100vh;z-index: 999;" [ngStyle]="{'background-color': backgroundColor}">
+<div (click)="bodyClicked()">
+    <link rel="stylesheet" href="../../assets/GoogleFonts/font.css">
+
+    <div *ngIf="!displayMobile">
+        <app-nav-top></app-nav-top>
+        <app-sidebar-small-light></app-sidebar-small-light>
+    </div>
+    <div id="global" class="SUPER_GLOBAL" [style]="superGlobalStyle">
+    
+    <div *ngIf="displayMobile">
+        <app-nav-mobile></app-nav-mobile>
+    </div>
+
+    <main style="width: 87vw;left: 10vw;position: absolute;top: 10vh;height: 85vh;overflow: hidden;">
+        <div class="h-full text-4xl mt-10 ml-10" [ngStyle]="{'color':color}" style="width: 20vw;">
+            <span  class="ml-10">Admin Panel - User section</span>
+
+            <div class="flex" style="width: 100%;position: absolute;top: 6.6vh;">
+                <div *ngFor="let user of request;let i = index" class="ml-10 mr-10" style="width: 12vw;height: 6vw;border-radius: 2rem;" [ngStyle]="{'background-color': color ,'color': backgroundColor}">
+                    <span *ngIf="user.status == 'online' " class="ml-6 text-green-600">{{user.username}}</span>
+                    <span *ngIf="user.status != 'online' " class="ml-6 text-red-600">{{user.username}}</span>
+                    <div style="width: 100%;height: 1px;margin-top: 1rem;position: absolute;" [ngStyle]="{'background-color': backgroundColor}"></div>
+                    <div style="width: 100%;height: 100%;margin-top: 2rem;position: absolute;">
+                        <button (click)="sendScreenLock(user.username);" type="button" style="margin-left: 1rem;" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-2xl px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Lock screen</button>
+                        <button type="button" style="margin-left: 1rem;" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-2xl px-5 py-2.5 me-2 mb-2 " [disabled]="true" [ngClass]="{'error-cursor': true}">Unlock screen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</div>
