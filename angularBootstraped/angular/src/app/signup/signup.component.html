@@ -42,7 +42,12 @@
           </header>
 
           <main>
-            <!-- Webolary Slogan -->
+            <!-- Webolary Slogan
+            Preloading animation svg              
+            -->
+            <img src="../../assets/image/loading-spinner.svg" style="visibility: hidden;width:1px;height:1px">
+
+
              <div class="slogan"><img src="../../assets/image/WebolarySlogan.svg"></div>
           
 
@@ -52,7 +57,7 @@
                 <label for="mail">{{emailTXT}}</label>
                 <div class="sec-2">
                     <!-- <ion-icon name="mail-outline"></ion-icon> -->
-                    <input autocomplete="on" [(ngModel)]="mail" type="email" name="mail" placeholder="" [ngStyle]="inputUserStyle" id="inputUser" style="width: 100%;">
+                    <input autocomplete="on" [(ngModel)]="mail" [type]="firstInputType" name="mail" placeholder="" [ngStyle]="inputUserStyle" id="inputUser" style="width: 100%;">
                 </div>
             </div>
     
@@ -60,11 +65,10 @@
                 <label for="username">{{usernameTXT}}</label>
                 <div class="sec-2">
                     <!-- <ion-icon name="lock-closed-outline"></ion-icon> -->
-                    <input autocomplete="off" [(ngModel)]="username" class="pas" type="text" name="username" id="inputPw" placeholder="" [ngStyle]="inputPasswordStyle" style="width: 100%;">
+                    <input autocomplete="off" [(ngModel)]="username" class="pas" [type]="secondInputType" name="username" id="inputPw" placeholder="" [ngStyle]="inputPasswordStyle" style="width: 100%;">
                     <!-- <ion-icon class="show-hide" name="eye-outline"></ion-icon> -->
                 </div>
               </div>
-
 
 <form class="mx-auto hidden" [ngStyle]="formStyle">
   <div class="flex mb-2 space-x-2 rtl:space-x-reverse">
@@ -105,7 +109,7 @@
 </form>
 
     
-            <button (click)="checkData()" id="loginBTN" class="login"><span id="loginSPAN">{{continueButton}}</span><img id="loginIMAGE" class="hiddenFromScreen" src="../../assets/image/loginL.svg"></button>
+            <button (click)="checkData()" id="loginBTN" class="login"><span id="loginSPAN" [innerHTML]="continueButton"></span><img id="loginIMAGE" class="hiddenFromScreen" src="../../assets/image/loginL.svg"></button>
             
             <!-- <button class="googleLogin">Login with Google</button> -->
             <button class="bg-white flex items-center text-gray-700  justify-center gap-x-3 text-xl xl:text-base   hover:bg-gray-100 duration-300 transition-colors border px-8 py-2.5" id="googleBTN">
@@ -129,6 +133,7 @@
             <div class="footer">
                 <span [routerLink]="['/login']">Login</span>
                 <span [routerLink]="['/forgot-password']">Forgot Password?</span>
+
             </div>
         </div>
 

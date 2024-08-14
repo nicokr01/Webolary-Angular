@@ -5,6 +5,7 @@ import { System } from '../WebolarySystem/system';
 import CryptoJS from 'crypto-js';
 import { log } from 'console';
 import { User } from '../User/User';
+import { DomSanitizer, SafeHtml, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +18,7 @@ export class SignupComponent implements AfterViewInit{
   public username:string = "";
   public mail:string = "";
   public loadingAnimationState:boolean = false;
-  public continueButton:string = "continue";
+  public continueButton:SafeHtml = "continue";
   public BTNdisable:boolean = true;
 
   public errAlert_wrongData:string = "errAlert_wrongData";
@@ -39,8 +40,13 @@ export class SignupComponent implements AfterViewInit{
   private registerNameData:any = {};
   private codeInput:boolean = false;
   private emailUserInput:string = "";
+  protected loadingAnimationURL:SafeUrl = "../../assets/image/loading-spinner.svg";
+  private codeSentToAPIStatus:boolean = false;
+  protected firstInputType = "text";
+  protected secondInputType = "text";
+  protected setUpPassword:boolean = false;
 
-  constructor(public cookieService:CookieService, public router:Router, protected system:System) {
+  constructor(public cookieService:CookieService, public router:Router, protected system:System, protected saitizer:DomSanitizer) {
     // const interval = setInterval(() => {
     //   this.checkAlertTime();
     // }, 2000);
@@ -55,9 +61,7 @@ export class SignupComponent implements AfterViewInit{
   }
 
   enterClicked(event?: KeyboardEvent) {
-    if(this.username != "" && this.mail != ""){
-      this.checkData();
-    }
+    this.checkData();
   }
 
   @ViewChildren('codeInput') inputs!: QueryList<ElementRef>;
@@ -130,7 +134,9 @@ export class SignupComponent implements AfterViewInit{
   }
 
   private async sendCodeToAPI(code:string){
-      alert("ABC");
+      if(this.codeSentToAPIStatus){return;}
+
+      this.codeSentToAPIStatus = true;
       this.loadUserInputData();
       let url;
 
@@ -140,16 +146,31 @@ export class SignupComponent implements AfterViewInit{
       else{
         url = 'https://api.webolary.com/?registerUser=&email='+this.registerCheckData.mail+'&username='+this.registerCheckData.username+'&firstname='+this.registerNameData.firstname+'&lastname='+this.registerNameData.lastname+'&code='+code;
       }
-
     await fetch(url)
     .then(response => response.json())
     .then(data => {
       if(data.status == "success"){
         //registration successful
-        //security
+        // create Password
+        this.formStyle = {display:"none"};
+        this.screenTXT = "Setup Password";
+        this.inputUserStyle = {display:"block"};
+        this.inputPasswordStyle = {display:"block"};
+        this.secondInputDivStyle = {display:"block"};
+        this.emailTXT = "Enter a safe password";
+        this.usernameTXT = "Confirm Password";
+        this.continueButton = "setup";
+        this.firstInputType = "password";
+        this.secondInputType = "password";
+        this.setUpPassword = true;
       }
       else{
-
+        this.screenTXT = "Code incorrect !";
+        this.continueButton = "create account"
+        this.inputs.forEach(input => {
+          input.nativeElement.style.color = "red";
+          input.nativeElement.style.border = "1px solid red";
+        });
       }
     })
     .catch(error => {
@@ -233,6 +254,7 @@ export class SignupComponent implements AfterViewInit{
     this.usernameTXT = "Enter your lastname (optional)";
     this.emailTXT = "Enter your firstname (optional)";
     this.screenTXT = "Data about you";
+    this.continueButton = "Continue";
 
     this.mail = "";
     this.username ="";
@@ -281,6 +303,7 @@ export class SignupComponent implements AfterViewInit{
   }
 
   async checkData(){
+    this.continueButton = this.saitizer.bypassSecurityTrustHtml("<img style='height:100%;margin-left:42.5%' src="+this.loadingAnimationURL+">");
     this.username = this.username.trim();
     this.mail = this.mail.trim();
 
@@ -288,8 +311,13 @@ export class SignupComponent implements AfterViewInit{
       //username and email have already been checked, firstname and lastname check ->
       if(this.checkNames() || (this.username.trim() == "" && this.mail.trim() == "")){
           if(this.codeInput){
-            //codeInput
-            this.sendCodeToAPI(this.inputs.map(input => input.nativeElement.value).join(''));
+            if(this.setUpPassword){
+                
+            }
+            else{
+              //codeInput
+              this.sendCodeToAPI(this.inputs.map(input => input.nativeElement.value).join(''));
+            }
           }
           else{
             const token = "c(j:iGBE)2RKae3OfxaT[4WG7By9'+m{e?)mfc3ez7Td9/RiT@";
@@ -301,7 +329,7 @@ export class SignupComponent implements AfterViewInit{
             
             //Sending Email
             const url = 'https://api.webolary.com/?mailRequest=&KEY=5C321EF7B848C8FF1F591CD79B5FA&email='+this.emailUserInput;
-            console.log(url);
+            
             await fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -312,10 +340,6 @@ export class SignupComponent implements AfterViewInit{
                     this.formStyle = {display:"block"};
           
                     this.continueButton = "create account";
-          
-                    const loginBTN = document.getElementById("loginBTN");
-                    loginBTN?.setAttribute("disabled", "disabled");
-                    this.BTNdisable = true;
                     this.codeInput = true;
               }
             })
@@ -370,6 +394,7 @@ export class SignupComponent implements AfterViewInit{
         this.inputStatusChangePassword();
 
         this.screenTXT = "Invalid data !";
+        this.continueButton = "try again";
       }
     })
     .catch(error => {
