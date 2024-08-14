@@ -33,6 +33,7 @@ import { UsersettingsCheckComponent } from './usersettings-check/usersettings-ch
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AdminPanelCheckComponent } from './admin-panel-check/admin-panel-check.component';
 import { BreakComponent } from './break/break.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 
@@ -63,6 +64,7 @@ import { BreakComponent } from './break/break.component';
     AdminPanelComponent,
     AdminPanelCheckComponent,
     BreakComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

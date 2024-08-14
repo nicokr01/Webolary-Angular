@@ -1,0 +1,487 @@
+:root{
+    --background: rgb(242, 242, 242);
+  }
+  html{
+    z-index: 1;
+  }
+  
+  #body{
+    z-index: 50;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background);
+    font-family: Lexend;
+    border: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  #bodyLoading{
+    z-index: 99;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: #5120ce;
+    font-family: Lexend;
+    border: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .header{
+    position: absolute;
+    width: 100vw;
+    height: 8.8rem;
+    overflow: hidden;
+  }
+
+  .header .logo {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    padding-left: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .header .logo img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+  }
+
+  .header .text {
+    line-height: 8.8rem;
+    padding-left: 10.5rem;
+    padding-top: 0.75rem;
+    font-size: 2.5rem;
+  }
+
+  main .container {
+    background-color: white;
+    position: absolute;
+    border-radius: 2rem;
+    left: 5vw;
+    top: 15vh;
+    width: 35%;
+    height: 80vh;
+    text-align: center;
+  }
+
+  main .container h1{
+    font-size: 3.5rem;
+    padding-top: 2rem;
+  }
+
+  main .container .line {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 1.5rem;
+    height: 1px;
+    background-color: rgb(220, 220, 220);
+  }
+
+  main .slogan{
+    position: absolute;
+    width: auto;
+    height: 50%;
+    top: 25%;
+    right: 8%;
+  }
+
+  main .slogan img {
+    width: 100%;
+    height: 100%;
+  }
+
+
+
+  .screen-1 {
+    background-color: white;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    box-shadow: 0 0 2em hsl(231deg 62% 94%);
+    gap: 2em;
+
+    width: 30%;
+    margin-top: 15vh;
+    margin-left: 5vw;
+    height: 80vh;
+    overflow: hidden;
+  }
+  
+
+  .screen-txt{
+    position: relative;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-size: 3rem;
+  }
+  
+  .screen-1 .email {
+    background: hsl(0deg 0% 100%);
+    box-shadow: 0 0 2em hsl(231deg 62% 94%);
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    border-radius: 20px;
+    color: hsl(0deg 0% 30%);
+    margin-top: -0.5em;
+    height: 10rem;
+  }
+  
+.screen-1 .email label{
+  font-size: 1.5rem;
+}
+
+  .screen-1 .email input {
+    outline: none;
+    border: none;
+    font-size: 1.85rem;
+    border-bottom: 1px solid black;
+    color: black;
+  }
+  
+  .screen-1 .email input::placeholder {
+    color: hsl(0deg 0% 0%);
+    font-size: 0.9em;
+  }
+  
+  .screen-1 .email ion-icon {
+    color: hsl(0deg 0% 30%);
+    margin-bottom: -0.2em;
+    margin-top: -0.2em;
+  }
+  
+  .screen-1 .password {
+    background: hsl(0deg 0% 100%);
+    box-shadow: 0 0 2em hsl(231deg 62% 94%);
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    border-radius: 20px;
+    color: hsl(0deg 0% 30%);
+  }
+  
+  .screen-1 .password input {
+    outline: none;
+    border: none;
+    font-size: 1.85rem;
+    border-bottom: 1px solid black;
+    color: black;
+  }
+
+  .screen-1 .password label{
+    font-size: 1.5rem;
+  }
+  
+  .screen-1 .password input::placeholder {
+    color: hsl(0deg 0% 0%);
+    font-size: 0.9em;
+  }
+  
+  .screen-1 .password ion-icon {
+    color: hsl(0deg 0% 30%);
+    margin-bottom: -0.2em;
+  }
+  
+  .screen-1 .password .show-hide {
+    margin-right: -5em;
+  }
+  
+  .screen-1 .login {
+    position: relative;
+    /* display: flex; */
+    background-color: #5120ce;
+    color: white;
+    line-height: 5rem;
+    height: 5rem;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: 500ms ease-in-out;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .screen-1 .login img {
+    height: 5rem;
+    line-height: 10rem;
+  }
+
+  .screen-1 .login:hover{
+    transition: 500ms ease-in-out;
+    background-color: blueviolet;
+  }
+  
+  .screen-1 .footer {
+    display: flex;
+    font-size: 0.7em;
+    color: hsl(0deg 0% 37%);
+    padding-bottom: 0em;
+    top: 0;
+    width: 100%;
+
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: red; */
+  }
+  
+  .screen-1 .footer span {
+    cursor: pointer;
+  }
+
+  .screen-1 .footer span:hover {
+    color: black;
+  }
+
+  .forgotPassword{
+    cursor: pointer;
+    position: relative;
+  }
+
+  .forgotPassword:hover{
+    color: black;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+
+  .hiddenFromScreen{
+    transform: translateX(-300px);
+  }
+
+  /* .googleLogin{
+    position: relative;
+    margin-top: -0.75em;
+    margin-bottom: -1em;
+    width: 100%;
+    min-height: 4.8rem;
+    background-color: var(--background);
+    border-radius: 4rem;
+  } */
+
+  #googleBTN{
+    min-height: 4.5rem;
+    margin-top: -2em;
+    border-radius: 3.5rem;
+  }
+
+  .trUP{
+    animation: transformUP 2s linear;
+  }
+
+  .trDOWN{
+    animation: transformDOWN 2s linear;
+  }
+
+  .trL{
+    animation: transformLR 1s linear;
+  }
+
+  .trR{
+    animation: transformRL 380ms linear;
+  }
+
+  .trRSET{
+    transform: translateX(170px);
+  }
+
+  /* Animations */
+
+  @keyframes transformUP {
+    from {
+      transform: translateY(0px);
+    }
+
+    to {
+      transform: translateY(-100px);
+    }
+  }
+
+  @keyframes transformDOWN {
+    from {
+      transform: translateY(0px);
+    }
+
+    to {
+      transform: translateY(100px);
+    }
+  }
+
+  @keyframes transformLR {
+      from{
+        transform: translateX(0px);
+      }
+
+      to{
+        transform: translateX(170px);
+      }
+  }
+
+  @keyframes transformRL {
+    from{
+      transform: translateX(0px);
+    }
+
+    to{
+      transform: translateX(200px);
+    }
+}
+
+/* Default CSS Layer 1536px x 731px  -- Laptop 15.6 inch*/
+
+@media screen and (width < 1535px ) {
+  .screen-1 .footer {
+    gap: 10em;
+  }
+}
+
+
+@media screen and (width < 600px ){
+  .slogan img{
+    display: none;
+  }
+
+  .screen-1{
+    position: absolute;
+    width: 90%;
+  }
+
+ #googleBTN{
+    margin-top: -1.1rem;
+ }
+
+ .screen-1 .footer{
+    gap: 9.5em;
+    margin-top: 10em;
+ }
+}
+
+@media screen and (width < 600px ) and (height >= 850px) and (height < 890px){
+  .screen-1 .footer{
+    gap: 9.5em;
+    margin-top: 5em;
+ }
+}
+
+@media screen and (width < 600px ) and (height < 850px) {
+ .screen-1 .footer{
+    margin-top: 3.2em;
+    gap: 6em;
+ }
+}
+
+@media screen and (width < 600px ) and (height > 890px) {
+  .screen-1 .footer{
+     margin-top: 6.5em;
+     gap: 8.5em;
+  }
+ }
+
+@media screen and (width < 600px ) and (height < 700px) {
+  .screen-1 .screen-txt{
+     margin-top: -1em;
+  }
+
+  .header{
+    height: 3.5em;
+  }
+
+  .header .text{
+    line-height: 7rem;
+    padding-left: 3.8em;
+  }
+
+  .screen-1{
+    margin-top: 12.5vh;
+    height: 85vh; 
+  }
+
+  .screen-1 .footer{
+    margin-top: 0em;
+    gap: 5.5em;
+ }
+ }
+
+ @media screen and (width > 600px ) and (width < 800px) {
+  .screen-1 {
+    width: 70%;
+    margin-left: 15%;
+  }
+  
+  .slogan img{
+    display: none;
+  }
+
+  .screen-1 .footer{
+    gap: 12em;
+  }
+ }
+
+ @media screen and (width > 600px ) and (width < 800px) and (height > 750) and (height < 850) {
+  .screen-1 .footer{
+    gap: 12em;
+    bottom: -10px;
+  }
+ }
+ 
+
+ @media screen and (width > 600px) and (width < 900px) and (height > 901px){
+  main .slogan{
+      top: 57vh;
+      width: 70%;
+      right: 15%;
+  }
+
+  .screen-1{
+    width: 55%;
+    margin-left: 22.5%;
+    margin-top: 8vh;
+    max-height: 55vh;
+  }
+ }
+
+
+ @media screen and (width > 800px) and (width <= 1100px) {
+    .screen-1{
+      width: 40%;
+    }
+
+    main .slogan{
+      right: 3.5%;
+      width: 48%;
+    }
+
+    .screen-1 .footer{
+      margin-top: 6rem;
+    }
+ }
+
+ @media screen and (width > 1100px) and (width < 1400px){
+  .screen-1{
+    width: 33%;
+  }
+
+  main .slogan{
+    right: 3.5%;
+    width: 56%;
+  }
+
+  .screen-1 .footer{
+    margin-top: 6rem;
+    gap: 8em;
+  }
+}
+
+@media screen and (width > 1600px) and (width < 2000px){
+  .screen-1{
+    max-height: 68.5vh;
+  }
+}

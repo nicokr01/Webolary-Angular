@@ -12,6 +12,7 @@ import { UsersettingsCheckComponent } from './usersettings-check/usersettings-ch
 import { AdminPanelCheckComponent } from './admin-panel-check/admin-panel-check.component';
 import { BreakComponent } from './break/break.component';
 import { AIComponent } from './ai/ai.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
     {path:"",component:HomeComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
     {path:"AdminPanel",component:AdminPanelCheckComponent},
     {path:"break",component:BreakComponent},
     {path:"Bierpause",component:BreakComponent},
+    {path:"Signup",component:SignupComponent}
 ];
 
 @NgModule({
