@@ -362,6 +362,10 @@
     gap: 9.5em;
     margin-top: 10em;
  }
+
+ #form-email-verify{
+  margin-left: -2rem;
+ }
 }
 
 @media screen and (width < 600px ) and (height >= 850px) and (height < 890px){

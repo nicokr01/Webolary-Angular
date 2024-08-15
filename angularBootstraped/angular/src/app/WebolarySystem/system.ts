@@ -399,7 +399,7 @@ export class System{
 
     logout(){
         this.cookieService.delete("username");
-        location.reload();
+        location.href = "/login";
     }
 
     /*IMPLEMENT THIS METHOD IN COMPONENT CLASS*/

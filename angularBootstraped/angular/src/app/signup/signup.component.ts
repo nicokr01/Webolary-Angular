@@ -45,6 +45,7 @@ export class SignupComponent implements AfterViewInit{
   protected firstInputType = "text";
   protected secondInputType = "text";
   protected setUpPassword:boolean = false;
+  private registrationSuccessfull:boolean = false;
 
   constructor(public cookieService:CookieService, public router:Router, protected system:System, protected saitizer:DomSanitizer) {
     // const interval = setInterval(() => {
@@ -146,6 +147,8 @@ export class SignupComponent implements AfterViewInit{
       else{
         url = 'https://api.webolary.com/?registerUser=&email='+this.registerCheckData.mail+'&username='+this.registerCheckData.username+'&firstname='+this.registerNameData.firstname+'&lastname='+this.registerNameData.lastname+'&code='+code;
       }
+
+      console.log(url);
     await fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -251,8 +254,8 @@ export class SignupComponent implements AfterViewInit{
   }
 
   protected optionalData(){
-    this.usernameTXT = "Enter your lastname (optional)";
-    this.emailTXT = "Enter your firstname (optional)";
+    this.usernameTXT = "Your lastname (optional)";
+    this.emailTXT = "Your firstname (optional)";
     this.screenTXT = "Data about you";
     this.continueButton = "Continue";
 
@@ -312,7 +315,56 @@ export class SignupComponent implements AfterViewInit{
       if(this.checkNames() || (this.username.trim() == "" && this.mail.trim() == "")){
           if(this.codeInput){
             if(this.setUpPassword){
-                
+              if(this.registrationSuccessfull){location.href = "/login";}
+              // this.mail is firstInputField and this.username second input field !
+              if(this.mail != this.username){
+                  this.inputUserStyle = {
+                    width: '100%', 
+                    'border-bottom': '1px solid red',
+                    color: 'red',
+                    display:"block"
+                  }
+                  this.inputPasswordStyle = {
+                    width: '100%', 
+                    'border-bottom': '1px solid red',
+                    color: 'red',
+                    display:"block"
+                  }
+                  this.continueButton = "setup";
+                  return;
+              }
+              const url = 'https://api.webolary.com/?setupPassword=&email='+this.registerCheckData.mail+'&username='+this.registerCheckData.username+'&KEY=685F6DB512F7E33F4B981FFE38C7A&password='+this.mail;
+            
+              await fetch(url)
+              .then(response => response.json())
+              .then(data => {
+                if(data.status == "success"){
+                    this.registrationSuccessfull = true;
+                    this.screenTXT = "Registration successful";
+
+                    this.inputUserStyle = {
+                      display:"none"
+                    }
+                    this.inputPasswordStyle = {
+                      display:"none"
+                    }
+                    this.secondInputDivStyle = {
+                       "display" : "none"
+                    }
+
+                    this.continueButton = "Login now";
+                    setTimeout(() => {
+                        this.router.navigate(['/login']);
+                    }, 2200);
+                }
+                else{
+                  this.screenTXT = "Error occured !";
+                  this.continueButton = "setup";
+                }
+              })
+              .catch(error => {
+                console.error('Error could not connect ERROR: \"webolaryConnect API 404\" ', error);
+              });
             }
             else{
               //codeInput
