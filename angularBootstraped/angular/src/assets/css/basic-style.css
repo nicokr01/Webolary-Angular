@@ -489,3 +489,34 @@
     max-height: 68.5vh;
   }
 }
+
+
+
+/* BIG SCREEN */
+@media screen and (width > 2500px){
+  .screen-1{
+    max-height: 50vh;
+  }
+
+  .screen-1 .footer{
+    margin-top: 6rem;
+  }
+
+  @keyframes transformLR {
+    from{
+      transform: translateX(0px);
+    }
+
+    to{
+      transform: translateX(330px);
+    }
+  }
+
+  .trRSET{
+    transform: translateX(330px);
+  }
+  
+  .trR{
+    animation: transformRL 550ms linear;
+  }
+}

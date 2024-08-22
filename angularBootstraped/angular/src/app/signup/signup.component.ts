@@ -239,7 +239,6 @@ export class SignupComponent implements AfterViewInit{
       loginIMAGE?.classList.add("trR");
       loginIMAGE?.classList.add("trRSET");
     }, 200);
-    
   }
 
   protected hoverOverLoginBTNLeave(){
