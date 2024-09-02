@@ -1,0 +1,10 @@
+/* BIG SCREEN */
+@media screen and (width > 2500px){
+    .screen-1{
+      max-height: 65vh;
+    }
+  
+    .screen-1 .footer{
+      margin-top: 6rem;
+    }
+  }

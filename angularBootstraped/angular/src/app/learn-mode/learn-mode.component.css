@@ -1,0 +1,105 @@
+main {
+    position: absolute;
+    width: 87.5vw;
+    height: 85vh;
+    right: 2vw;
+    top: 12.5vh;
+    overflow: hidden;
+    z-index: 1;
+}
+
+h1{
+    color: white;
+    font-size: 3.75rem;
+}
+
+.methods{
+    display: flex;
+    position: relative;
+    gap: 3em;
+    width: 100%;
+    height: 80vh;
+    margin-top: 5rem;
+    flex-wrap:wrap;
+}
+
+.method{
+    width: 28%;
+    height: 30%;
+    background-color: green;
+    border-radius: 2.5rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex: 1 1 28%;
+}
+
+.method h3{
+    margin-left: 2rem;
+    margin-top: 1.5rem;
+    font-size: 2.5rem;
+}
+
+.method .info{
+    position: absolute;
+    height: 2.5vh;
+    margin-left: 29.4%;
+    margin-top: -3.55rem;
+}
+
+.method .info img{
+    width: 100%;
+    height: 100%;
+}
+
+.method .btn{
+    position: relative;
+    top: 60%;
+    left: 5%;
+    color: white;
+    width: 8vw;
+    background-color: #5110ce;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 3rem;
+}
+
+.method .btn:hover{
+    background-color: blueviolet;
+    cursor: pointer;
+}
+
+.cover-1{
+    background-image: url(../../assets/image/learning-1.svg);
+}
+
+.cover-2{
+    background-image: url(../../assets/image/learning-2.svg);
+    color: white;
+}
+
+.cover-3{
+    background-image: url(../../assets/image/learning-3.svg);
+    color: white;
+}
+
+
+@media screen and (width < 1970px){
+    .method .btn{
+        width: 10vw;
+    }
+}
+
+@media screen and (width < 1590px){
+    .method .btn{
+        width: 12vw;
+        top: 52%;
+    }
+
+    .method .info{
+        position: absolute;
+        height: 2.5vh;
+        margin-left: 27.8%;
+        margin-top: -3.95rem;
+    }
+}

@@ -1,0 +1,127 @@
+<div *ngIf="dataLoaded">
+    <div class="loginComp">
+        <link rel="stylesheet" href="../../assets/GoogleFonts/font.css">
+        <link rel="stylesheet" href="../../assets/css/basic-style.css">
+
+        <style>
+
+            
+        </style>
+
+        <!-- Loader Animation -->
+        
+        <div class="loading" id="loadingAnimation" style="visibility: hidden;position: absolute;left: 0;top: 0;width: 100%;height: 100%;z-index: 999;display: flex;justify-content: center;">
+                <svg version="1.1" id="L2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" style="width: 50%;height: 35%;margin-top: 16.25%;">
+                <circle fill="none" stroke="#fff" stroke-width="4" stroke-miterlimit="10" cx="50" cy="50" r="48"/>
+                <line fill="none" stroke-linecap="round" stroke="#fff" stroke-width="4" stroke-miterlimit="10" x1="50" y1="50" x2="85" y2="50.5">
+                  <animateTransform 
+                       attributeName="transform" 
+                       dur="2s"
+                       type="rotate"
+                       from="0 50 50"
+                       to="360 50 50"
+                       repeatCount="indefinite" />
+                </line>
+                <line fill="none" stroke-linecap="round" stroke="#fff" stroke-width="4" stroke-miterlimit="10" x1="50" y1="50" x2="49.5" y2="74">
+                  <animateTransform 
+                       attributeName="transform" 
+                       dur="15s"
+                       type="rotate"
+                       from="0 50 50"
+                       to="360 50 50"
+                       repeatCount="indefinite" />
+                </line>
+                </svg>
+                </div>
+                
+                <!-- //// Div loadingAnimation -->
+
+    
+        <div id="body" *ngIf="!loadingAnimationState">
+          <header>
+            <div class="header">
+              <div class="logo"><img src="../../assets/image/Logo.png"></div>
+              <div class="text">Webolary Content Network</div>
+            </div>
+              
+          </header>
+
+          <main>
+            <!-- Webolary Slogan -->
+             <div class="slogan"><img src="../../assets/image/cloud-cartoon.svg"></div>
+          
+
+          <div class="screen-1">
+            <div class="screen-txt">{{screenTXT}}</div>
+            <div class="email">
+                <label for="username">Username</label>
+                <div class="sec-2">
+                    <!-- <ion-icon name="mail-outline"></ion-icon> -->
+                    <input autocomplete="off" [(ngModel)]="username" type="text" name="username" placeholder="" [ngStyle]="inputUserStyle" id="inputUser" style="width: 100%;">
+                </div>
+            </div>
+    
+            <div class="password">
+                <label for="password">Password</label>
+                <div class="sec-2">
+                    <!-- <ion-icon name="lock-closed-outline"></ion-icon> -->
+                    <input autocomplete="off" [(ngModel)]="password" class="pas" type="password" name="password" id="inputPw" placeholder="············" [ngStyle]="inputPasswordStyle" style="width: 100%;">
+                    <!-- <ion-icon class="show-hide" name="eye-outline"></ion-icon> -->
+                </div>
+            </div>
+    
+            
+            
+            <!-- <button class="googleLogin">Login with Google</button> -->
+            <form class="mx-auto" [ngStyle]="formStyle" id="form-email-verify">
+  <div class="flex mb-2 space-x-2 rtl:space-x-reverse">
+      <div>
+          <label for="code-1" class="sr-only">First code</label>
+          <input #codeInput type="text" maxlength="1" data-focus-input-init data-focus-input-next="code-1" id="code-1" class="block w-14 h-14 py-3 text-xl font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 " required />
+      </div>
+      <div>
+          <label for="code-2" class="sr-only">Second code</label>
+          <input #codeInput type="text" maxlength="1" data-focus-input-init data-focus-input-prev="code-1" data-focus-input-next="code-3" id="code-2" class="block w-14 h-14 py-3 text-xl font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 " required />
+      </div>
+      <div>
+          <label for="code-3" class="sr-only">Third code</label>
+          <input #codeInput type="text" maxlength="1" data-focus-input-init data-focus-input-prev="code-2" data-focus-input-next="code-4" id="code-3" class="block w-14 h-14 py-3 text-xl text-xl font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 " required />
+      </div>
+      <div>
+          <label for="code-4" class="sr-only">Fourth code</label>
+          <input #codeInput type="text" maxlength="1" data-focus-input-init data-focus-input-prev="code-3" data-focus-input-next="code-5" id="code-4" class="block w-14 h-14 py-3 text-xl text-xl font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 #" required />
+      </div>
+      <div>
+          <label for="code-5" class="sr-only">Fifth code</label>
+          <input #codeInput type="text" maxlength="1" data-focus-input-init data-focus-input-prev="code-4" data-focus-input-next="code-6" id="code-5" class="block w-14 h-14 py-3 text-xl text-xl font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 " required />
+      </div>
+      <div>
+          <label for="code-6" class="sr-only">Sixth code</label>
+          <input #codeInput type="text" maxlength="1" data-focus-input-init data-focus-input-prev="code-5" id="code-6" data-focus-input-next="code-7" class="block w-14 h-14 py-3 text-xl font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 " required />
+      </div>
+      <div>
+        <label for="code-7" class="sr-only">Sixth code</label>
+        <input #codeInput type="text" maxlength="1" data-focus-input-init data-focus-input-prev="code-6" id="code-7" data-focus-input-next="code-8" class="block w-14 h-14 py-3 text-xl font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 " required />
+    </div>
+    <div>
+      <label for="code-8" class="sr-only">Sixth code</label>
+      <input #codeInput type="text" maxlength="1" data-focus-input-init data-focus-input-prev="code-7" id="code-8" class="block w-14 h-14 py-3 text-xl font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 " required />
+  </div>
+  </div>
+  <p id="helper-text-explanation" class="mt-2 text-xl t text-black">enter the 8 digit code you have received</p>
+</form>
+
+
+<button (click)="checkLoginData()" (mouseenter)="hoverOverLoginBTN()" (mouseleave)="hoverOverLoginBTNLeave()" id="loginBTN" class="login"><span id="loginSPAN">enter CDN</span><img id="loginIMAGE" class="hiddenFromScreen" src="../../assets/image/loginL.svg"></button>
+        </div>
+
+          </main>
+        </div>
+
+        <div id="bodyLoading" *ngIf="loadingAnimationState">
+
+        </div>
+      
+      </div>
+    </div>

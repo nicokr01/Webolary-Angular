@@ -1,0 +1,32 @@
+<div id="darkModeDiv"></div>
+<div (click)="bodyClicked()">
+    <link rel="stylesheet" href="../../assets/GoogleFonts/font.css">
+
+    <div *ngIf="!displayMobile">
+        <app-nav-top></app-nav-top>
+        <app-sidebar-small-light></app-sidebar-small-light>
+    </div>
+    <div id="global" class="SUPER_GLOBAL" [style]="superGlobalStyle">
+
+    <div *ngIf="displayMobile">
+        <app-nav-mobile></app-nav-mobile>
+    </div>
+
+    <main>
+        <h1 class="theme">Webolary CDN</h1>
+        <h2 class="text-gray-500">Webolary ContentDelivery Services are only accessible to specially authorised persons, the disclosure of information and sharing of images is strictly prohibited and will be prosecuted. ActiveAX recognises screenshot attempts and automatically sends a message to the Webolary team</h2>
+    
+        <div class="file-browser">
+            <div class="category" *ngFor="let HeadObj of HeadObjs;let i = index">
+                <div class="headOBJ theme">{{HeadObj}}</div>
+                <div class="subject" *ngFor="let Subject of FileSystem[HeadObj];let ind = index">
+                    <div class="subject-name theme">{{Subject.name}}</div> 
+                    <div class="gif">
+                        <img src="../../assets/image/folder-img.svg" style="width: 100%;height: 100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </main>
+</div>

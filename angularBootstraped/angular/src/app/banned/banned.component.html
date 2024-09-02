@@ -1,1 +1,61 @@
-<p class="text-orange-600 text-5xl ml-6 mt-6">You are banned haha loooooooser :():(): ()</p>
+<div id="darkModeDiv"></div>
+<div>
+    <link rel="stylesheet" href="../../assets/GoogleFonts/font.css">
+
+    <div *ngIf="!displayMobile">
+        <app-nav-top></app-nav-top>
+    </div>
+
+    <div id="global" class="SUPER_GLOBAL" [style]="superGlobalStyle">
+
+    <main>
+      
+        <span class="span12">Webolary security systems have detected irregularities.</span> <br>
+        <span class="text-gray-400 span13">Therefore your client connection has been temporarily blocked</span>
+
+        <img src="../../assets/image/ActiveAX.svg" alt="ActiveAX Logo" class="ActiveAX">
+        
+        <div class="data">
+            <h3>Webolary ActiveAX Security System -> Client data</h3>
+            <pre>
+                IP adress => {{dataAPI.IP}}
+            </pre>
+            <pre>
+                City => {{dataAPI.Stadt}}
+            </pre>
+            <pre>
+                Region => {{dataAPI.Region}}
+            </pre>
+            <pre>
+                Country => {{dataAPI.Land}}
+            </pre>
+            <pre>
+                ZIP Code => {{dataAPI.PLZ}}
+            </pre>
+            <pre>
+                Latitude => {{dataAPI.Lat}}
+            </pre>
+            <pre>
+                Longitude => {{dataAPI.Lon}}
+            </pre>
+            <pre>
+                Organisation => {{dataAPI.Organisation}}
+            </pre>
+            <pre>
+                ISP => {{dataAPI.ISP}}
+            </pre>
+            <pre>
+                Hostname => {{dataAPI.Hostname}}
+            </pre>
+            <pre>
+                User-Agent => {{dataAPI.UserAgent}}
+            </pre>
+        </div>
+    </main>
+
+    <div class="contact">
+        <span class="underline">Your Public IP Adress has been blocked by ActiveAX </span>
+
+        <div class="contactBTN" (click)="openMailClient()">Issue ? Contact the ActiveAX Team</div>
+    </div>
+</div>

@@ -34,6 +34,11 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AdminPanelCheckComponent } from './admin-panel-check/admin-panel-check.component';
 import { BreakComponent } from './break/break.component';
 import { SignupComponent } from './signup/signup.component';
+import { LearnModeComponent } from './learn-mode/learn-mode.component';
+import { LearnModeCheckComponent } from './learn-mode-check/learn-mode-check.component';
+import { ContentNetworkCheckComponent } from './content-network-check/content-network-check.component';
+import { ContentNetworkComponent } from './content-network/content-network.component';
+import { ContentNetowrkAuthComponent } from './content-netowrk-auth/content-netowrk-auth.component';
 
 
 
@@ -65,6 +70,11 @@ import { SignupComponent } from './signup/signup.component';
     AdminPanelCheckComponent,
     BreakComponent,
     SignupComponent,
+    LearnModeComponent,
+    LearnModeCheckComponent,
+    ContentNetworkCheckComponent,
+    ContentNetworkComponent,
+    ContentNetowrkAuthComponent,
   ],
   imports: [
     BrowserModule,

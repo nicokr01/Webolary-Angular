@@ -1,0 +1,63 @@
+main{
+    position: absolute;
+    width: 83.5vw;
+    right: 2.5vw;
+    top: 10vh;
+    height: 80vh;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+h2{
+    font-size: 1.35rem;
+}
+
+.file-browser{
+
+}
+
+.category{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    border-radius: 2rem;
+    margin-top: 5rem;
+    text-align: left;
+    min-height: 20vh;
+    z-index: 1;
+}
+
+.headOBJ{
+    position: absolute;
+    left: 3rem;
+    margin-top: -1.9rem;
+    font-size: 2.2rem;
+    z-index: 2;
+}
+
+.subject{
+    position: relative;
+    min-width: 11%;
+    height: 20rem;
+    margin: 3rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    transition: 500ms;
+}
+
+.subject:hover{
+    cursor: pointer;
+    transition: 500ms;
+}
+
+.subject .gif{
+    position: relative;
+    width: 60%;
+    height: 60%;
+    margin-left: 20%;
+    margin-top: 20%;
+    z-index: 3;
+}

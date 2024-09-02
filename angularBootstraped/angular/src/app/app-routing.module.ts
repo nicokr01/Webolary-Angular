@@ -13,6 +13,10 @@ import { AdminPanelCheckComponent } from './admin-panel-check/admin-panel-check.
 import { BreakComponent } from './break/break.component';
 import { AIComponent } from './ai/ai.component';
 import { SignupComponent } from './signup/signup.component';
+import { LearnModeCheckComponent } from './learn-mode-check/learn-mode-check.component';
+import { ContentNetworkComponent } from './content-network/content-network.component';
+import { ContentNetowrkAuthComponent } from './content-netowrk-auth/content-netowrk-auth.component';
+import { ContentNetworkCheckComponent } from './content-network-check/content-network-check.component';
 
 const routes: Routes = [
     {path:"",component:HomeComponent},
@@ -29,7 +33,10 @@ const routes: Routes = [
     {path:"AdminPanel",component:AdminPanelCheckComponent},
     {path:"break",component:BreakComponent},
     {path:"Bierpause",component:BreakComponent},
-    {path:"Signup",component:SignupComponent}
+    {path:"Signup",component:SignupComponent},
+    {path:"learn",component:LearnModeCheckComponent},
+    {path:"contentNetwork",component:ContentNetworkCheckComponent},
+
 ];
 
 @NgModule({
