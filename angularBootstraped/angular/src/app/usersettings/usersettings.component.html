@@ -62,12 +62,12 @@
     </div>
 
     <main id="main" class="2xl:mt-5 fixed">
-        <div class="top-left" [style]="styleBoxes">
+        <div class="top-left boxCol" >
             <div class="color"></div>
             <div class="user">{{reconstructedUserClass.username}}</div>
             <div class="profile"></div>
         </div>
-        <div class="top-right" [style]="styleBoxes">
+        <div class="top-right boxCol" >
             <h2 class="ml-1">Security Settings</h2>
             <h3 class="ml-1 text-gray-500">Here you can adjust various security settings for your account</h3>
 
@@ -140,7 +140,7 @@
         </div>
 
 
-        <div class="bottom-left" [style]="styleBoxes">
+        <div class="bottom-left boxCol" >
             <h2 class="ml-4">Account Settings</h2>
             <h3 class="ml-4 text-gray-500">Here you can change your account informations</h3>
 
@@ -249,7 +249,7 @@
 
             <div class="updateBTN flex text-center" (click)="publicSettingsSubmit()"><img class="ml-5" src="../../assets/image/acc.svg" style="height: 3rem;margin-top: 1rem;"> <p class="ml-14 2xl:ml-20">Save changes</p></div>
         </div>
-        <div class="bottom-right" [style]="styleBoxes">
+        <div class="bottom-right boxCol" >
             <h2 class="ml-4">Change password</h2>
             <h3 class="ml-4 text-gray-500">Here you can change your password</h3>
 

@@ -1,3 +1,4 @@
+
 <div id="darkModeDiv"></div>
 <div (click)="bodyClicked()">
     <link rel="stylesheet" href="../../assets/GoogleFonts/font.css">
@@ -12,14 +13,14 @@
         <app-nav-mobile></app-nav-mobile>
     </div>
 
-    <main>
+    <main *ngIf="!loadingAnimationState && !subjectClicked && !selectedView">
         <h1 class="theme">Webolary CDN</h1>
-        <h2 class="text-gray-500">Webolary ContentDelivery Services are only accessible to specially authorised persons, the disclosure of information and sharing of images is strictly prohibited and will be prosecuted. ActiveAX recognises screenshot attempts and automatically sends a message to the Webolary team</h2>
+        <h2 class="text-gray-500 h2Link">Webolary ContentDelivery Services are only accessible to specially authorised persons, the disclosure of information and sharing of images is strictly prohibited and will be prosecuted. ActiveAX recognises screenshot attempts and automatically sends a message to the Webolary team</h2>
     
         <div class="file-browser">
             <div class="category" *ngFor="let HeadObj of HeadObjs;let i = index">
                 <div class="headOBJ theme">{{HeadObj}}</div>
-                <div class="subject" *ngFor="let Subject of FileSystem[HeadObj];let ind = index">
+                <div class="subject" *ngFor="let Subject of FileSystem[HeadObj];let ind = index" (click)="clickOnSubject(Subject.name,HeadObj)">
                     <div class="subject-name theme">{{Subject.name}}</div> 
                     <div class="gif">
                         <img src="../../assets/image/folder-img.svg" style="width: 100%;height: 100%;">
@@ -27,6 +28,45 @@
                 </div>
             </div>
         </div>
-    
+    </main>
+
+    <main *ngIf="loadingAnimationState" class="flex" style="vertical-align: top;">
+        <div class="spinner-animation"><img class="spinner-svg" src="../../assets/image/spinner-animation.svg" alt=""></div>
+        <div class="spinner-span text-gray-500">Connecting to secure CDN Endpoint <p class="theme text-4xl mt-3">{{user.username}}.cdn.webolary.com</p></div>
+    </main>
+
+    <main *ngIf="subjectClicked && !selectedView" class=" mainCDNstyle">
+        <h1 class="theme">Webolary CDN ➜ {{selectSubjectName}}</h1>
+        <div class="text-gray-500 h2Link flex"> <span class="underline cursor-pointer" (click)="backToCDN_Dashboard();">root</span> <span class="ml-2">/</span></div>
+        <div class="contentPage flex gap-8" style="width: 100%;height: 80vh;">
+            <div class="dataView mt-12" *ngFor="let entry of CDN_Data[reference];let ind = index">
+                <div class="flex flex-col bg-white border shadow-sm rounded-xl CDN_card" style="border: none;overflow: hidden;">
+                    <img class="rounded-t-xl" src={{getImageURL(entry)}} alt="Card Image" class="img-cdn">
+                    <div class="p-4 md:p-5">
+                      <h3 class="text-2xl font-bold text-gray-800">
+                        {{fomartTitle(entry)}}
+                      </h3>
+                      <p class="mt-1 text-gray-500 text-xl">
+                        {{formatText(entry)}}
+                      </p>
+                      <a (click)="selectView(entry);" class="cursor-pointer mt-5 py-2 px-3 inline-flex justify-center items-center gap-x-2 font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none w-40 h-14 text-xl">
+                        View
+                      </a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </main>
+
+    <main *ngIf="selectedView"> 
+        <h1 class="theme">Webolary CDN ➜ {{selectSubjectName}} ➜ {{fomartTitle(selectedEntry)}}</h1> 
+        <div class="text-gray-500 h2Link flex"> <span class="underline cursor-pointer" (click)="backToCDN_Dashboard();">root</span> <span class="ml-2">/</span> <span (click)="backToSubjectView();" class="ml-2 underline cursor-pointer">{{selectSubjectName}}</span></div>
+
+        <h3 class="theme mt-20 text-4xl">Preview</h3>
+        <div class="preview">
+            <img src={{getImageURLData(selectedEntry)}}>
+        </div>
+
+        <div class="download"><a target="_blank" [href]="getImageURLData(selectedEntry)" download class="px-4 py-3 bg-blue-600 rounded-md text-white outline-none focus:ring-4 shadow-lg transform active:scale-x-75 transition-transform mx-5 flex"><svg class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg><span class="ml-2">Download</span></a></div>
     </main>
 </div>

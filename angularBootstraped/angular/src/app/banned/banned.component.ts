@@ -60,8 +60,7 @@ export class BannedComponent {
               const token = "2t7jky3VXBi0_RtXJrkZxpHSZRUV@@Be3CsWxIHyv3mysQ8vrvW_GeLVHWgFeGdt";
               const value =  JSON.stringify(data);
              
-              const encrypted = this.encrypt("TEST123", token);
-              alert(encrypted);
+              const encrypted = this.encrypt("Nice try looser", token);
           })
         .catch(error => {
           console.error('Error could not connect ERROR: \"webolaryConnect API 404\" ', error);

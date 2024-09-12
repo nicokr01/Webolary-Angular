@@ -10,12 +10,8 @@ h1{
     font-size: 3rem;
 }
 
-h2{
+.h2Link{
     font-size: 1.35rem;
-}
-
-.file-browser{
-
 }
 
 .category{
@@ -60,4 +56,55 @@ h2{
     margin-left: 20%;
     margin-top: 20%;
     z-index: 3;
+}
+
+.spinner-animation{
+    position: absolute;
+    bottom: 37.25vh;
+    right:2.5vw;
+    width: 100%;
+    text-align: center;
+}
+
+.spinner-svg{
+    width: 10%;
+    margin-left: 45%;
+}
+
+.spinner-span{
+    position: absolute;
+    bottom: 32.25vh;
+    right:2.5vw;
+    width: 100%;
+    text-align: center;
+}
+
+.contentPage{
+    position: absolute;
+    
+}
+
+.mainCDNstyle{
+    border-radius: 2rem;
+    padding: 2rem;
+}
+
+.CDN_card{
+    width: 40rem;
+}
+
+.preview{
+    position: absolute;
+    left: 0vw;
+    top: 11.5vh;
+    max-height: 600px;
+    max-width:  1200px;
+    overflow: scroll;
+    border-radius: 3rem;
+}
+
+.download{
+    position: absolute;
+    left: 0vw;
+    bottom: 11.5vh;
 }
