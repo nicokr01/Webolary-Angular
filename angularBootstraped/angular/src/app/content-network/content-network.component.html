@@ -38,7 +38,7 @@
     <main *ngIf="subjectClicked && !selectedView" class=" mainCDNstyle">
         <h1 class="theme">Webolary CDN ➜ {{selectSubjectName}}</h1>
         <div class="text-gray-500 h2Link flex"> <span class="underline cursor-pointer" (click)="backToCDN_Dashboard();">root</span> <span class="ml-2">/</span></div>
-        <div class="contentPage flex gap-8" style="width: 100%;height: 80vh;">
+        <div class="contentPage flex gap-10" style="width: 100%;height: 80vh;flex-wrap: wrap;">
             <div class="dataView mt-12" *ngFor="let entry of CDN_Data[reference];let ind = index">
                 <div class="flex flex-col bg-white border shadow-sm rounded-xl CDN_card" style="border: none;overflow: hidden;">
                     <img class="rounded-t-xl" src={{getImageURL(entry)}} alt="Card Image" class="img-cdn">
@@ -59,14 +59,28 @@
     </main>
 
     <main *ngIf="selectedView"> 
-        <h1 class="theme">Webolary CDN ➜ {{selectSubjectName}} ➜ {{fomartTitle(selectedEntry)}}</h1> 
+        <h1 class="theme">Webolary CDN ➜ {{selectSubjectName}} ➜ {{(selectedEntry)}}</h1> 
         <div class="text-gray-500 h2Link flex"> <span class="underline cursor-pointer" (click)="backToCDN_Dashboard();">root</span> <span class="ml-2">/</span> <span (click)="backToSubjectView();" class="ml-2 underline cursor-pointer">{{selectSubjectName}}</span></div>
 
         <h3 class="theme mt-20 text-4xl">Preview</h3>
-        <div class="preview">
-            <img src={{getImageURLData(selectedEntry)}}>
+        <div class="preview" *ngIf="isSupportedPreviewFile(selectedEntry)">
+            <img style="z-index: 99;" src={{getImageStreamAPI(selectedEntry)}}>
         </div>
 
-        <div class="download"><a target="_blank" [href]="getImageURLData(selectedEntry)" download class="px-4 py-3 bg-blue-600 rounded-md text-white outline-none focus:ring-4 shadow-lg transform active:scale-x-75 transition-transform mx-5 flex"><svg class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg><span class="ml-2">Download</span></a></div>
+        <div class="previewNotavailable theme" *ngIf="!isSupportedPreviewFile(selectedEntry)" style="z-index: 1;">
+            <h3>The CDN preview currently supports only the following file formats. We are working on adding support for PDF, SVG files, and program code in the near future.</h3>
+            <div class="text-xl mt-6">
+                Supported formats: <br>
+                JPEG (.jpg, .jpeg)
+                PNG (.png) 
+                GIF (.gif)
+                WebP (.webp) 
+                SVG (.svg) 
+                BMP (.bmp) 
+                ICO (.ico) 
+            </div>
+        </div>
+
+        <div class="download"><a target="_blank" [href]="getImageStreamAPI(selectedEntry)" download class="px-4 py-3 bg-blue-600 rounded-md text-white outline-none focus:ring-4 shadow-lg transform active:scale-x-75 transition-transform mx-5 flex"><svg class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg><span class="ml-2">Download</span></a></div>
     </main>
 </div>

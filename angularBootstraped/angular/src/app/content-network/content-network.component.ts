@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { getUser } from '../WebolarySystem/getUser';
 import { User } from '../User/User';
 import { Router } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-content-network',
@@ -25,9 +26,13 @@ export class ContentNetworkComponent {
   protected reference:string = '';
   protected selectedView:boolean = false;
   protected selectedEntry:string = '';
+  protected safeImageUrl: SafeResourceUrl;
+  protected previewProvidedStatus:boolean = false;
 
-  constructor(protected cookie:CookieService, protected elementRef:ElementRef,protected theme:Theme, protected router:Router){
+  constructor(private sanitizer: DomSanitizer,protected cookie:CookieService, protected elementRef:ElementRef,protected theme:Theme, protected router:Router){
     this.user = getUser.get();
+
+    this.safeImageUrl = this.sanitizer.bypassSecurityTrustResourceUrl("https://abc.com");
   }
 
   ngOnInit(){
@@ -148,11 +153,21 @@ export class ContentNetworkComponent {
     protected getImageURLData(entry:string){
       return "https://api.webolary.com/CDN_struct/"+this.reference+"/"+entry;
     }
-    // //// click action handler
 
+    protected getImageStreamAPI(entry:string){
+      this.safeImageUrl = this.sanitizer.bypassSecurityTrustResourceUrl('http://api.webolary.com/CDN_external_connector.php/?token='+this.cookie.get('username')+'&container='+this.reference+'&ressource='+entry);
+
+      return 'http://api.webolary.com/CDN_external_connector.php/?token='+this.cookie.get('username')+'&container='+this.reference+'&ressource='+entry;
+    }
+
+
+    protected isSupportedPreviewFile(fileName: string): boolean{
+      const supportedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp', 'ico'];
+      const fileExtension = fileName.split('.').pop()?.toLowerCase();
+      return fileExtension ? supportedExtensions.includes(fileExtension) : false;
+    }
 
     // data fetching
-
     async getStructData(){
       const url = 'https://api.webolary.com/?CDN=&token='+this.cookie.get("username");
       await fetch(url)

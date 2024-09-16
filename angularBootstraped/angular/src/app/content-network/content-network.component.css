@@ -108,3 +108,13 @@ h1{
     left: 0vw;
     bottom: 11.5vh;
 }
+
+.previewNotavailable{
+    position: absolute;
+    width: auto;
+    left: 1rem;
+    margin-top: 4rem;
+    padding: 3rem;
+    border: 1.5px solid red;
+    border-radius: 3rem;
+}

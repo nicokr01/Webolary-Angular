@@ -50,6 +50,8 @@ export class BannedComponent {
 
     // //// bluring page
 
+    
+
     private async getData(){
       const url = 'https://api.webolary.com?clientInfo';
       await fetch(url)
