@@ -7,7 +7,7 @@ import CryptoJS from 'crypto-js';
 @Component({
   selector: 'app-sidebar-small-light',
   templateUrl: './sidebar-small-light.component.html',
-  styleUrl: './sidebar-small-light.component.css'
+  styleUrl: './sidebar-small-light.component.scss'
 })
 export class SidebarSmallLightComponent {
   protected modeSVG:SafeHtml = "";

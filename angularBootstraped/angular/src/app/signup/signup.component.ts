@@ -10,7 +10,7 @@ import { DomSanitizer, SafeHtml, SafeUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrl: './signup.component.css'
+  styleUrl: './signup.component.scss'
 })
 export class SignupComponent implements AfterViewInit{
   public dataLoaded:boolean = false;

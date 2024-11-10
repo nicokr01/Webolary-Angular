@@ -9,7 +9,7 @@ import { WebsocketService } from '../websocket.service';
 @Component({
   selector: 'app-admin-panel',
   templateUrl: './admin-panel.component.html',
-  styleUrl: './admin-panel.component.css'
+  styleUrl: './admin-panel.component.scss'
 })
 
 

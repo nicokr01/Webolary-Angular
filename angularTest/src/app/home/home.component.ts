@@ -11,7 +11,7 @@ import { Auth } from '../Auth/auth';
   standalone: true,
   imports: [CommonModule,NavTopComponent,SidebarSmallLightComponent,FormsModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.scss'
 })
 
 

@@ -5,7 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-learn-mode',
   templateUrl: './learn-mode.component.html',
-  styleUrl: './learn-mode.component.css'
+  styleUrl: './learn-mode.component.scss'
 })
 export class LearnModeComponent {
   protected displayMobile:boolean = false;

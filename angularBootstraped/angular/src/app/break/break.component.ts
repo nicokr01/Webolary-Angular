@@ -5,7 +5,7 @@ import CryptoJS from 'crypto-js';
 @Component({
   selector: 'app-break',
   templateUrl: './break.component.html',
-  styleUrl: './break.component.css'
+  styleUrl: './break.component.scss'
 })
 export class BreakComponent {
   

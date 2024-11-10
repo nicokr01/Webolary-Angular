@@ -6,7 +6,7 @@ import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-learn-mode-check',
   templateUrl: './learn-mode-check.component.html',
-  styleUrl: './learn-mode-check.component.css'
+  styleUrl: './learn-mode-check.component.scss'
 })
 export class LearnModeCheckComponent extends Auth{
   constructor(cookieService:CookieService,websocket:WebsocketService){

@@ -10,7 +10,7 @@ import { WebsocketService } from '../websocket.service';
 @Component({
   selector: 'app-add-vocabulary',
   templateUrl: './add-vocabulary.component.html',
-  styleUrl: './add-vocabulary.component.css'
+  styleUrl: './add-vocabulary.component.scss'
 })
 
 

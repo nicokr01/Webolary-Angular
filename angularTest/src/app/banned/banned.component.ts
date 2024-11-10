@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './banned.component.html',
-  styleUrl: './banned.component.css'
+  styleUrl: './banned.component.scss'
 })
 export class BannedComponent {
 

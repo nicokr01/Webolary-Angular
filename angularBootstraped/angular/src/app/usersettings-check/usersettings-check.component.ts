@@ -6,7 +6,7 @@ import { WebsocketService } from '../websocket.service';
 @Component({
   selector: 'app-usersettings-check',
   templateUrl: './usersettings-check.component.html',
-  styleUrl: './usersettings-check.component.css'
+  styleUrl: './usersettings-check.component.scss'
 })
 
 export class UsersettingsCheckComponent extends Auth{

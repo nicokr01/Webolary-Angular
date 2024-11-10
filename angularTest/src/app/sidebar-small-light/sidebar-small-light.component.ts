@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [RouterModule],
   templateUrl: './sidebar-small-light.component.html',
-  styleUrl: './sidebar-small-light.component.css'
+  styleUrl: './sidebar-small-light.component.scss'
 })
 export class SidebarSmallLightComponent {
 

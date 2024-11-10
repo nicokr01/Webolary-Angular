@@ -6,7 +6,7 @@ import { WebsocketService } from '../websocket.service';
 @Component({
   selector: 'app-communitycheck',
   templateUrl: './communitycheck.component.html',
-  styleUrl: './communitycheck.component.css'
+  styleUrl: './communitycheck.component.scss'
 })
 export class CommunitycheckComponent extends Auth{
     constructor(cookieService:CookieService,websocket:WebsocketService){

@@ -6,7 +6,7 @@ import CryptoJS from 'crypto-js';
 @Component({
   selector: 'app-nav-mobile',
   templateUrl: './nav-mobile.component.html',
-  styleUrl: './nav-mobile.component.css'
+  styleUrl: './nav-mobile.component.scss'
 })
 export class NavMobileComponent {
   protected mobileMenuDiv = "display:none";

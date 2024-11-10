@@ -8,7 +8,7 @@ import { WebsocketService } from '../websocket.service';
 @Component({
   selector: 'app-admin-panel-check',
   templateUrl: './admin-panel-check.component.html',
-  styleUrl: './admin-panel-check.component.css'
+  styleUrl: './admin-panel-check.component.scss'
 })
 export class AdminPanelCheckComponent extends Auth {
   constructor(cookieService:CookieService,websocket:WebsocketService){

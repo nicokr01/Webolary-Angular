@@ -8,7 +8,7 @@ import { Lexer } from '@angular/compiler';
 @Component({
   selector: 'app-community',
   templateUrl: './community.component.html',
-  styleUrl: './community.component.css'
+  styleUrl: './community.component.scss'
 })
 export class CommunityComponent{
     protected displayMobile:boolean = false;

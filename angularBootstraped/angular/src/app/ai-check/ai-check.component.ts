@@ -6,7 +6,7 @@ import { WebsocketService } from '../websocket.service';
 @Component({
   selector: 'app-ai-check',
   templateUrl: './ai-check.component.html',
-  styleUrl: './ai-check.component.css'
+  styleUrl: './ai-check.component.scss'
 })
 export class AiCheckComponent extends Auth{
   constructor(cookieService:CookieService,websocket:WebsocketService){

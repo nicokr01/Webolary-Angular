@@ -9,7 +9,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-content-network',
   templateUrl: './content-network.component.html',
-  styleUrl: './content-network.component.css'
+  styleUrl: './content-network.component.scss'
 })
 export class ContentNetworkComponent {
   protected displayMobile:boolean = false;

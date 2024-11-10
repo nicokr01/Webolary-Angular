@@ -6,7 +6,7 @@ import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-ai',
   templateUrl: './ai.component.html',
-  styleUrl: './ai.component.css'
+  styleUrl: './ai.component.scss'
 })
 
 export class AIComponent  {

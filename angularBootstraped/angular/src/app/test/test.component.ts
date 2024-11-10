@@ -3,7 +3,7 @@ import { Component, input, numberAttribute } from '@angular/core';
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
-  styleUrl: './test.component.css'
+  styleUrl: './test.component.scss'
 })
 export class TestComponent {
   protected usernameInput:string = "";

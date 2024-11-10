@@ -7,7 +7,7 @@ import { System } from '../WebolarySystem/system';
 @Component({
   selector: 'app-usersettings',
   templateUrl: './usersettings.component.html',
-  styleUrl: './usersettings.component.css'
+  styleUrl: './usersettings.component.scss'
 })
 export class UsersettingsComponent {
   protected superGlobalStyle = "";

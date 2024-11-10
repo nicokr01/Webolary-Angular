@@ -11,7 +11,7 @@ import { ColdObservable } from 'rxjs/internal/testing/ColdObservable';
 @Component({
   selector: 'app-content-netowrk-auth',
   templateUrl: './content-netowrk-auth.component.html',
-  styleUrl: './content-netowrk-auth.component.css'
+  styleUrl: './content-netowrk-auth.component.scss'
 })
 export class ContentNetowrkAuthComponent {
 

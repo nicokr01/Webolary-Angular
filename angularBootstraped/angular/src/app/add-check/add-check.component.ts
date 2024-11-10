@@ -7,7 +7,7 @@ import { WebsocketService } from '../websocket.service';
 @Component({
   selector: 'app-add-check',
   templateUrl: './add-check.component.html',
-  styleUrl: './add-check.component.css'
+  styleUrl: './add-check.component.scss'
 })
 export class AddCheckComponent extends Auth{
 

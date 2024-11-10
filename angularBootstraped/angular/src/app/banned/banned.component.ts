@@ -6,7 +6,7 @@ import * as CryptoJS from 'crypto-js';
 @Component({
   selector: 'app-banned',
   templateUrl: './banned.component.html',
-  styleUrl: './banned.component.css'
+  styleUrl: './banned.component.scss'
 })
 export class BannedComponent {
   protected displayMobile:boolean = false;
