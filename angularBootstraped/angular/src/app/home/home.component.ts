@@ -33,6 +33,11 @@ export class HomeComponent extends Auth{
   }
 
   ngOnInit(){
+    if(!this.cookieService.get("username")){
+      location.href = "/LandingPage";
+      return;
+    }
+
     /*Aufareisen & block unauthorized actions => bann Page*/
     this.auth();
     /* Nimma aufareisen */ 

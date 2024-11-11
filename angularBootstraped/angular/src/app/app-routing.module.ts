@@ -17,9 +17,11 @@ import { LearnModeCheckComponent } from './learn-mode-check/learn-mode-check.com
 import { ContentNetworkComponent } from './content-network/content-network.component';
 import { ContentNetowrkAuthComponent } from './content-netowrk-auth/content-netowrk-auth.component';
 import { ContentNetworkCheckComponent } from './content-network-check/content-network-check.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
     {path:"",component:HomeComponent},
+    {path:"LandingPage",component:LandingPageComponent},
     {path:"login",component:LoginComponent},
     {path:"home",component:HomeComponent},
     {path:"banned",component:BannedComponent},

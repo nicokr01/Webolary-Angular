@@ -39,6 +39,7 @@ import { LearnModeCheckComponent } from './learn-mode-check/learn-mode-check.com
 import { ContentNetworkCheckComponent } from './content-network-check/content-network-check.component';
 import { ContentNetworkComponent } from './content-network/content-network.component';
 import { ContentNetowrkAuthComponent } from './content-netowrk-auth/content-netowrk-auth.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 
 
@@ -75,6 +76,7 @@ import { ContentNetowrkAuthComponent } from './content-netowrk-auth/content-neto
     ContentNetworkCheckComponent,
     ContentNetworkComponent,
     ContentNetowrkAuthComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,
