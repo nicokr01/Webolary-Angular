@@ -1,0 +1,51 @@
+<nav>
+    <!-- Mobile Menu -->
+    <div class="mobileMenu" [style]="mobileMenuDiv">
+        <div class="info">
+            <div class="username">{{this.user.username}}</div>
+            <div class="rank">{{this.rank}}</div>
+        </div>
+        <div class="close" (click)="closeMenu()">
+            <img src="../../assets/image/close.svg">
+        </div>
+        <div class="items">
+            <div class="item rounded-full mt-10 mb-3" (click)="redirect('/')">
+                <div class="img"><img src="../../assets/image/home.svg"></div>
+                <div class="text">Practice Vocabulary</div>
+            </div>
+
+            <div class="item rounded-full mt-10 mb-3" (click)="redirect('/add')">
+                <div class="img"><img src="../../assets/image/add.svg"></div>
+                <div class="text">Add vocabulary</div>
+            </div>
+
+            <div class="item rounded-full mt-10 mb-3" (click)="redirect('/community')">
+                <div class="img"><img src="../../assets/image/community.svg"></div>
+                <div class="text">Community Units</div>
+            </div>
+        </div>
+        <div class="bottomItems">
+            <div class="item rounded-full mt-10 mb-3" (click)="this.system.resetUnitSession()">
+                <div class="img"><img src="../../assets/image/reset.svg"></div>
+                <div class="text">Reset unit session</div>
+            </div>
+
+            <div class="item rounded-full mt-10 mb-3" style="background-color: red;color: white;" (click)="this.system.logout()">
+                <div class="img"><img src="../../assets/image/logout.svg"></div>
+                <div class="text">Logout</div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu -->
+
+
+    <div class="navbar">
+        <div class="text">Webolary</div>
+
+        <div class="menu" (click)="openMenu()"><img src="../../assets/image/menu.svg"></div>
+    </div>
+    
+    <div class="nav">
+        
+    </div>
+</nav>

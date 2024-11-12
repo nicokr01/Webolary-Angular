@@ -1,0 +1,247 @@
+*{
+    z-index: 100;
+}
+
+:root{
+    --dark: rgb(14,24,39);
+}
+
+html{
+    font-size: 100%;
+}
+
+.SUPER_GLOBAL{position: absolute;top: 0;left: 0;width: 100%;height: 100vh;z-index: 1;}
+
+/* Main styling with word and headline Div */
+
+main{
+    position: absolute;
+    right: 5%;
+    top: 10rem;
+    width: 90%;
+    height: 80vh;
+    text-align: center;
+    z-index: 1;
+    font-family: Lexend;
+}
+
+
+/* //// Main styling*/
+.inputWord{
+    width: 40%;
+    height: 5rem;
+    margin-left: 30%;
+    margin-top: 4.5rem;
+    background-color: red;
+    
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(to right, #5120ce 0%, rgb(155, 1, 245) 100%) 1;
+
+    text-align: left;
+    cursor: text;
+}
+
+.inputWord input[type="text"]{
+    background-color: rgb(242, 242, 242);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.inputWord .span{
+   margin-top: -4rem;
+   font-family: 'Lexend';
+   transition: 0ms;
+}
+
+input:focus {
+    outline: none;
+}
+
+.h1{
+    color: black;
+    font-size: 4.55rem;
+    margin-top: 5rem;
+}
+
+#vocListH2{
+    color: black;
+}
+
+.actions{
+    position: relative;
+    width: 40%;
+    left: 30%;
+    top: 6.5rem;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.actionBTN{
+    position: relative;
+    height: 5rem;
+    width: 25rem;
+    color: white;
+    display: flex;
+    line-height: 5rem;
+    padding-left: 1rem;
+    text-align: center;
+}
+
+.imgBTN{
+    width: 3.55rem;
+}
+
+.actionBTN .pBTN{
+    margin-left: 1rem;
+}
+
+.actionBTN .pBTN2{
+    margin-left: 0.25rem;
+}
+
+.actionBTN .pBTN3{
+    margin-left: 3.5rem;
+}
+
+/* //// Main styling*/
+
+/* Moving Span Animations, executed by HomeComponent Class */
+
+.moveTop{
+    animation-name: moveToTop;
+    animation-duration:400ms;
+}
+
+@keyframes moveToTop{
+    from{
+        margin-top: -4rem;
+    }
+    to{
+        margin-top: -7rem;
+    }
+}
+
+.moveBottom{
+    animation-name: moveToBottom;
+    animation-duration:400ms;
+}
+  
+@keyframes moveToBottom{
+    from{
+        margin-top: -7rem;
+    }
+    to{
+        margin-top: -4rem;
+    
+    }
+}
+
+.inputDivAdd{
+    position: relative;
+    width: auto;
+    display: none;
+}
+
+.inputDivAdd input{
+    height: 100%;
+    width: 80%;
+    margin-left:5% ;
+    font-size: 1.85rem;
+    border-bottom: 0.8px solid white;
+}
+
+
+/*  //// Moving Span Animations, executed by HomeComponent Class */
+
+
+@media only screen and (max-width: 2250px ) {
+    .actionBTN{
+        font-size: 1.55rem;
+        width: 20.5rem;
+    }
+
+    .actions{
+        width: 45%;
+        left: 27.5%;
+    }
+}
+
+@media only screen and (max-width: 1700px ) {
+    .actionBTN{
+        height: 4.5rem;
+        line-height: 4.5rem;
+    }
+
+    .imgBTN{
+        width: 2.85rem;
+    }
+    .actions{
+        width: 55%;
+        left: 22.5%;
+    }
+
+    .inputWord{
+        width: 60%;
+        margin-left: 20%;
+    }
+}
+
+@media only screen and (max-width: 1450px ) {
+    .actions{
+        width: 70%;
+        left:15%;
+    }
+}
+
+@media only screen and (max-width: 1000px ) {
+    .actions{
+        width: 85%;
+        left:7.5%;
+    }
+}
+
+
+
+@media only screen and (max-width: 1000px ) {
+    .actions{
+        display: block;
+        width: 20%;
+        left: 40%;
+        text-align: center;
+    }
+
+    .actionBTN{
+        height: 4.5rem;
+        line-height: 4.5rem;
+        margin-top: 3rem;
+    }
+}
+
+
+@media only screen and (max-width: 600px ) {
+
+    .h1{
+        font-size:2.825rem ;
+    }
+
+    .actions{
+        display: block;
+        width: 50%;
+        left: 25%;
+        text-align: center;
+    }
+
+    .actionBTN{
+        height: 4.5rem;
+        line-height: 4.5rem;
+        margin-top: 3rem;
+    }
+
+    .inputWord{
+        width: 85%;
+        margin-left: 7.5%;
+    }
+}
+

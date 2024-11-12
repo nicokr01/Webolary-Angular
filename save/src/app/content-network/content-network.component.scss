@@ -1,0 +1,120 @@
+main{
+    position: absolute;
+    width: 83.5vw;
+    right: 2.5vw;
+    top: 10vh;
+    height: 80vh;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+.h2Link{
+    font-size: 1.35rem;
+}
+
+.category{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    border-radius: 2rem;
+    margin-top: 5rem;
+    text-align: left;
+    min-height: 20vh;
+    z-index: 1;
+}
+
+.headOBJ{
+    position: absolute;
+    left: 3rem;
+    margin-top: -1.9rem;
+    font-size: 2.2rem;
+    z-index: 2;
+}
+
+.subject{
+    position: relative;
+    min-width: 11%;
+    height: 20rem;
+    margin: 3rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    transition: 500ms;
+}
+
+.subject:hover{
+    cursor: pointer;
+    transition: 500ms;
+}
+
+.subject .gif{
+    position: relative;
+    width: 60%;
+    height: 60%;
+    margin-left: 20%;
+    margin-top: 20%;
+    z-index: 3;
+}
+
+.spinner-animation{
+    position: absolute;
+    bottom: 37.25vh;
+    right:2.5vw;
+    width: 100%;
+    text-align: center;
+}
+
+.spinner-svg{
+    width: 10%;
+    margin-left: 45%;
+}
+
+.spinner-span{
+    position: absolute;
+    bottom: 32.25vh;
+    right:2.5vw;
+    width: 100%;
+    text-align: center;
+}
+
+.contentPage{
+    position: absolute;
+    
+}
+
+.mainCDNstyle{
+    border-radius: 2rem;
+    padding: 2rem;
+}
+
+.CDN_card{
+    width: 40rem;
+}
+
+.preview{
+    position: absolute;
+    left: 0vw;
+    top: 11.5vh;
+    max-height: 600px;
+    max-width:  1200px;
+    overflow: scroll;
+    border-radius: 3rem;
+}
+
+.download{
+    position: absolute;
+    left: 0vw;
+    bottom: 11.5vh;
+}
+
+.previewNotavailable{
+    position: absolute;
+    width: auto;
+    left: 1rem;
+    margin-top: 4rem;
+    padding: 3rem;
+    border: 1.5px solid red;
+    border-radius: 3rem;
+}

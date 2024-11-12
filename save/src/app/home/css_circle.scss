@@ -1,0 +1,138 @@
+#text{
+  color: white;
+  font-family: Lexend;
+  font-size: 2.55rem;
+  margin-top:3.5%;
+}
+
+.progress{
+  position: absolute;
+  width:35%;
+  left: 32.5%;
+  height: 25%;
+
+  background-color: white;
+  border-radius: 50px;
+  bottom: 10%;
+
+  display: flex;
+  align-items: center;
+  padding: 25px;
+  font-size: 1.35rem;
+  font-family: Lexend;
+
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Progress Circle */
+.container{
+  display: flex;
+  width: auto;
+  border-radius: 8px;
+  row-gap: 30px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circular-progress{
+  position: relative;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  background: conic-gradient(#7d2ae8 3.6deg, #2B2F33 0deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-progress::before{
+  content: "";
+  position: absolute;
+  height:92.5px;
+  width:92.5px;
+  border-radius: 50%;
+  background-color: white;
+}
+.progress-value{
+  position: relative;
+  font-size: 2.125rem;
+  font-weight: 500;
+  color: black;
+}
+.textCircle{
+  font-size: 2.25rem;
+  font-family: 'Lexend', sans-serif;
+}
+
+@media only screen and (max-width: 2000px){
+  .progress{
+    bottom: 1%;
+  }
+}
+
+@media only screen and (max-width:1600px){
+  .progress{
+    bottom: 5vh;
+    height: 28%;
+    width: 42.5%;
+    left: 28.75%;
+  }
+}
+/* / progress Circle */
+
+
+@media screen and (max-width: 1380px){
+  .progress{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+    .progress{
+      display: block;
+      height: 30%;
+    }
+
+    #prog-circ-1{
+      margin-top: -1.44rem;
+    }
+
+    #prog-circ-2{
+        display: none;
+    }
+
+    #prog-circ-3{
+      display: none;
+    }
+}
+
+@media only screen and (max-width: 850px) and (min-height: 950px) {
+  .progress{
+    position: absolute;
+    width:85%;
+    left: 12.5%;
+    height: 25%;
+    border-radius: 50px;
+    bottom: 2.5%;
+    display: flex;
+  }
+  #prog-circ-1{
+    margin-top: 0rem;
+  }
+  #prog-circ-2{
+      display: block;
+  }
+
+  #prog-circ-3{
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 510px) and (max-height: 740px) {
+  .progress{
+      display: none;
+  }
+}

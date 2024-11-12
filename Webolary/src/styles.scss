@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css';
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+:root{
+    --background: rgb(242, 242, 242);
+    --darkmode: rgb(29,36,40);
+    --darkmodeSidebar: black
+  }
+  
+  input:focus {
+    outline: none;
+  }
+
+  .login-active {
+    font-size: 62.5%;
+  }
+  

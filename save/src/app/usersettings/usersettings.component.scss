@@ -1,0 +1,198 @@
+*{
+    z-index: 1;
+    font-family: Lexend;
+}
+
+#main{
+    position: absolute;
+    top: 10.5vh;
+    left: 5%;
+    width: 93.5%;
+    min-height: 87vh;
+    overflow: hidden;    
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.top-left{
+    position: absolute;
+    width: 48.5%;
+    height: 25%;
+    border-radius: 2.5rem;
+    padding: 1%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.bottom-left{
+    position: absolute;
+    width: 48.5%;
+    top: 28%;
+    height: 72%;
+    border-radius: 2.5rem;
+    padding: 1rem;
+}
+
+
+.top-right{
+    position: absolute;
+    width: 48.5%;
+    height: 48.5%;
+    right: 0;
+    border-radius: 2.5rem;
+    padding: 1%;
+}
+
+.bottom-right{
+    position: absolute;
+    width: 48.5%;
+    top: 51.5%;
+    height: 48.5%;
+    right: 0;
+    border-radius: 2.5rem;
+    padding: 1%;
+}
+
+.color{
+    position: absolute;
+    width: 96%;
+    height: 45%;
+    background-image: radial-gradient(circle, #c322d3, #ac18d2, #9211d1, #750ed0, #5110ce);
+    border-radius: 1rem;
+}
+
+.profile{
+    position: relative;
+    width: 10.5rem;
+    height: 10.5rem;
+    top: 30%;
+    border-radius: 100%;
+    background-image: url(../../assets/image/profile.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 3px solid #5110ce;
+}
+
+.user{
+    position: absolute;
+    background-origin: 0;
+    height: auto;
+    bottom: 2rem;
+    font-family: Lexend;
+    font-size: 3.125rem;
+    width: 100%;
+    text-align: center;
+}
+
+h2{
+    font-size: 3rem;
+}
+
+h3{
+    font-size: 1.8rem;
+}
+
+.inputDIV{
+    position: relative;
+    width: 45%;
+    left: 1%;
+}
+
+.inputC{
+    height: 5.125rem;
+}
+
+.inputP{
+    width: 100%;
+    padding-right: 40px;
+    box-sizing: border-box;
+}
+
+.imgP{
+    position: absolute; /* Absolut positioniert innerhalb des Wrappers */
+    right: 16px; /* Abstand von der rechten Seite */
+    top: 68%; /* Vertikal zentriert */
+    transform: translateY(-50%); /* Vertikal zentrieren durch Transformation */
+    cursor: pointer; /* Zeiger ändern, um Klickeffekt zu signalisieren */
+}
+
+.updateBTN{
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #5110ce;
+    color: white;
+    width: 25rem;
+    height: 5rem;
+    text-align: center;
+    font-family: Lexend;
+    line-height: 5rem;
+    border-radius: 2rem;
+    transition: 450ms;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.updateBTN:hover{
+    background-color: blueviolet;
+    transition: 350ms;
+}
+
+
+@media only screen and (max-width: 2200px){
+    .profile{
+        width: 8.5rem;
+        height: 8.5rem;
+        top: 30%;
+    }
+}
+
+@media only screen and (max-width: 1950px ){
+    *{
+        font-size: 15px;
+    }
+
+    .profile{
+        position: relative;
+        width: 8.8rem;
+        height: 8.8rem;
+        top: 27%;
+    }
+    
+    .user{
+        bottom: 1rem;
+        font-size: 2.75rem;
+    }
+}
+
+@media only screen and (max-width: 1650px){
+    h2{
+        font-size: 2rem;
+    }
+
+    h3{
+        font-size: 1.2rem;
+    }
+
+    *{
+        font-size: 10px;
+    }
+
+    
+.imgP{
+    height: 1.75rem;
+}
+
+.profile{
+    position: relative;
+    width: 7rem;
+    height: 7rem;
+    top: 25%;
+}
+
+.user{
+    bottom: 0.75rem;
+    font-size: 2.45rem;
+}
+}

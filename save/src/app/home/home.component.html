@@ -1,0 +1,57 @@
+<div id="darkModeDiv"></div>
+<div *ngIf="dataLoaded" (click)="bodyClicked()">
+    <link rel="stylesheet" href="css_circle.scss">
+
+    <link rel="stylesheet" href="../../assets/GoogleFonts/font.scss">
+
+    <div *ngIf="!displayMobile">
+        <app-nav-top></app-nav-top>
+        <app-sidebar-small-light></app-sidebar-small-light>
+    </div>
+    <div id="global" class="SUPER_GLOBAL" [style]="superGlobalStyle">
+
+    <div *ngIf="displayMobile">
+        <app-nav-mobile></app-nav-mobile>
+    </div>
+    
+    <main>
+        <p class="text-bold text-4xl headlineDiv">Was bedeuted</p>
+        <p id="word" class="text-bold text-8xl wordDiv" [innerHTML]="wordDiv">giftig, toxisch</p>
+
+        
+        <div class="inputWord" (click)="inputAreaClicked()">
+            <!-- Notice germanText is the variable in the currect system, in the new version use englischWord here !  -->
+            <input type="text" id="germanText" [(ngModel)]="input" (focus)="onFocus()" (blur)="onBlur()">
+            <div class="span" id="movingSpan">In englisch ?</div>
+        </div>
+        <button class="compareBTN" id="cBTN" (click)="compare()" [innerText]="btnSubmitText"></button>
+        
+        <div class="analyse" [innerHTML]="analyseDiv">
+            
+        </div>
+    </main>
+    <div class="progress" id="prg">
+        <div id="progress_txt" style="display:none">Progress: 1 of 999</div>
+    
+        <div class="container" id="prog-circ-1">
+            <div class="circular-progress" id="c-p-1">
+                <span class="progress-value" id="p-v-1">0%</span>
+            </div>
+            <span class="textCircle">Progress</span>
+    
+        </div>
+        <div class="container" id="prog-circ-2">
+            <div class="circular-progress" id="c-p-2">
+                <span class="progress-value" id="p-v-2">0%</span>
+            </div>
+            <span class="textCircle">Right</span>
+        </div>
+        <div class="container" id="prog-circ-3">
+            <div class="circular-progress" id="c-p-3">
+                <span class="progress-value" id="p-v-3">0%</span>
+            </div>
+            <span class="textCircle">Wrong</span>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,266 @@
+*{
+    z-index: 100;
+}
+
+:root{
+    --dark: rgb(14,24,39);
+}
+
+html{
+    font-size: 100%;
+}
+
+.SUPER_GLOBAL{position: absolute;top: 0;left: 0;width: 100vw;height: 100vh;z-index: 1;}
+
+/* Main styling with word and headline Div */
+
+main{
+    position: absolute;
+    right: 5%;
+    top: 10rem;
+    width: 90%;
+    height: 80vh;
+    text-align: center;
+    z-index: 1;
+    font-family: Lexend;
+}
+
+.headlineDiv{
+    margin-top: 8.5rem;
+}
+
+.wordDiv{
+    margin-top: 2.5rem;
+}
+
+
+.inputWord{
+    width: 40%;
+    height: 5rem;
+    margin-left: 30%;
+    margin-top: 10rem;    
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(to right, #5120ce 0%, rgb(155, 1, 245) 100%) 1;
+
+    text-align: left;
+    cursor: text;
+}
+
+.inputWord input[type="text"]{
+    background-color: rgb(242, 242, 242);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.inputWord .span{
+   margin-top: -4rem;
+   font-family: 'Lexend';
+   transition: 0ms;
+}
+
+input:focus {
+    outline: none;
+}
+
+/* //// Main styling with word and headline Div */
+
+/* Moving Span Animations, executed by HomeComponent Class */
+
+.moveTop{
+    animation-name: moveToTop;
+    animation-duration:400ms;
+}
+
+@keyframes moveToTop{
+    from{
+        margin-top: -4rem;
+    }
+    to{
+        margin-top: -7rem;
+    }
+}
+
+.moveBottom{
+    animation-name: moveToBottom;
+    animation-duration:400ms;
+}
+  
+@keyframes moveToBottom{
+    from{
+        margin-top: -7rem;
+    }
+    to{
+        margin-top: -4rem;
+    }
+}
+
+
+/*  //// Moving Span Animations, executed by HomeComponent Class */
+
+
+/* Compare BTN */
+
+.compareBTN{
+    width: 25%;
+    margin-top: 4.5rem;
+    height: 5rem;
+    background-color: #4B39EF;
+    color: white;
+    border-radius: 3.5rem;
+    font-weight: 600;
+}
+
+.compareBTN:hover{
+    background-color: #5546df;
+}
+
+/* //// Compare BTN */
+
+
+/* Analyse Div */
+
+.analyse{
+    position: relative;
+    top: 8rem;
+    width: 90%;
+    left: 5%;
+    background-color: transparent;
+    height: auto;
+    font-size: 3rem;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.analyse p{
+    color: red;
+}
+
+.analyse-elementHeight{
+    height: 5rem;
+}
+
+.rightElement{
+    background-color: green;
+    color: white;
+    border-radius: 7px;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.wrongElement{
+    background-color: red;
+    color: white;
+    border-radius: 7px;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: center;
+    margin-left: 5px;
+}
+
+/* //// Analyse Div */
+
+/*Private Menu*/
+.privateMenu{
+    position: absolute;
+    top: 12rem;
+    width: 25rem;
+    height: 20rem;
+    right: 3.25rem;
+    background-color: white;
+    border-radius: 3rem;
+}
+/* //// Private Menu*/
+
+
+@media only screen and (max-width: 1600px){
+    .headlineDiv{
+        margin-top: 1rem;
+        font-size: 2rem;
+    }
+
+    .wordDiv{
+        margin-top: 2rem;
+        font-size: 4.8rem;
+    }
+
+    .inputWord{
+        margin-top: 8.5rem;
+        width: 50%;
+        margin-left: 25%;
+    }
+
+    .analyse{
+        top: 6rem;
+        display: none;
+    }
+
+    .compareBTN{
+        width: 20%;
+        margin-top: 3.85rem;
+        height: 3.85rem;
+        background-color: #4B39EF;
+        color: white;
+        border-radius: 3.5rem;
+        font-weight: 600;
+    }
+    
+}
+
+@media screen and (max-width: 1380px){
+    .progress{
+      display: none;
+    }
+
+    .analyse{
+        margin-top: 6.5rem;
+        display: flex;
+        font-size: 2.25rem;
+    }
+
+    .analyse-elementHeight{
+        height: 3.5rem;
+    }
+
+    .inputWord{
+        width: 60%;
+        margin-left: 20%;
+    }
+    
+    .compareBTN{
+        width: 35%;
+    }
+  }
+
+@media only screen and (max-width: 800px) {
+    .analyse{
+      margin-top: 0 !important;
+    }   
+}
+
+@media only screen and (max-width: 510px) {
+    .inputWord{
+        width: 80%;
+        margin-left: 10%;
+
+    }
+
+    .headlineDiv{
+        font-size:  1.85rem;
+    }
+
+    #word{
+        font-size: 3rem;
+    }
+
+    .compareBTN{
+        width: 50%;
+        margin-top: 6rem;
+    }
+}
+
+

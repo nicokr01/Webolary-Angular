@@ -1,0 +1,223 @@
+.navbar{
+    position: absolute;
+    width: 85%;
+    right: 2.5rem;
+    height: 8rem;
+    margin-top: 1.5rem;
+    background: linear-gradient(45deg,#5210ce,#000000);
+    border-radius: 5rem;
+}
+
+
+.title{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    text-align: left;
+    line-height: 8rem;
+    width: 50%;
+    padding-left: 5rem;
+    font-family: Lexend;
+    display: flex;
+    /* justify-content: center; */
+    vertical-align: middle;
+    font-size: 1.5rem;
+}
+
+.title p{
+    font-size: 3.1rem;
+}
+
+.webolary{
+    font-size: 3.1rem;
+}
+
+.title svg{
+    width: 5rem;
+    height: 4rem;
+    margin-top: 2rem;
+}
+
+.userDiv{
+    position: absolute;
+    right: 20rem;
+    top: 0;
+    height: 8rem;
+    width:auto;
+    color: white;
+}
+
+.usernameDiv{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height:4rem;
+    line-height: 4rem;
+    font-size: 3rem;
+    padding-top: 0.5rem;
+    text-decoration: underline;
+}
+
+.rankDiv{
+    position: absolute;
+
+    top:4rem;
+    left: 0;
+    width: 100%;
+    height:4rem;
+    line-height: 4rem;
+    padding-bottom: 0.5rem;
+    margin-left: -1.125rem;
+}
+
+.profile{
+    position: absolute;
+    right: 0;
+    top: 15%;
+    height: 70%;
+    width: auto;
+    padding-right: 2rem;
+}
+
+.profile img{
+    height: 100%;
+}
+
+/*Private Menu*/
+.privateMenu{
+    position: absolute;
+    top: 12rem;
+    width: 35rem;
+    height: auto;
+    right: 3.25rem;
+    background-color: white;
+    border-radius: 3rem;
+    z-index: 9999;
+    filter: blur(0px);
+}
+
+.privateMenu .username{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 4rem;
+    text-align: left;
+    font-size: 3rem;
+}   
+
+.privateMenu .email{
+    position: absolute;
+    left: 0;
+    top: 4rem;
+    height: 3rem;
+    width: 60%;
+    font-size: 1.55rem;
+}
+
+.privateMenu .pointText{
+    position: absolute;
+    right: 0;
+    top: 1rem;
+    width: auto;
+    font-size: 1.55rem;
+}
+
+.privateMenu .points{
+    position: absolute;
+    right: 0;
+    top: 2rem;
+    height: 3rem;
+    width: auto;
+    font-size: 2.5rem;
+}
+
+.privateMenu .items{
+    margin-top: 10rem;
+}
+
+.privateMenu .menu-item{
+    position: relative;
+    width: 90%;
+    left: 5%;
+    height: 4rem;
+    display: flex;
+    padding-top: 1.125rem;
+    padding-bottom: 1.125rem;
+    vertical-align: middle;
+    transition: 500ms;
+    cursor: pointer;
+    border: none;
+}
+
+
+.privateMenu .menu-item .img{
+    position: absolute;
+    left: 1rem;
+    height: 3rem;
+    top: 0.85rem;
+}
+
+.privateMenu .menu-item .text{
+    position: absolute;
+    right: -1rem;
+    height: 100%;
+    width: 100%;
+    margin-top: -0.5rem;
+    text-align: center;
+}
+
+/* //// Private Menu*/
+
+.seperator{
+    width: 90%;
+    left: 5%;
+    top: 8rem;
+    position: relative;
+    height: 1.5px;
+    background-color: #000000;
+}
+
+@media only screen and (max-width: 1000px) {
+    .navInfo{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1600px) {
+    .navbar{
+        height: 6rem;
+    }
+
+    .usernameDiv{
+        left: 5rem;
+    }
+
+    .rankDiv{
+        left: 5rem;
+    }
+    
+    .title{
+        line-height: 6rem;
+    }
+
+    .breadcrumpSVG{
+        margin-top: -2rem;
+    }
+
+    .breadcrumpSpan{
+        margin-top: -.75rem;
+    }
+
+    .usernameDiv{
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+
+    .rankDiv{
+        font-size: 2rem;
+        line-height: 1rem;
+    }
+}

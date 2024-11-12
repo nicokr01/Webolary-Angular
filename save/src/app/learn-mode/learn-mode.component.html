@@ -1,0 +1,52 @@
+<div id="darkModeDiv"></div>
+<div (click)="bodyClicked()">
+    <link rel="stylesheet" href="../../assets/GoogleFonts/font.scss">
+
+    <div *ngIf="!displayMobile">
+        <app-nav-top></app-nav-top>
+        <app-sidebar-small-light></app-sidebar-small-light>
+    </div>
+    <div id="global" class="SUPER_GLOBAL" [style]="superGlobalStyle">
+
+    <div *ngIf="displayMobile">
+        <app-nav-mobile></app-nav-mobile>
+    </div>
+
+    <main>
+        <h1 class="theme">Webolary Learning Studio</h1>
+        <h2 class="text-gray-400">Choose a method</h2>
+
+        <div class="methods">
+            <div class="method cover-1">
+                <h3>Cards</h3>
+
+
+                <div class="info"><img src="../../assets/image/info.svg"></div>
+
+                <div class="btn">
+                    Start learning
+                </div>
+            </div>
+
+            <div class="method cover-2">
+                <h3>Quiz</h3>
+
+                <div class="info"><img src="../../assets/image/infoWhite.svg"></div>
+
+                <div class="btn">
+                    Start learning
+                </div>
+            </div>
+
+            <div class="method cover-3">
+                <h3>Simple mode</h3>
+
+                <div class="info"><img src="../../assets/image/infoWhite.svg"></div>
+
+                <div class="btn">
+                    Start learning
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
